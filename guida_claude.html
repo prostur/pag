@@ -753,7 +753,7 @@
             <div class="mobile-brand">
                 <i class="fas fa-sparkles"></i> Claude App Guide
             </div>
-            <span class="mobile-badge">Anthropic • 13 Nov 2026</span>
+            <span class="mobile-badge">Anthropic • 26 Nov 2026</span>
         </div>
         <div class="mobile-dropdown-wrapper" id="mobileDropdown">
             <button type="button" class="mobile-dropdown-toggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Seleziona sezione">
@@ -788,8 +788,11 @@
                 <div class="mobile-dropdown-item" data-section="connectors" onclick="selectMobileSection('connectors', this)">
                     <i class="fas fa-plug" style="color: var(--color-connectors);"></i> 8–9. Connectors &amp; Altre Funzioni
                 </div>
+                <div class="mobile-dropdown-item" data-section="novita" onclick="selectMobileSection('novita', this)">
+                    <i class="fas fa-sparkles" style="color: var(--color-artifacts);"></i> 10. Novità di novembre 2026
+                </div>
                 <div class="mobile-dropdown-item" data-section="piani" onclick="selectMobileSection('piani', this)">
-                    <i class="fas fa-table-list" style="color: var(--color-piani);"></i> 10–12. Piani, Top 5 &amp; Fonti
+                    <i class="fas fa-table-list" style="color: var(--color-piani);"></i> 11–13. Piani, Top 5 &amp; Fonti
                 </div>
             </div>
         </div>
@@ -799,7 +802,7 @@
     <nav class="sidebar">
         <header class="sidebar-header">
             <i class="fas fa-sparkles"></i> Claude App Guide
-            <span class="subtitle">Guida alle Funzioni • 13 Nov 2026</span>
+            <span class="subtitle">Guida alle Funzioni • 26 Nov 2026</span>
         </header>
         <div class="menu-item theme-mappa active" data-section="mappa" onclick="showSection('mappa', this)">
             <i class="fas fa-sitemap"></i> 1. Mappa Generale
@@ -825,8 +828,11 @@
         <div class="menu-item theme-connectors" data-section="connectors" onclick="showSection('connectors', this)">
             <i class="fas fa-plug"></i> 8–9. Connectors &amp; Extra
         </div>
+        <div class="menu-item theme-artifacts" data-section="novita" onclick="showSection('novita', this)">
+            <i class="fas fa-sparkles"></i> 10. Novità novembre 2026
+        </div>
         <div class="menu-item theme-piani" data-section="piani" onclick="showSection('piani', this)">
-            <i class="fas fa-table-list"></i> 10–12. Piani &amp; Top 5
+            <i class="fas fa-table-list"></i> 11–13. Piani &amp; Top 5
         </div>
     </nav>
 
@@ -843,7 +849,7 @@
                 <span class="platform-pill"><i class="fab fa-apple"></i> macOS</span>
                 <span class="platform-pill"><i class="fas fa-mobile-screen"></i> iOS</span>
                 <span class="platform-pill"><i class="fab fa-android"></i> Android</span>
-                <span class="platform-pill" style="background:#fef3c7; color:#92400e;"><i class="fas fa-calendar-day"></i> Aggiornata al 13 novembre 2026</span>
+                <span class="platform-pill" style="background:#fef3c7; color:#92400e;"><i class="fas fa-calendar-day"></i> Aggiornata al 26 novembre 2026</span>
             </div>
 
             <p><strong>Claude – Anthropic</strong> non è soltanto un chatbot alternativo a ChatGPT. Nel 2026 si è evoluto in un vero e proprio <strong>ambiente di lavoro AI</strong> in grado di coprire l'intero ciclo operativo:</p>
@@ -1318,9 +1324,65 @@
             </ul>
         </section>
 
-        <!-- SEZIONE 10, 11, 12: PIANI, TOP 5 E FONTI UFFICIALI -->
+
+        <!-- SEZIONE 10: NOVITÀ DI NOVEMBRE 2026 -->
+        <section id="novita" class="content-section">
+            <h1><i class="fas fa-sparkles"></i> 10. Le novità di Claude – Novembre 2026</h1>
+            <p>Questa sezione raccoglie gli aggiornamenti annunciati o distribuiti da Anthropic nel mese di novembre. Le funzioni in beta o in distribuzione graduale potrebbero non essere ancora visibili a tutti gli account.</p>
+            <div class="highlight-box" style="border-left-color: var(--color-artifacts);"><strong>Il cambiamento più importante:</strong> Claude si sta trasformando da assistente che produce contenuti in un ambiente operativo. Può lavorare con le applicazioni collegate, partecipare alle riunioni, interagire con il computer e trasformare gli Artifacts in applicazioni installabili.</div>
+
+            <h2>10.1 Artifacts installabili come applicazioni</h2>
+            <ul class="cards">
+                <li><span class="emoji-icon">🖥️</span><h3>App per Mac e Windows</h3>Dal 24 novembre è in beta la possibilità di installare un Artifact creato da Claude come applicazione sul computer. Ottiene una propria finestra e un'icona e può interagire con il sistema operativo.<div class="subtitle-tag">Beta • macOS e Windows</div></li>
+                <li><span class="emoji-icon">📂</span><h3>Trasferimento di file tramite connettori</h3>Claude può inviare file alle applicazioni collegate e salvare file messi a disposizione da queste app. I connettori diventano così più operativi, non limitati alla consultazione dei dati.<div class="subtitle-tag">Beta • Pro, Max, Ultra, Team ed Enterprise secondo attivazione</div></li>
+            </ul>
+
+            <h2>10.2 Utilizzo diretto del computer</h2>
+            <div class="highlight-box" style="border-left-color: var(--color-cowork);"><strong>Computer use:</strong> Claude può osservare lo schermo e interagire con le applicazioni desktop autorizzate, ad esempio cliccando, digitando e svolgendo passaggi operativi. La beta è stata annunciata il 20 novembre per i piani Team ed Enterprise ed è in distribuzione graduale. L'accesso al computer deve essere abilitato e le applicazioni consentite dall'utente.</div>
+            <p>Questa funzione va distinta dalla semplice navigazione web: l'interazione può avvenire anche con programmi installati sul computer. È opportuno concedere soltanto i permessi necessari e controllare le operazioni con conseguenze importanti.</p>
+
+            <h2>10.3 Claude Meetings: assistente durante le riunioni</h2>
+            <p>Dal 12 novembre è in distribuzione beta Claude Meetings per i piani Team ed Enterprise. Claude può essere aggiunto a una riunione Google Meet come partecipante visibile. Durante la chiamata può:</p>
+            <ul class="bullet-list"><li>prendere appunti e seguire la discussione;</li><li>rispondere alle domande durante la riunione;</li><li>creare materiali mentre si parla, come documenti, lavagne e presentazioni;</li><li>aiutare a trasformare la conversazione in attività e materiali da sviluppare.</li></ul>
+            <p>Prima di utilizzarlo è necessario rispettare le regole aziendali e informare i partecipanti della presenza dell'assistente.</p>
+
+            <h2>10.4 Riepilogo mensile personale (Reflect)</h2>
+            <p>Il 24 novembre il riepilogo mensile è uscito dalla beta ed è diventato disponibile sui piani Free, Pro, Max e Ultra, sul Web, Desktop e sulle app mobili. Si trova in <strong>Impostazioni → Reflect</strong>. Può riassumere le attività svolte con Claude e includere anche sessioni Claude Code e attività Cowork eseguite nel cloud. È inoltre possibile eliminare i riepiloghi archiviati.</p>
+
+            <h2>10.5 Claude Desktop: canale Stabile o Più recente</h2>
+            <p>Dal 17 novembre Claude Desktop permette di scegliere il canale di aggiornamento:</p>
+            <div class="table-responsive"><table class="data-table"><thead><tr><th>Canale</th><th>Come funziona</th><th>Quando sceglierlo</th></tr></thead><tbody>
+                <tr><td><strong>Stabile</strong></td><td>Impostazione predefinita; riceve gli aggiornamenti meno frequentemente, dopo più test.</td><td>Per privilegiare affidabilità e continuità.</td></tr>
+                <tr><td><strong>Più recente</strong></td><td>Riceve una nuova versione circa ogni giorno.</td><td>Per provare prima correzioni e nuove funzioni, accettando cambiamenti più frequenti.</td></tr>
+            </tbody></table></div>
+
+            <h2>10.6 Novità nell'ecosistema: app, lavagne e dati</h2>
+            <ul class="cards">
+                <li><span class="emoji-icon">🧩</span><h3>App integrate in Claude</h3>Alcuni partner possono incorporare le proprie applicazioni direttamente nell'interfaccia di Claude. L'utente e Claude possono lavorare nello stesso strumento e nella stessa schermata, senza passare continuamente da una scheda all'altra.</li>
+                <li><span class="emoji-icon">🧠</span><h3>Whiteboards, Sheets e Data</h3>Anthropic ha presentato strumenti dedicati per organizzare idee su lavagne, lavorare con fogli di calcolo e analizzare dati. La disponibilità e le modalità dipendono dall'app e dal piano.</li>
+                <li><span class="emoji-icon">🔌</span><h3>Connettori MCP più operativi</h3>Gli aggiornamenti di novembre ampliano ciò che i server MCP possono offrire a Claude: oltre a collegare dati e strumenti, possono distribuire Skills ed eseguire attività. Verificare sempre le autorizzazioni concesse al connettore.</li>
+            </ul>
+
+            <h2>10.7 Nuovi modelli per il lavoro tecnico</h2>
+            <p>Il 9 novembre Anthropic ha presentato <strong>Claude Fable 5.2</strong> e <strong>Claude Mythos 5.2</strong>, modelli destinati soprattutto ai lavori tecnici più impegnativi, come programmazione, ragionamento specialistico e attività scientifiche. Anthropic dichiara generazione fino al 30% più veloce rispetto alle versioni 5.1 e una modalità veloce opzionale. Mythos è riservato a organizzazioni selezionate e non va considerato un modello normalmente disponibile a tutti gli utenti dell'app.</p>
+
+            <h2>10.8 Claude Ship: revisione e gestione delle modifiche al codice</h2>
+            <p>Annunciato il 23 novembre, Claude Ship è una suite di agenti orientata ai team di sviluppo: analizza le pull request, individua problemi, propone o applica correzioni e può approvare le modifiche consentite dalle regole del team. È una funzione per flussi di sviluppo software e repository GitHub, non una funzione generale della chat.</p>
+
+            <h2>In sintesi: cosa cambia per chi usa Claude?</h2>
+            <div class="schema-container" style="flex-direction: column; align-items: stretch; text-align: left;">
+                <div class="schema-box" style="border-left: 6px solid var(--color-artifacts);"><strong>Creare</strong><small>Gli Artifacts possono diventare applicazioni installabili.</small></div>
+                <div class="schema-box" style="border-left: 6px solid var(--color-cowork);"><strong>Agire</strong><small>Con Computer use Claude interagisce con le app desktop autorizzate.</small></div>
+                <div class="schema-box" style="border-left: 6px solid var(--color-research);"><strong>Collaborare</strong><small>Meetings, app integrate e connettori portano Claude nei flussi di lavoro.</small></div>
+                <div class="schema-box" style="border-left: 6px solid var(--color-projects);"><strong>Rivedere</strong><small>Reflect riepiloga il lavoro svolto; Claude Ship supporta la revisione del codice.</small></div>
+            </div>
+            <p><strong>Nota sulla disponibilità:</strong> “beta” indica una funzione ancora in prova; “distribuzione graduale” significa che potrebbe non essere ancora attiva per tutti. Le disponibilità geografiche e per piano possono cambiare.</p>
+            <div class="highlight-box"><strong>Fonti ufficiali per gli aggiornamenti:</strong><ul class="bullet-list"><li><a href="https://support.claude.com/it/articles/12138966-note-di-rilascio" target="_blank" rel="noopener">Note di rilascio di Claude</a></li><li><a href="https://claude.com/resources/product-updates" target="_blank" rel="noopener">Claude – Product Updates</a></li><li><a href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic – News</a></li></ul></div>
+        </section>
+
+        <!-- SEZIONE 11, 12, 13: PIANI, TOP 5 E FONTI UFFICIALI -->
         <section id="piani" class="content-section">
-            <h1><i class="fas fa-table-list"></i> 10. Piani, 11. Top 5 &amp; 12. Fonti</h1>
+            <h1><i class="fas fa-table-list"></i> 11. Piani, 12. Top 5 &amp; 13. Fonti</h1>
             
             <h2>10. Quali funzioni sono disponibili nei diversi piani?</h2>
             <p>La disponibilità varia in base al piano sottoscritto e alla piattaforma utilizzata (Web, Desktop o Mobile):</p>
@@ -1440,6 +1502,7 @@
             research:   { label: '6. Research: Indagine Sul Web', icon: 'fa-magnifying-glass-chart', color: 'var(--color-research)' },
             skills:     { label: '7. Skills: Procedure Specializzate', icon: 'fa-graduation-cap', color: 'var(--color-skills)' },
             connectors: { label: '8–9. Connectors & Altre Funzioni', icon: 'fa-plug', color: 'var(--color-connectors)' },
+            novita:     { label: '10. Novità di novembre 2026', icon: 'fa-sparkles', color: 'var(--color-artifacts)' },
             piani:      { label: '10–12. Piani, Top 5 & Fonti', icon: 'fa-table-list', color: 'var(--color-piani)' }
         };
 
