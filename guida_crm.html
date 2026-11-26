@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CRM &amp; Vendite nel Turismo — Guida Visiva Interattiva</title>
+<meta name="color-scheme" content="light">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --bg: #fbfaf7;
+  --card: #ffffff;
+  --ink: #1d2433;
+  --mut: #5d6679;
+  --line: #e6e3da;
+  --c1: #3b6df0;
+  --c2: #12a37f;
+  --c3: #f08a1c;
+  --c4: #e0457b;
+  --c5: #8a4fe0;
+  --c6: #0fa5c4;
+  --c7: #d9a400;
+  --c8: #e5533d;
+  --c9: #4f9d2d;
+  --a: var(--c1);
+  --at: #e9effe;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+*, *::before, *::after { box-sizing: inherit; }
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 'Figtree', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 {
+  font-family: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  line-height: 1.18;
+  margin: 0 0 .5em;
+}
+.app {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  min-height: 100vh;
+}
+nav {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 22px 14px;
+  border-right: 1px solid var(--line);
+  background: #fff;
+  z-index: 20;
+}
+nav .brand {
+  font: 800 18px 'Bricolage Grotesque', sans-serif;
+  padding: 0 10px 6px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+nav .brand-sub {
+  font-size: 12px;
+  color: var(--mut);
+  padding: 0 10px 16px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 12px;
+}
+nav a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 11px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14.5px;
+  cursor: pointer;
+  margin-bottom: 3px;
+  transition: background .15s, transform .1s;
+}
+nav a i {
+  width: 11px;
+  height: 11px;
+  border-radius: 4px;
+  background: var(--c);
+  flex: none;
+}
+nav a:hover { background: #f3f1ea; }
+nav a.on {
+  background: color-mix(in srgb, var(--c) 14%, #fff);
+  font-weight: 700;
+  color: color-mix(in srgb, var(--c) 82%, #000);
+}
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--a);
+  outline-offset: 2px;
+}
+main {
+  padding: 36px min(5vw, 52px) 90px;
+  max-width: 1040px;
+  width: 100%;
+}
+.lead {
+  font-size: 18px;
+  color: var(--mut);
+  max-width: 66ch;
+  margin-bottom: 24px;
+}
+h1 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; }
+h2 { font-size: clamp(23px, 3.2vw, 31px); font-weight: 800; }
+h3 { font-size: 20px; font-weight: 700; }
+.tag {
+  display: inline-block;
+  background: var(--at);
+  color: color-mix(in srgb, var(--a) 85%, #000);
+  border-radius: 99px;
+  padding: 4px 13px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: .01em;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(29,36,51,.03);
+}
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  margin: 18px 0;
+}
+.grid-2 {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  margin: 18px 0;
+}
+.tile {
+  border: 0;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  color: var(--ink);
+  border-radius: 16px;
+  padding: 18px;
+  background: color-mix(in srgb, var(--c) 11%, #fff);
+  border-left: 6px solid var(--c);
+  transition: transform .15s, box-shadow .15s;
+}
+.tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(29,36,51,.07);
+}
+.tile b {
+  display: block;
+  font: 700 17.5px 'Bricolage Grotesque', sans-serif;
+  margin-bottom: 5px;
+}
+.tile span { color: var(--mut); font-size: 14px; line-height: 1.45; display: block; }
+
+/* Schemi e Box Visivi */
+.schema-box {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+  margin: 22px 0;
+}
+.schema-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.schema-title {
+  font: 700 17px 'Bricolage Grotesque', sans-serif;
+  color: var(--ink);
+}
+.schema-sub {
+  font-size: 13.5px;
+  color: var(--mut);
+  margin: 0 0 14px;
+}
+.svg-wrap {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fcfbf9;
+  border: 1px solid #efede6;
+  padding: 10px;
+}
+.svg-wrap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Concetto Card */
+.concept {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--c, var(--a));
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.concept-hdr {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.concept-title {
+  font: 800 18.5px 'Bricolage Grotesque', sans-serif;
+  color: var(--ink);
+}
+.concept-it {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--c, var(--a)) 14%, #fff);
+  color: color-mix(in srgb, var(--c, var(--a)) 85%, #000);
+}
+.concept p { margin: 0 0 10px; color: var(--ink); font-size: 15.5px; }
+.ex-box {
+  background: #f7f6f1;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #364054;
+}
+.ex-box strong { color: var(--ink); }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+.tabs button {
+  border: 2px solid var(--c);
+  background: #fff;
+  color: var(--ink);
+  padding: 8px 16px;
+  border-radius: 99px;
+  font: 600 14px 'Figtree', sans-serif;
+  cursor: pointer;
+  transition: all .15s;
+}
+.tabs button[aria-selected="true"] {
+  background: var(--c);
+  color: #fff;
+}
+.panel {
+  border-radius: 18px;
+  padding: 22px;
+  background: color-mix(in srgb, var(--c) 8%, #fff);
+  border: 1px solid color-mix(in srgb, var(--c) 30%, #fff);
+}
+
+/* Pulsanti e Controlli */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: var(--a);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 11px;
+  font: 600 14.5px 'Figtree', sans-serif;
+  cursor: pointer;
+  transition: opacity .15s, transform .1s;
+}
+.btn:hover { opacity: .92; }
+.btn:active { transform: scale(.98); }
+.btn-sec {
+  background: #f1efe8;
+  color: var(--ink);
+}
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+/* Simulatore & Slider */
+.sim-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #fcfbf9;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+.sim-row label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  flex: 1;
+}
+.sim-row input[type="checkbox"] {
+  width: 19px;
+  height: 19px;
+  accent-color: var(--c3);
+  cursor: pointer;
+}
+.bar-track {
+  height: 14px;
+  background: #ece9e0;
+  border-radius: 99px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width .35s ease;
+}
+.slider-group { margin-bottom: 16px; }
+.slider-hdr { display: flex; justify-content: space-between; font-weight: 600; font-size: 14.5px; margin-bottom: 6px; }
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--c4);
+  cursor: pointer;
+}
+
+/* Checklist */
+.chk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: background .15s;
+}
+.chk-item.done {
+  background: color-mix(in srgb, var(--c6) 9%, #fff);
+  border-color: color-mix(in srgb, var(--c6) 40%, #fff);
+}
+.chk-item input {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--c6);
+}
+
+/* Flashcard & Quiz */
+.flashcard {
+  background: #fff;
+  border: 2px solid var(--c9);
+  border-radius: 20px;
+  padding: 32px 24px;
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(79,157,45,.08);
+  transition: transform .2s;
+  user-select: none;
+}
+.flashcard:hover { transform: translateY(-2px); }
+.quiz-opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 13px 16px;
+  margin-bottom: 10px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  font: 500 15px 'Figtree', sans-serif;
+  cursor: pointer;
+  transition: all .15s;
+}
+.quiz-opt:hover:not(:disabled) { border-color: var(--c9); background: #f6fbf3; }
+.quiz-opt.ok { border-color: #12a37f; background: #e6f7f2; font-weight: 700; }
+.quiz-opt.ko { border-color: #e5533d; background: #fdecea; }
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  font: 15px 'Figtree', sans-serif;
+  background: #fff;
+  margin-bottom: 14px;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 100;
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+}
+
+.nav-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 800px) {
+  .app { display: block; }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    max-height: none;
+    display: flex;
+    overflow-x: auto;
+    gap: 6px;
+    padding: 10px 12px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    background: #fff;
+    -webkit-overflow-scrolling: touch;
+  }
+  nav .brand, nav .brand-sub { display: none; }
+  nav a { white-space: nowrap; padding: 8px 12px; margin-bottom: 0; font-size: 14px; }
+  main { padding: 24px 16px 80px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <nav id="nav" aria-label="Menu delle sezioni"></nav>
+  <main id="v" tabindex="-1"></main>
+</div>
+
+<script>
+const $ = (s, e = document) => e.querySelector(s);
+
+/* ==========================================================================
+   DATABASE COMPLETO DEI 26 CONCETTI (Turismo & CRM)
+   ========================================================================== */
+const CONCEPTS = [
+  {
+    id: 'crm',
+    en: 'CRM (Customer Relationship Management)',
+    it: 'Gestione delle Relazioni con i Clienti',
+    cat: 'strategia',
+    sec: 'panoramica',
+    color: '--c1',
+    def: "È sia una strategia aziendale sia un software usato per gestire tutti i rapporti e le comunicazioni con i clienti attuali e futuri, con l'obiettivo di migliorare il servizio e aumentare le vendite.",
+    ex: "Un'agenzia viaggi usa un unico software per ricordare chi ha chiesto un preventivo, quali viaggi ha già fatto e quando ricontattarlo."
+  },
+  {
+    id: 'customer-centricity',
+    en: 'Strategia aziendale centrata sul cliente (Customer Centricity)',
+    it: 'Centralità del Cliente',
+    cat: 'strategia',
+    sec: 'panoramica',
+    color: '--c1',
+    def: "Significa mettere i bisogni e la soddisfazione del cliente al centro di ogni decisione aziendale. Nel mercato turistico è fondamentale perché i viaggiatori cercano esperienze personalizzate e un'ottima accoglienza per tornare o lasciare recensioni positive.",
+    ex: "Un hotel riorganizza gli orari della colazione e crea pacchetti family su misura dopo aver ascoltato i suggerimenti degli ospiti."
+  },
+  {
+    id: 'crm-operativo',
+    en: 'CRM Operativo',
+    it: 'Automazione delle Attività Quotidiane',
+    cat: 'tipi',
+    sec: 'tipi-crm',
+    color: '--c2',
+    def: "È la parte del CRM che automatizza e semplifica le attività quotidiane a contatto con i clienti, come l'invio di email, la gestione delle prenotazioni e il supporto alle vendite.",
+    ex: "Quando un turista prenota online, il sistema invia subito la conferma via email e registra la prenotazione nel calendario dell'hotel."
+  },
+  {
+    id: 'crm-analitico',
+    en: 'CRM Analitico',
+    it: 'Studio e Previsione dei Dati',
+    cat: 'tipi',
+    sec: 'tipi-crm',
+    color: '--c2',
+    def: "È la parte del CRM che studia ed elabora i dati raccolti sui clienti. Aiuta l'azienda a capire le abitudini dei viaggiatori, prevedere cosa desiderano e prendere decisioni commerciali più efficaci.",
+    ex: "Analizzando le prenotazioni degli ultimi 3 anni, il tour operator scopre che ad ottobre aumentano le richieste per i weekend alle terme."
+  },
+  {
+    id: 'crm-collaborativo',
+    en: 'CRM Collaborativo',
+    it: 'Condivisione tra Reparti in Tempo Reale',
+    cat: 'tipi',
+    sec: 'tipi-crm',
+    color: '--c2',
+    def: "È il sistema che permette ai diversi reparti di un'azienda (come reception, ufficio marketing e assistenza clienti) di condividere in tempo reale le informazioni sul cliente, offrendo un servizio coordinato e senza errori.",
+    ex: "L'ufficio prenotazioni annota che l'ospite è celiaco: la reception e il ristorante lo sanno già prima del suo arrivo senza doverlo richiedere."
+  },
+  {
+    id: 'sfa',
+    en: 'Sales Force Automation (SFA)',
+    it: 'Automazione della Forza Vendita',
+    cat: 'tipi',
+    sec: 'tipi-crm',
+    color: '--c2',
+    def: "È l'insieme degli strumenti digitali che aiutano i venditori a organizzare il lavoro quotidiano, ricordando gli appuntamenti, registrando le chiamate e monitorando lo stato di ogni trattativa.",
+    ex: "Il CRM avvisa l'agente di viaggio alle 10:00 di richiamare il Sig. Bianchi per sapere se ha deciso sul preventivo per la Grecia."
+  },
+  {
+    id: 'marketing-automation',
+    en: 'Marketing Automation',
+    it: 'Automazione del Marketing',
+    cat: 'tipi',
+    sec: 'tipi-crm',
+    color: '--c2',
+    def: "È l'uso di software che inviano in automatico messaggi ed email personalizzate ai clienti in base alle loro azioni. Esempio: un albergo che invia automaticamente uno sconto speciale per il compleanno dell'ospite o un promemoria prima dell'arrivo.",
+    ex: "3 giorni prima del check-in, l'ospite riceve in automatico un'email con le indicazioni stradali, il meteo previsto e i servizi della spa."
+  },
+  {
+    id: 'info-crm',
+    en: 'Informazioni raccolte nel CRM',
+    it: 'Anagrafica, Preferenze e Storico',
+    cat: 'dati',
+    sec: 'dati-segmenti',
+    color: '--c5',
+    def: "Sono tutti i dati utili per conoscere il cliente, divisi in dati anagrafici (nome, età, contatti), preferenze (tipo di camera, allergie, mete preferite) e storico delle interazioni (viaggi già acquistati, richieste inviate, reclami).",
+    ex: "Scheda ospite: Giulia Verdi, 38 anni (Anagrafica) • Camera silenziosa, cuscino anallergico (Preferenze) • 2 soggiorni estivi nel 2024-2025 (Storico)."
+  },
+  {
+    id: 'segmentazione',
+    en: 'Segmentazione del mercato',
+    it: 'Suddivisione in Gruppi Omogenei',
+    cat: 'dati',
+    sec: 'dati-segmenti',
+    color: '--c5',
+    def: "È la suddivisione dei clienti in gruppi omogenei (segmenti) in base a caratteristiche comuni, come età, budget, interessi o motivo del viaggio (famiglie, coppie, viaggiatori d'affari), per creare offerte mirate.",
+    ex: "Invece di mandare la stessa newsletter a tutti, l'agenzia invia offerte 'Kids Free' alle famiglie e pacchetti 'Spa & Relax' alle coppie."
+  },
+  {
+    id: 'lead',
+    en: 'Lead (Contatto potenziale)',
+    it: 'Potenziale Cliente Interessato',
+    cat: 'pipeline',
+    sec: 'pipeline',
+    color: '--c3',
+    def: "È una persona o un'azienda che ha mostrato interesse verso i servizi turistici offerti (ad esempio lasciando la propria email per ricevere un catalogo), ma che non ha ancora effettuato un acquisto.",
+    ex: "Marco compila il modulo sul sito del villaggio turistico per scaricare il listino prezzi estate."
+  },
+  {
+    id: 'qualificazione-lead',
+    en: 'Qualificazione del Lead',
+    it: 'Verifica di Budget, Tempi e Bisogni',
+    cat: 'pipeline',
+    sec: 'pipeline',
+    color: '--c3',
+    def: "È il processo con cui l'azienda verifica se un contatto potenziale è davvero interessato all'acquisto, valutando aspetti come il budget disponibile, le tempistiche del viaggio e le sue reali esigenze.",
+    ex: "L'agente chiede a Marco quando vuole partire, quante persone viaggiano e quale budget ha in mente per capire se l'offerta è adatta."
+  },
+  {
+    id: 'pipeline-vendita',
+    en: 'Pipeline di vendita (Sales Pipeline)',
+    it: 'Percorso a Tappe verso la Vendita',
+    cat: 'pipeline',
+    sec: 'pipeline',
+    color: '--c3',
+    def: "È il percorso diviso in tappe che un potenziale cliente attraversa dal primo contatto fino all'acquisto finale (contatto iniziale, qualificazione, proposta, trattativa e chiusura).",
+    ex: "La lavagna visiva del CRM mostra 15 contatti nuovi, 8 in qualificazione, 6 con preventivo inviato e 4 in trattativa finale."
+  },
+  {
+    id: 'proposal',
+    en: 'Proposal (Offerta commerciale)',
+    it: 'Preventivo Ufficiale',
+    cat: 'pipeline',
+    sec: 'pipeline',
+    color: '--c3',
+    def: "È il documento o preventivo ufficiale preparato per il cliente. Nel turismo contiene la descrizione del viaggio o del soggiorno, le date, i servizi inclusi ed esclusi, il prezzo totale e le condizioni di pagamento.",
+    ex: "Preventivo PDF dettagliato: 7 notti a Rodi, volo A/R, trasferimenti, mezza pensione, prezzo € 2.400 con acconto del 30%."
+  },
+  {
+    id: 'active-deals',
+    en: 'Active Deals (Trattative attive)',
+    it: 'Accordi Commerciali in Corso',
+    cat: 'pipeline',
+    sec: 'pipeline',
+    color: '--c3',
+    def: "Sono gli accordi commerciali ancora in corso con clienti interessati, ma non ancora conclusi con un pagamento. Esempio: una famiglia ha chiesto un preventivo per una vacanza estiva in agenzia e sta decidendo se accettarlo.",
+    ex: "La famiglia Rossi ha ricevuto il preventivo per la Sardegna e ci darà risposta entro venerdì."
+  },
+  {
+    id: 'negotiation',
+    en: 'Negotiation (Trattativa commerciale)',
+    it: 'Dialogo sui Dettagli dell\'Offerta',
+    cat: 'pipeline',
+    sec: 'pipeline',
+    color: '--c3',
+    def: "È la fase di dialogo tra venditore e cliente in cui si discutono i dettagli dell'offerta (prezzo, date, servizi inclusi) con l'obiettivo di raggiungere un accordo vantaggioso per entrambi.",
+    ex: "Il cliente chiede di includere la cancellazione gratuita o uno sconto per il terzo letto prima di firmare il contratto."
+  },
+  {
+    id: 'closed-won',
+    en: 'Closed Won (Trattativa chiusa e vinta)',
+    it: 'Vendita Conclusa con Successo',
+    cat: 'pipeline',
+    sec: 'pipeline',
+    color: '--c3',
+    def: "È lo stato che si assegna nel CRM quando la trattativa ha successo e il cliente accetta l'offerta, confermando e acquistando il viaggio o il soggiorno.",
+    ex: "Il cliente firma il contratto di viaggio e versa l'acconto: la scheda passa nella colonna verde 'Closed Won'."
+  },
+  {
+    id: 'closed-lost',
+    en: 'Closed Lost (Trattativa chiusa e persa)',
+    it: 'Trattativa Non Conclusa',
+    cat: 'pipeline',
+    sec: 'pipeline',
+    color: '--c3',
+    def: "È lo stato che si assegna nel CRM quando la trattativa fallisce e il cliente decide di non acquistare, ad esempio perché ha scelto un'altra agenzia o ha rinunciato al viaggio.",
+    ex: "Il cliente rimanda le ferie all'anno prossimo: si segna 'Closed Lost' indicando il motivo per future analisi."
+  },
+  {
+    id: 'pipeline-value',
+    en: 'Pipeline Value (Valore della pipeline)',
+    it: 'Valore Economico delle Trattative Aperte',
+    cat: 'pipeline',
+    sec: 'pipeline',
+    color: '--c3',
+    def: "È la somma totale in denaro di tutte le trattative ancora aperte. Serve all'azienda per fare una previsione dei guadagni futuri e valutare l'andamento delle vendite.",
+    ex: "Se in agenzia ci sono 5 preventivi aperti da € 2.000 ciascuno, il Pipeline Value totale è di € 10.000."
+  },
+  {
+    id: 'up-selling',
+    en: 'Up-selling',
+    it: 'Proposta di Versione Superiore',
+    cat: 'vendite',
+    sec: 'crescita-metriche',
+    color: '--c4',
+    def: "È una tecnica di vendita con cui si propone al cliente una versione superiore e più costosa del servizio che sta scegliendo. Esempio: proporre una suite con vista mare al posto di una camera standard.",
+    ex: "Durante la prenotazione, l'hotel propone: 'Con soli € 25 in più a notte puoi avere la Junior Suite panoramica con terrazza'."
+  },
+  {
+    id: 'cross-selling',
+    en: 'Cross-selling (Vendita incrociata)',
+    it: 'Proposta di Servizi Collegati',
+    cat: 'vendite',
+    sec: 'crescita-metriche',
+    color: '--c4',
+    def: "È una tecnica di vendita che consiste nel proporre al cliente un prodotto o servizio aggiuntivo e collegato a quello che sta già acquistando. Esempio: proporre il noleggio auto o un'assicurazione viaggio a chi ha appena prenotato un volo.",
+    ex: "Subito dopo l'acquisto del soggiorno, l'agenzia propone escursioni guidate, transfer dall'aeroporto e polizza annullamento."
+  },
+  {
+    id: 'total-clients',
+    en: 'Total Clients (Clienti totali)',
+    it: 'Totale Clienti nel Database',
+    cat: 'metriche',
+    sec: 'crescita-metriche',
+    color: '--c4',
+    def: "È il numero complessivo di tutte le persone o aziende registrate nel database del CRM che hanno già acquistato un servizio in passato o che fanno parte dell'archivio clienti. Esempio: tutte le persone che hanno prenotato almeno una vacanza presso un'agenzia negli ultimi anni.",
+    ex: "Il database dell'agenzia conta 1.450 Total Clients che hanno viaggiato almeno una volta negli ultimi 5 anni."
+  },
+  {
+    id: 'clv',
+    en: 'Customer Lifetime Value (CLV - Valore del cliente nel tempo)',
+    it: 'Guadagno Previsto nel Tempo',
+    cat: 'metriche',
+    sec: 'crescita-metriche',
+    color: '--c4',
+    def: "È il guadagno totale che un'azienda prevede di ottenere da un singolo cliente durante tutto il periodo in cui continuerà a fare acquisti. Dimostra perché conviene fidelizzare i clienti nel tempo invece di cercarne sempre di nuovi.",
+    ex: "Una coppia che spende € 1.200 all'anno per 5 anni ha un CLV di € 6.000: molto più prezioso di un singolo acquisto occasionale."
+  },
+  {
+    id: 'churn-rate',
+    en: 'Churn Rate Analysis (Analisi del tasso di abbandono)',
+    it: 'Studio di Chi Smette di Sceglierci',
+    cat: 'metriche',
+    sec: 'crescita-metriche',
+    color: '--c4',
+    def: "È lo studio dei dati che serve a capire quanti clienti smettono di scegliere l'azienda e per quale motivo. Permette a un hotel o a un'agenzia di correggere i propri errori per non perdere altri viaggiatori.",
+    ex: "L'hotel nota che il 18% degli ospiti non torna per via del Wi-Fi lento nelle camere e investe subito per potenziare la rete."
+  },
+  {
+    id: 'data-quality',
+    en: 'Data Quality (Qualità dei dati)',
+    it: 'Precisione e Aggiornamento Dati',
+    cat: 'sicurezza',
+    sec: 'qualita-gdpr',
+    color: '--c6',
+    def: "Indica quanto le informazioni inserite nel CRM sono precise, complete e aggiornate. Avere dati corretti (come un indirizzo email giusto o le reali preferenze di un ospite) evita errori e comunicazioni inutili.",
+    ex: "Eliminare schede doppie e correggere gli indirizzi email errati fa sì che i buoni sconto arrivino davvero ai clienti."
+  },
+  {
+    id: 'data-protection',
+    en: 'Data Protection (Protezione dei dati)',
+    it: 'Sicurezza Tecnica e Organizzativa',
+    cat: 'sicurezza',
+    sec: 'qualita-gdpr',
+    color: '--c6',
+    def: "È l'insieme delle misure tecniche e organizzative adottate per proteggere i dati personali dei clienti da furti, perdite o accessi non autorizzati.",
+    ex: "Password sicure, backup criptati e permessi limitati affinché solo il personale autorizzato veda i documenti d'identità degli ospiti."
+  },
+  {
+    id: 'gdpr',
+    en: 'GDPR (Regolamento Generale sulla Protezione dei Dati)',
+    it: 'Normativa Europea sulla Privacy',
+    cat: 'sicurezza',
+    sec: 'qualita-gdpr',
+    color: '--c6',
+    def: "È la legge europea sulla privacy che stabilisce regole precise su come le aziende devono raccogliere, conservare e usare i dati personali dei cittadini, obbligandole a chiedere il consenso esplicito.",
+    ex: "Prima di inviare promozioni via email, l'agenzia fa spuntare una casella chiara di consenso e permette di disiscriversi con un clic."
+  }
+];
+
+/* ==========================================================================
+   STRUTTURA SEZIONI
+   ========================================================================== */
+const SECTIONS = [
+  { id: 'panoramica', t: '1. Cuore del CRM', c: '--c1' },
+  { id: 'tipi-crm', t: '2. I 3 Volti & Automazione', c: '--c2' },
+  { id: 'dati-segmenti', t: '3. Dati & Segmentazione', c: '--c5' },
+  { id: 'pipeline', t: '4. Pipeline & Trattative', c: '--c3' },
+  { id: 'crescita-metriche', t: '5. Vendite & Valore (CLV)', c: '--c4' },
+  { id: 'qualita-gdpr', t: '6. Qualità Dati & GDPR', c: '--c6' },
+  { id: 'glossario-quiz', t: '7. Glossario (26) & Quiz', c: '--c9' }
+];
+
+/* ==========================================================================
+   STATO INTERATTIVO DELL'APPLICAZIONE
+   ========================================================================== */
+let state = {
+  view: 'panoramica',
+  crmTab: 'operativo',
+  segSelected: 'famiglie',
+  deals: [
+    { id: 'd1', name: 'Famiglia Rossi — Villaggio Sardegna (7 notti)', val: 3200, on: true },
+    { id: 'd2', name: 'Coppia Bianchi — Tour Giappone 12 giorni', val: 5800, on: true },
+    { id: 'd3', name: 'Gruppo Aziendale — Weekend Team Building', val: 4500, on: true },
+    { id: 'd4', name: 'Sig.ra Verdi — Crociera Mediterraneo', val: 1900, on: false }
+  ],
+  clvSpend: 1200,
+  clvTrips: 1.5,
+  clvYears: 5,
+  gdprChecks: [true, true, false, false, false],
+  search: '',
+  catFilter: 'tutti',
+  practiceMode: 'glossario',
+  fcIndex: 0,
+  fcFlipped: false,
+  quizIndex: 0,
+  quizScore: 0,
+  quizAnswered: null
+};
+
+const QUIZ_QUESTIONS = [
+  {
+    q: "Un cliente ha prenotato un volo e l'agente gli propone anche il noleggio auto e l'assicurazione viaggio. Che tecnica è?",
+    opts: ["Up-selling", "Cross-selling (Vendita incrociata)", "Churn Rate Analysis", "Qualificazione del Lead"],
+    ans: 1,
+    exp: "Il Cross-selling propone un prodotto o servizio aggiuntivo e collegato a quello già scelto."
+  },
+  {
+    q: "L'hotel propone una Suite con vista mare al posto della camera standard scelta inizialmente. Di cosa si tratta?",
+    opts: ["Up-selling", "Marketing Automation", "Closed Lost", "Data Quality"],
+    ans: 0,
+    exp: "L'Up-selling consiste nel proporre una versione superiore e più costosa dello stesso servizio."
+  },
+  {
+    q: "Quale parte del CRM permette a reception, marketing e assistenza di condividere in tempo reale le informazioni sull'ospite?",
+    opts: ["CRM Analitico", "CRM Collaborativo", "Sales Force Automation", "Pipeline Value"],
+    ans: 1,
+    exp: "Il CRM Collaborativo mette in comunicazione tutti i reparti per un servizio coordinato e senza errori."
+  },
+  {
+    q: "Che cos'è il 'Pipeline Value'?",
+    opts: ["Il numero totale di clienti storici", "La somma totale in denaro di tutte le trattative ancora aperte", "La legge europea sulla privacy", "Il costo di una campagna email"],
+    ans: 1,
+    exp: "Il Pipeline Value somma il valore economico delle trattative attive per stimare i guadagni futuri."
+  },
+  {
+    q: "Una famiglia ha chiesto un preventivo per l'estate e sta ancora decidendo se accettarlo. Come si chiama questa trattativa?",
+    opts: ["Closed Won", "Active Deal (Trattativa attiva)", "Lead non qualificato", "Churn Rate"],
+    ans: 1,
+    exp: "È un Active Deal: un accordo commerciale ancora in corso, non ancora concluso con il pagamento."
+  },
+  {
+    q: "A cosa serve la 'Churn Rate Analysis' in un hotel o in un'agenzia?",
+    opts: ["A capire quanti clienti smettono di sceglierci e perché", "A inviare email di buon compleanno", "A calcolare l'IVA sui pacchetti", "A proteggere le password del server"],
+    ans: 0,
+    exp: "Serve a individuare il tasso di abbandono e le sue cause per correggere gli errori e non perdere altri viaggiatori."
+  },
+  {
+    q: "Quale legge europea obbliga a chiedere il consenso esplicito per raccogliere e usare i dati personali dei clienti?",
+    opts: ["SFA", "CLV", "GDPR", "Proposal"],
+    ans: 2,
+    exp: "Il GDPR (Regolamento Generale sulla Protezione dei Dati) tutela la privacy dei cittadini europei."
+  },
+  {
+    q: "Una persona lascia la propria email sul sito per scaricare il catalogo estate, ma non ha ancora comprato nulla. È un...",
+    opts: ["Total Client", "Lead (Contatto potenziale)", "Closed Won", "CRM Analitico"],
+    ans: 1,
+    exp: "Un Lead è un contatto che ha mostrato interesse ma non ha ancora effettuato un acquisto."
+  },
+  {
+    q: "Che cosa dimostra il 'Customer Lifetime Value (CLV)'?",
+    opts: ["Il guadagno totale previsto da un singolo cliente nel tempo", "Il numero di email inviate in un mese", "Il valore delle trattative perse", "La velocità del check-in in hotel"],
+    ans: 0,
+    exp: "Il CLV misura il valore economico complessivo di un cliente fedele nel tempo."
+  },
+  {
+    q: "Quando il cliente accetta l'offerta e conferma l'acquisto del viaggio, quale stato si assegna nel CRM?",
+    opts: ["Closed Lost", "Negotiation", "Closed Won", "Qualificazione"],
+    ans: 2,
+    exp: "Closed Won (Trattativa chiusa e vinta) indica che il cliente ha acquistato il servizio."
+  }
+];
+
+/* ==========================================================================
+   HELPER DI RENDERING CONCETTI E SCHEMI
+   ========================================================================== */
+function renderConceptCard(id) {
+  const c = CONCEPTS.find(x => x.id === id);
+  if (!c) return '';
+  return `
+    <article class="concept" style="--c:var(${c.color})">
+      <div class="concept-hdr">
+        <span class="concept-title">${c.en}</span>
+        <span class="concept-it">${c.it}</span>
+      </div>
+      <p>${c.def}</p>
+      <div class="ex-box"><strong>Esempio nel turismo:</strong> ${c.ex}</div>
+    </article>
+  `;
+}
+
+function renderFooterNav(prevId, nextId) {
+  const prev = SECTIONS.find(s => s.id === prevId);
+  const next = SECTIONS.find(s => s.id === nextId);
+  return `
+    <div class="nav-footer">
+      ${prev ? `<button class="btn btn-sec" data-go="${prev.id}">← ${prev.t}</button>` : '<span></span>'}
+      ${next ? `<button class="btn" data-go="${next.id}">Avanti: ${next.t} →</button>` : ''}
+    </div>
+  `;
+}
+
+/* ==========================================================================
+   VISTE DELLE 7 SEZIONI (RICCHE DI SCHEMI SVG)
+   ========================================================================== */
+const V = {
+  /* ------------------------------------------------------------------------
+     SEZIONE 1: PANORAMICA & STRATEGIA
+     ------------------------------------------------------------------------ */
+  'panoramica': () => `
+    <span class="tag">Sezione 1 di 7 • Visione d'Insieme</span>
+    <h1>Il Cuore del CRM e la Centralità del Cliente</h1>
+    <p class="lead">Scopri in modo semplice e visivo come funziona un <strong>CRM</strong> nel turismo: dalla raccolta dei dati alla gestione delle trattative, fino alla fidelizzazione dei viaggiatori.</p>
+
+    <!-- SCHEMA SVG 1: MAPPA CONCETTUALE DEL CRM -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Schema 1 — Mappa Concettuale: Cosa fa il CRM in azienda?</span>
+      </div>
+      <p class="schema-sub">Il CRM collega strategia, reparti, dati e vendite attorno a un unico protagonista: il viaggiatore.</p>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 820 340" role="img" aria-label="Mappa concettuale del CRM collegato a Strategia, Dati, Vendite e Valore">
+          <defs>
+            <marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b95a5"/>
+            </marker>
+          </defs>
+          <!-- Linee di collegamento dal centro -->
+          <line x1="330" y1="145" x2="215" y2="85" stroke="#3b6df0" stroke-width="3" stroke-dasharray="5,4" marker-end="url(#arr1)"/>
+          <line x1="490" y1="145" x2="605" y2="85" stroke="#12a37f" stroke-width="3" stroke-dasharray="5,4" marker-end="url(#arr1)"/>
+          <line x1="330" y1="195" x2="215" y2="255" stroke="#f08a1c" stroke-width="3" stroke-dasharray="5,4" marker-end="url(#arr1)"/>
+          <line x1="490" y1="195" x2="605" y2="255" stroke="#e0457b" stroke-width="3" stroke-dasharray="5,4" marker-end="url(#arr1)"/>
+
+          <!-- Nodo Centrale -->
+          <rect x="305" y="125" width="210" height="90" rx="20" fill="#1d2433"/>
+          <text x="410" y="163" text-anchor="middle" fill="#ffffff" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="22">CRM</text>
+          <text x="410" y="186" text-anchor="middle" fill="#cbd5e1" font-family="Figtree, sans-serif" font-size="13">Strategia + Software</text>
+          <text x="410" y="203" text-anchor="middle" fill="#93c5fd" font-family="Figtree, sans-serif" font-weight="600" font-size="12">Cliente al Centro</text>
+
+          <!-- Nodo Top-Left: Strategia & Reparti -->
+          <rect x="20" y="25" width="210" height="82" rx="16" fill="#e9effe" stroke="#3b6df0" stroke-width="2"/>
+          <text x="125" y="54" text-anchor="middle" fill="#1e3a8a" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="15">1. Strategia &amp; Reparti</text>
+          <text x="125" y="75" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">Operativo • Analitico</text>
+          <text x="125" y="93" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">Collaborativo • Automazioni</text>
+
+          <!-- Nodo Top-Right: Dati & Privacy -->
+          <rect x="590" y="25" width="210" height="82" rx="16" fill="#e6f7f2" stroke="#12a37f" stroke-width="2"/>
+          <text x="695" y="54" text-anchor="middle" fill="#065f46" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="15">2. Dati &amp; Privacy</text>
+          <text x="695" y="75" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">Anagrafica, Preferenze, Storico</text>
+          <text x="695" y="93" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">Data Quality &amp; GDPR</text>
+
+          <!-- Nodo Bottom-Left: Pipeline Vendite -->
+          <rect x="20" y="233" width="210" height="82" rx="16" fill="#fef3e6" stroke="#f08a1c" stroke-width="2"/>
+          <text x="125" y="262" text-anchor="middle" fill="#9a3412" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="15">3. Pipeline di Vendita</text>
+          <text x="125" y="283" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">Lead → Preventivo → Trattativa</text>
+          <text x="125" y="301" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">Closed Won / Closed Lost</text>
+
+          <!-- Nodo Bottom-Right: Crescita & Valore -->
+          <rect x="590" y="233" width="210" height="82" rx="16" fill="#fce8ef" stroke="#e0457b" stroke-width="2"/>
+          <text x="695" y="262" text-anchor="middle" fill="#881337" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="15">4. Crescita &amp; Fedeltà</text>
+          <text x="695" y="283" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">Up-selling &amp; Cross-selling</text>
+          <text x="695" y="301" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">CLV &amp; Analisi Abbandono</text>
+        </svg>
+      </div>
+    </div>
+
+    ${renderConceptCard('crm')}
+    ${renderConceptCard('customer-centricity')}
+
+    <!-- SCHEMA SVG 2: CAUSA-EFFETTO CUSTOMER CENTRICITY -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Schema 2 — Effetto Domino della Customer Centricity</span>
+      </div>
+      <p class="schema-sub">Perché mettere il cliente al centro genera un circolo virtuoso nel mercato turistico:</p>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 820 130" role="img" aria-label="Flusso causa-effetto: Bisogni al centro, Esperienza su misura, Soddisfazione e Recensioni positive">
+          <rect x="15" y="20" width="175" height="90" rx="14" fill="#e9effe" stroke="#3b6df0" stroke-width="2"/>
+          <text x="102" y="55" text-anchor="middle" fill="#1e3a8a" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="14">1. Ascolto Bisogni</text>
+          <text x="102" y="77" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12">Preferenze e budget</text>
+          <text x="102" y="93" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12">salvati nel CRM</text>
+
+          <path d="M 196 65 L 218 65" stroke="#3b6df0" stroke-width="3" marker-end="url(#arr1)"/>
+
+          <rect x="224" y="20" width="175" height="90" rx="14" fill="#e6f7f2" stroke="#12a37f" stroke-width="2"/>
+          <text x="311" y="55" text-anchor="middle" fill="#065f46" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="14">2. Viaggio su Misura</text>
+          <text x="311" y="77" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12">Accoglienza personalizzata</text>
+          <text x="311" y="93" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12">senza intoppi</text>
+
+          <path d="M 405 65 L 427 65" stroke="#12a37f" stroke-width="3" marker-end="url(#arr1)"/>
+
+          <rect x="433" y="20" width="175" height="90" rx="14" fill="#fef3e6" stroke="#f08a1c" stroke-width="2"/>
+          <text x="520" y="55" text-anchor="middle" fill="#9a3412" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="14">3. Ospite Felice</text>
+          <text x="520" y="77" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12">Recensioni a 5 stelle</text>
+          <text x="520" y="93" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12">e passaparola</text>
+
+          <path d="M 614 65 L 636 65" stroke="#f08a1c" stroke-width="3" marker-end="url(#arr1)"/>
+
+          <rect x="642" y="20" width="163" height="90" rx="14" fill="#fce8ef" stroke="#e0457b" stroke-width="2"/>
+          <text x="723" y="55" text-anchor="middle" fill="#881337" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="14">4. Ritorno &amp; Valore</text>
+          <text x="723" y="77" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12">Nuove prenotazioni</text>
+          <text x="723" y="93" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12">negli anni (CLV alto)</text>
+        </svg>
+      </div>
+    </div>
+
+    <h3>Esplora le altre aree della guida</h3>
+    <div class="grid">
+      <button class="tile" style="--c:var(--c2)" data-go="tipi-crm">
+        <b>2. I 3 Volti &amp; Automazione</b>
+        <span>CRM Operativo, Analitico, Collaborativo, SFA e Marketing Automation.</span>
+      </button>
+      <button class="tile" style="--c:var(--c5)" data-go="dati-segmenti">
+        <b>3. Dati &amp; Segmentazione</b>
+        <span>Anagrafica, preferenze, storico e divisione in gruppi omogenei.</span>
+      </button>
+      <button class="tile" style="--c:var(--c3)" data-go="pipeline">
+        <b>4. Pipeline &amp; Trattative</b>
+        <span>Dal Lead al preventivo, Active Deals, Negotiation, Won/Lost e simulatore.</span>
+      </button>
+      <button class="tile" style="--c:var(--c4)" data-go="crescita-metriche">
+        <b>5. Vendite &amp; Valore (CLV)</b>
+        <span>Up-selling, Cross-selling, Total Clients, calcolatore CLV e Churn Rate.</span>
+      </button>
+      <button class="tile" style="--c:var(--c6)" data-go="qualita-gdpr">
+        <b>6. Qualità Dati &amp; GDPR</b>
+        <span>Data Quality, Data Protection, regole GDPR e checklist operativa.</span>
+      </button>
+      <button class="tile" style="--c:var(--c9)" data-go="glossario-quiz">
+        <b>7. Glossario (26) &amp; Quiz</b>
+        <span>Cerca tutti i 26 termini, esercitati con le flashcard e fai il quiz!</span>
+      </button>
+    </div>
+
+    ${renderFooterNav(null, 'tipi-crm')}
+  `,
+
+  /* ------------------------------------------------------------------------
+     SEZIONE 2: I 3 VOLTI DEL CRM & AUTOMAZIONE
+     ------------------------------------------------------------------------ */
+  'tipi-crm': () => {
+    const t = state.crmTab;
+    return `
+    <span class="tag">Sezione 2 di 7 • Organizzazione &amp; Automazioni</span>
+    <h1>I 3 Volti del CRM e gli Strumenti Automatici</h1>
+    <p class="lead">Un CRM moderno non è un semplice elenco telefonico: lavora su <strong>tre livelli complementari</strong> e automatizza le azioni ripetitive di vendita e marketing.</p>
+
+    <!-- SCHEMA SVG 3: I 3 PILASTRI DEL CRM -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Schema 3 — I 3 Pilastri del CRM attorno al Viaggiatore</span>
+      </div>
+      <p class="schema-sub">Clicca sui pulsanti sotto lo schema per approfondire ciascun pilastro.</p>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 820 250" role="img" aria-label="Schema a tre pilastri del CRM: Operativo, Analitico e Collaborativo">
+          <!-- Barra base -->
+          <rect x="30" y="195" width="760" height="38" rx="12" fill="#1d2433"/>
+          <text x="410" y="219" text-anchor="middle" fill="#fff" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="14">DATABASE UNICO CONDIVISO DEL CLIENTE (Single Customer View)</text>
+
+          <!-- Pilastro 1: Operativo -->
+          <rect x="40" y="25" width="230" height="150" rx="16" fill="${t === 'operativo' ? '#d4f3ea' : '#f4fbf9'}" stroke="#12a37f" stroke-width="${t === 'operativo' ? '3.5' : '2'}"/>
+          <text x="155" y="55" text-anchor="middle" fill="#065f46" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="17">CRM Operativo</text>
+          <text x="155" y="76" text-anchor="middle" fill="#0f766e" font-family="Figtree, sans-serif" font-weight="600" font-size="12.5">"Agisce e automatizza"</text>
+          <text x="155" y="105" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">• Invio email e conferme</text>
+          <text x="155" y="125" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">• Gestione prenotazioni</text>
+          <text x="155" y="145" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">• Supporto quotidiano vendite</text>
+
+          <!-- Pilastro 2: Analitico -->
+          <rect x="295" y="25" width="230" height="150" rx="16" fill="${t === 'analitico' ? '#e2ebfe' : '#f5f8ff'}" stroke="#3b6df0" stroke-width="${t === 'analitico' ? '3.5' : '2'}"/>
+          <text x="410" y="55" text-anchor="middle" fill="#1e3a8a" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="17">CRM Analitico</text>
+          <text x="410" y="76" text-anchor="middle" fill="#1d4ed8" font-family="Figtree, sans-serif" font-weight="600" font-size="12.5">"Studia e prevede"</text>
+          <text x="410" y="105" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">• Analisi abitudini viaggiatori</text>
+          <text x="410" y="125" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">• Previsione desideri futuri</text>
+          <text x="410" y="145" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">• Decisioni commerciali mirate</text>
+
+          <!-- Pilastro 3: Collaborativo -->
+          <rect x="550" y="25" width="230" height="150" rx="16" fill="${t === 'collaborativo' ? '#f3e8ff' : '#faf5ff'}" stroke="#8a4fe0" stroke-width="${t === 'collaborativo' ? '3.5' : '2'}"/>
+          <text x="665" y="55" text-anchor="middle" fill="#581c87" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="17">CRM Collaborativo</text>
+          <text x="665" y="76" text-anchor="middle" fill="#6b21a8" font-family="Figtree, sans-serif" font-weight="600" font-size="12.5">"Collega tutti i reparti"</text>
+          <text x="665" y="105" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">• Reception + Marketing + Assistenza</text>
+          <text x="665" y="125" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">• Dati condivisi in tempo reale</text>
+          <text x="665" y="145" text-anchor="middle" fill="#334155" font-family="Figtree, sans-serif" font-size="12.5">• Servizio coordinato senza errori</text>
+        </svg>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button role="tab" style="--c:var(--c2)" aria-selected="${t === 'operativo'}" data-crmtab="operativo">CRM Operativo</button>
+        <button role="tab" style="--c:var(--c1)" aria-selected="${t === 'analitico'}" data-crmtab="analitico">CRM Analitico</button>
+        <button role="tab" style="--c:var(--c5)" aria-selected="${t === 'collaborativo'}" data-crmtab="collaborativo">CRM Collaborativo</button>
+      </div>
+      <div class="panel" style="--c:var(${t === 'operativo' ? '--c2' : t === 'analitico' ? '--c1' : '--c5'})">
+        ${renderConceptCard('crm-' + t)}
+      </div>
+    </div>
+
+    <h2>Automazione: Sales Force Automation &amp; Marketing Automation</h2>
+    ${renderConceptCard('sfa')}
+    ${renderConceptCard('marketing-automation')}
+
+    <!-- SCHEMA SVG 4: TIMELINE MARKETING AUTOMATION -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Schema 4 — Esempio di Timeline in Marketing Automation</span>
+      </div>
+      <p class="schema-sub">Il software reagisce automaticamente a date ed eventi senza che lo staff debba ricordarsi ogni invio.</p>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 820 145" role="img" aria-label="Timeline automatica: Prenotazione, 3 giorni prima dell'arrivo, Giorno del compleanno, Post-soggiorno">
+          <line x1="70" y1="52" x2="750" y2="52" stroke="#12a37f" stroke-width="4" stroke-linecap="round"/>
+
+          <!-- Step 1 -->
+          <circle cx="95" cy="52" r="14" fill="#12a37f"/>
+          <text x="95" y="57" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">1</text>
+          <text x="95" y="86" text-anchor="middle" fill="#1d2433" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="13.5">Subito dopo prenotazione</text>
+          <text x="95" y="105" text-anchor="middle" fill="#5d6679" font-size="12">Email automatica di</text>
+          <text x="95" y="121" text-anchor="middle" fill="#5d6679" font-size="12">conferma e benvenuto</text>
+
+          <!-- Step 2 -->
+          <circle cx="305" cy="52" r="14" fill="#12a37f"/>
+          <text x="305" y="57" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">2</text>
+          <text x="305" y="86" text-anchor="middle" fill="#1d2433" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="13.5">3 giorni prima dell'arrivo</text>
+          <text x="305" y="105" text-anchor="middle" fill="#5d6679" font-size="12">Promemoria check-in,</text>
+          <text x="305" y="121" text-anchor="middle" fill="#5d6679" font-size="12">mappa e meteo località</text>
+
+          <!-- Step 3 -->
+          <circle cx="515" cy="52" r="14" fill="#f08a1c"/>
+          <text x="515" y="57" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">3</text>
+          <text x="515" y="86" text-anchor="middle" fill="#1d2433" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="13.5">Compleanno dell'ospite</text>
+          <text x="515" y="105" text-anchor="middle" fill="#5d6679" font-size="12">Invio automatico auguri</text>
+          <text x="515" y="121" text-anchor="middle" fill="#5d6679" font-size="12">+ buono sconto 15%</text>
+
+          <!-- Step 4 -->
+          <circle cx="725" cy="52" r="14" fill="#3b6df0"/>
+          <text x="725" y="57" text-anchor="middle" fill="#fff" font-weight="700" font-size="12">4</text>
+          <text x="725" y="86" text-anchor="middle" fill="#1d2433" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="13.5">2 giorni dopo il rientro</text>
+          <text x="725" y="105" text-anchor="middle" fill="#5d6679" font-size="12">Questionario soddisfazione</text>
+          <text x="725" y="121" text-anchor="middle" fill="#5d6679" font-size="12">e invito recensione</text>
+        </svg>
+      </div>
+    </div>
+
+    ${renderFooterNav('panoramica', 'dati-segmenti')}
+    `;
+  },
+
+  /* ------------------------------------------------------------------------
+     SEZIONE 3: DATI NEL CRM & SEGMENTAZIONE
+     ------------------------------------------------------------------------ */
+  'dati-segmenti': () => {
+    const segData = {
+      famiglie: {
+        title: 'Segmento: Famiglie con Bambini',
+        criteri: 'Età 32–48 anni • Viaggi in estate/ponti • Budget medio',
+        offerta: 'Camere comunicanti, miniclub, animazione, bimbi gratis fino a 12 anni e menu dedicati.'
+      },
+      coppie: {
+        title: 'Segmento: Coppie & Relax',
+        criteri: 'Età 25–55 anni • Weekend tutto l\'anno • Interesse benessere/enogastronomia',
+        offerta: 'Pacchetto Spa & Massaggi, cena romantica a lume di candela e late check-out incluso.'
+      },
+      business: {
+        title: 'Segmento: Viaggiatori d\'Affari (Business)',
+        criteri: 'Soggiorni infrasettimanali • Prenotazioni last-minute • Alta frequenza',
+        offerta: 'Wi-Fi ultraveloce, check-in rapido, scrivania in camera, parcheggio riservato e colazione anticipata.'
+      }
+    };
+    const curSeg = segData[state.segSelected];
+
+    return `
+    <span class="tag">Sezione 3 di 7 • Conoscere il Viaggiatore</span>
+    <h1>Informazioni Raccolte &amp; Segmentazione del Mercato</h1>
+    <p class="lead">Per creare offerte che colpiscono nel segno, il CRM organizza le informazioni del cliente in <strong>3 categorie</strong> e divide il pubblico in <strong>gruppi omogenei</strong>.</p>
+
+    <!-- SCHEMA SVG 5: ALBERO DELLE INFORMAZIONI NEL CRM -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Schema 5 — I 3 Rami delle "Informazioni raccolte nel CRM"</span>
+      </div>
+      <p class="schema-sub">Ogni scheda cliente raccoglie tre livelli di conoscenza complementari:</p>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 820 245" role="img" aria-label="Albero informazioni CRM: Dati anagrafici, Preferenze e Storico interazioni">
+          <!-- Radice superiore -->
+          <rect x="255" y="15" width="310" height="46" rx="14" fill="#8a4fe0"/>
+          <text x="410" y="43" text-anchor="middle" fill="#fff" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="16">SCHEDA CLIENTE NEL CRM</text>
+
+          <!-- Connettori -->
+          <path d="M 410 61 L 410 85 L 145 85 L 145 105" fill="none" stroke="#8a4fe0" stroke-width="2.5"/>
+          <path d="M 410 61 L 410 105" fill="none" stroke="#8a4fe0" stroke-width="2.5"/>
+          <path d="M 410 61 L 410 85 L 675 85 L 675 105" fill="none" stroke="#8a4fe0" stroke-width="2.5"/>
+
+          <!-- Ramo 1 -->
+          <rect x="25" y="105" width="240" height="122" rx="15" fill="#f5efff" stroke="#8a4fe0" stroke-width="2"/>
+          <text x="145" y="133" text-anchor="middle" fill="#581c87" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16">1. Dati Anagrafici</text>
+          <text x="145" y="158" text-anchor="middle" fill="#334155" font-size="13">• Nome, cognome ed età</text>
+          <text x="145" y="179" text-anchor="middle" fill="#334155" font-size="13">• Email, telefono, città</text>
+          <text x="145" y="200" text-anchor="middle" fill="#334155" font-size="13">• Composizione nucleo familiare</text>
+
+          <!-- Ramo 2 -->
+          <rect x="290" y="105" width="240" height="122" rx="15" fill="#e6f7f2" stroke="#12a37f" stroke-width="2"/>
+          <text x="410" y="133" text-anchor="middle" fill="#065f46" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16">2. Preferenze</text>
+          <text x="410" y="158" text-anchor="middle" fill="#334155" font-size="13">• Tipo di camera (vista mare/piano)</text>
+          <text x="410" y="179" text-anchor="middle" fill="#334155" font-size="13">• Allergie o intolleranze alimentari</text>
+          <text x="410" y="200" text-anchor="middle" fill="#334155" font-size="13">• Mete e attività preferite</text>
+
+          <!-- Ramo 3 -->
+          <rect x="555" y="105" width="240" height="122" rx="15" fill="#e9effe" stroke="#3b6df0" stroke-width="2"/>
+          <text x="675" y="133" text-anchor="middle" fill="#1e3a8a" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16">3. Storico Interazioni</text>
+          <text x="675" y="158" text-anchor="middle" fill="#334155" font-size="13">• Viaggi e soggiorni già acquistati</text>
+          <text x="675" y="179" text-anchor="middle" fill="#334155" font-size="13">• Preventivi e richieste inviate</text>
+          <text x="675" y="200" text-anchor="middle" fill="#334155" font-size="13">• Eventuali reclami o recensioni</text>
+        </svg>
+      </div>
+    </div>
+
+    ${renderConceptCard('info-crm')}
+    ${renderConceptCard('segmentazione')}
+
+    <!-- SCHEMA INTERATTIVO SEGMENTAZIONE -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Schema 6 — Simulatore di Segmentazione del Mercato</span>
+      </div>
+      <p class="schema-sub">Seleziona un segmento di viaggiatori per vedere come cambia l'offerta commerciale:</p>
+      <div class="tabs">
+        <button style="--c:var(--c5)" aria-selected="${state.segSelected === 'famiglie'}" data-seg="famiglie">👨‍👩‍👧‍👦 Famiglie</button>
+        <button style="--c:var(--c4)" aria-selected="${state.segSelected === 'coppie'}" data-seg="coppie">💑 Coppie</button>
+        <button style="--c:var(--c1)" aria-selected="${state.segSelected === 'business'}" data-seg="business">💼 Viaggiatori d'Affari</button>
+      </div>
+      <div class="panel" style="--c:var(--c5)">
+        <h3>${curSeg.title}</h3>
+        <p><strong>Caratteristiche comuni:</strong> ${curSeg.criteri}</p>
+        <p style="margin-bottom:0"><strong>Offerta mirata creata grazie al CRM:</strong> ${curSeg.offerta}</p>
+      </div>
+    </div>
+
+    ${renderFooterNav('tipi-crm', 'pipeline')}
+    `;
+  },
+
+  /* ------------------------------------------------------------------------
+     SEZIONE 4: PIPELINE DI VENDITA & TRATTATIVE
+     ------------------------------------------------------------------------ */
+  'pipeline': () => {
+    const activeTotal = state.deals.filter(d => d.on).reduce((sum, d) => sum + d.val, 0);
+    const maxTotal = state.deals.reduce((sum, d) => sum + d.val, 0);
+    const pct = maxTotal > 0 ? Math.round((activeTotal / maxTotal) * 100) : 0;
+
+    return `
+    <span class="tag">Sezione 4 di 7 • Dal Primo Contatto alla Firma</span>
+    <h1>Pipeline di Vendita &amp; Gestione Trattative</h1>
+    <p class="lead">Segui tappa dopo tappa il viaggio di un potenziale cliente nel CRM: da semplice contatto interessato (<strong>Lead</strong>) fino alla chiusura della vendita (<strong>Closed Won</strong> o <strong>Closed Lost</strong>).</p>
+
+    <!-- SCHEMA SVG 7: FLUSSO COMPLETO DELLA PIPELINE DI VENDITA -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Schema 7 — Le 5 Tappe della Pipeline di Vendita + Esito Finale</span>
+      </div>
+      <p class="schema-sub">Ogni trattativa aperta (Active Deal) avanza da sinistra verso destra fino al bivio finale.</p>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 840 245" role="img" aria-label="Flusso della pipeline: Lead, Qualificazione, Proposal, Negotiation e bivio Closed Won o Closed Lost">
+          <defs>
+            <marker id="arrOr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#f08a1c"/>
+            </marker>
+          </defs>
+
+          <!-- Tappa 1: Lead -->
+          <rect x="12" y="75" width="135" height="92" rx="14" fill="#fef3e6" stroke="#f08a1c" stroke-width="2"/>
+          <text x="79" y="102" text-anchor="middle" fill="#9a3412" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="14">1. Lead</text>
+          <text x="79" y="122" text-anchor="middle" fill="#334155" font-size="11.5">Contatto interessato</text>
+          <text x="79" y="138" text-anchor="middle" fill="#334155" font-size="11.5">(es. lascia email)</text>
+
+          <line x1="150" y1="121" x2="174" y2="121" stroke="#f08a1c" stroke-width="3" marker-end="url(#arrOr)"/>
+
+          <!-- Tappa 2: Qualificazione -->
+          <rect x="178" y="75" width="142" height="92" rx="14" fill="#fef3e6" stroke="#f08a1c" stroke-width="2"/>
+          <text x="249" y="102" text-anchor="middle" fill="#9a3412" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="14">2. Qualificazione</text>
+          <text x="249" y="122" text-anchor="middle" fill="#334155" font-size="11.5">Verifica budget,</text>
+          <text x="249" y="138" text-anchor="middle" fill="#334155" font-size="11.5">date e bisogni</text>
+
+          <line x1="323" y1="121" x2="347" y2="121" stroke="#f08a1c" stroke-width="3" marker-end="url(#arrOr)"/>
+
+          <!-- Tappa 3: Proposal -->
+          <rect x="351" y="75" width="142" height="92" rx="14" fill="#fef3e6" stroke="#f08a1c" stroke-width="2"/>
+          <text x="422" y="102" text-anchor="middle" fill="#9a3412" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="14">3. Proposal</text>
+          <text x="422" y="122" text-anchor="middle" fill="#334155" font-size="11.5">Invio preventivo</text>
+          <text x="422" y="138" text-anchor="middle" fill="#334155" font-size="11.5">ufficiale dettagliato</text>
+
+          <line x1="496" y1="121" x2="520" y2="121" stroke="#f08a1c" stroke-width="3" marker-end="url(#arrOr)"/>
+
+          <!-- Tappa 4: Negotiation -->
+          <rect x="524" y="75" width="142" height="92" rx="14" fill="#fef3e6" stroke="#f08a1c" stroke-width="2"/>
+          <text x="595" y="102" text-anchor="middle" fill="#9a3412" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="14">4. Negotiation</text>
+          <text x="595" y="122" text-anchor="middle" fill="#334155" font-size="11.5">Dialogo su prezzo,</text>
+          <text x="595" y="138" text-anchor="middle" fill="#334155" font-size="11.5">date e servizi inclusi</text>
+
+          <!-- Parentesi Active Deals -->
+          <path d="M 185 182 L 185 196 L 660 196 L 660 182" fill="none" stroke="#3b6df0" stroke-width="2.5"/>
+          <rect x="272" y="185" width="300" height="26" rx="8" fill="#e9effe" stroke="#3b6df0" stroke-width="1.5"/>
+          <text x="422" y="202" text-anchor="middle" fill="#1e3a8a" font-family="Figtree, sans-serif" font-weight="700" font-size="12">ACTIVE DEALS (Trattative ancora aperte)</text>
+
+          <!-- Bivio verso 5a e 5b -->
+          <path d="M 668 105 L 702 65" stroke="#12a37f" stroke-width="3" fill="none"/>
+          <path d="M 668 138 L 702 178" stroke="#e5533d" stroke-width="3" fill="none"/>
+
+          <!-- 5a: Closed Won -->
+          <rect x="704" y="20" width="124" height="78" rx="14" fill="#e6f7f2" stroke="#12a37f" stroke-width="2.5"/>
+          <text x="766" y="48" text-anchor="middle" fill="#065f46" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="13.5">5a. Closed Won</text>
+          <text x="766" y="67" text-anchor="middle" fill="#065f46" font-size="11.5">Vinta! Il cliente</text>
+          <text x="766" y="82" text-anchor="middle" fill="#065f46" font-size="11.5">acquista il viaggio</text>
+
+          <!-- 5b: Closed Lost -->
+          <rect x="704" y="144" width="124" height="78" rx="14" fill="#fdecea" stroke="#e5533d" stroke-width="2.5"/>
+          <text x="766" y="172" text-anchor="middle" fill="#991b1b" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="13.5">5b. Closed Lost</text>
+          <text x="766" y="191" text-anchor="middle" fill="#991b1b" font-size="11.5">Persa: sceglie altro</text>
+          <text x="766" y="206" text-anchor="middle" fill="#991b1b" font-size="11.5">o rinuncia</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- SIMULATORE INTERATTIVO PIPELINE VALUE -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Simulatore Interattivo — Calcolo del Pipeline Value</span>
+      </div>
+      <p class="schema-sub">Attiva o disattiva le trattative aperte in agenzia per vedere come si calcola il <strong>Pipeline Value</strong> (la previsione dei ricavi):</p>
+
+      ${state.deals.map((d, idx) => `
+        <div class="sim-row">
+          <label>
+            <input type="checkbox" ${d.on ? 'checked' : ''} data-deal="${idx}">
+            <span>${d.name}</span>
+          </label>
+          <strong style="color:var(--c3); white-space:nowrap">€ ${d.val.toLocaleString('it-IT')}</strong>
+        </div>
+      `).join('')}
+
+      <div style="margin-top:16px; padding:16px; background:#fef8f0; border-radius:14px; border:1px solid #f9d8b0">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px">
+          <span style="font-weight:700; font-size:15px">Pipeline Value Totale (Trattative Attive):</span>
+          <span style="font:800 24px 'Bricolage Grotesque',sans-serif; color:#c25e00">€ ${activeTotal.toLocaleString('it-IT')}</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:${pct}%; background:var(--c3)"></div>
+        </div>
+        <div style="font-size:13px; color:var(--mut)">${state.deals.filter(d => d.on).length} trattative attive su ${state.deals.length} preventivi in corso (${pct}% del portafoglio potenziale).</div>
+      </div>
+    </div>
+
+    <h3>Tutti i 9 concetti della Pipeline spiegati nel dettaglio</h3>
+    ${renderConceptCard('pipeline-vendita')}
+    ${renderConceptCard('lead')}
+    ${renderConceptCard('qualificazione-lead')}
+    ${renderConceptCard('proposal')}
+    ${renderConceptCard('active-deals')}
+    ${renderConceptCard('negotiation')}
+    ${renderConceptCard('pipeline-value')}
+    ${renderConceptCard('closed-won')}
+    ${renderConceptCard('closed-lost')}
+
+    ${renderFooterNav('dati-segmenti', 'crescita-metriche')}
+    `;
+  },
+
+  /* ------------------------------------------------------------------------
+     SEZIONE 5: TECNICHE DI VENDITA & METRICHE DI VALORE
+     ------------------------------------------------------------------------ */
+  'crescita-metriche': () => {
+    const firstPurchase = state.clvSpend;
+    const clvTotal = Math.round(state.clvSpend * state.clvTrips * state.clvYears);
+    const barFirstPct = Math.min(100, Math.max(8, Math.round((firstPurchase / Math.max(clvTotal, 1)) * 100)));
+
+    return `
+    <span class="tag">Sezione 5 di 7 • Aumentare il Valore &amp; Fidelizzare</span>
+    <h1>Up-selling, Cross-selling e Metriche di Valore</h1>
+    <p class="lead">Vendere bene non significa solo trovare nuovi clienti, ma <strong>aumentare il valore di ogni prenotazione</strong> e <strong>mantenere i viaggiatori fedeli nel tempo</strong>.</p>
+
+    <!-- SCHEMA SVG 8: CONFRONTO UP-SELLING VS CROSS-SELLING -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Schema 8 — Confronto Visivo: Up-selling vs Cross-selling</span>
+      </div>
+      <p class="schema-sub">Due tecniche complementari per arricchire l'esperienza del viaggiatore:</p>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 820 230" role="img" aria-label="Schema comparativo tra Up-selling (salto di categoria) e Cross-selling (servizi collegati)">
+          <!-- Box Sinistra: Up-selling -->
+          <rect x="20" y="18" width="375" height="194" rx="16" fill="#fce8ef" stroke="#e0457b" stroke-width="2"/>
+          <text x="207" y="46" text-anchor="middle" fill="#881337" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="17">UP-SELLING (Salto di Qualità ↑)</text>
+
+          <rect x="65" y="142" width="285" height="48" rx="11" fill="#fff" stroke="#e0457b" stroke-width="1.5"/>
+          <text x="207" y="171" text-anchor="middle" fill="#334155" font-size="13">Scelta iniziale: Camera Standard (€ 100)</text>
+
+          <path d="M 207 136 L 207 114" stroke="#e0457b" stroke-width="3.5" marker-end="url(#arr1)"/>
+
+          <rect x="50" y="62" width="315" height="48" rx="11" fill="#e0457b"/>
+          <text x="207" y="91" text-anchor="middle" fill="#fff" font-weight="700" font-size="13.5">Proposta: Suite Vista Mare (€ 145)</text>
+
+          <!-- Box Destra: Cross-selling -->
+          <rect x="425" y="18" width="375" height="194" rx="16" fill="#e9effe" stroke="#3b6df0" stroke-width="2"/>
+          <text x="612" y="46" text-anchor="middle" fill="#1e3a8a" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="17">CROSS-SELLING (Servizi Extra +)</text>
+
+          <rect x="522" y="64" width="180" height="48" rx="11" fill="#3b6df0"/>
+          <text x="612" y="93" text-anchor="middle" fill="#fff" font-weight="700" font-size="13.5">Acquisto base: Volo A/R</text>
+
+          <line x1="565" y1="114" x2="515" y2="142" stroke="#3b6df0" stroke-width="2.5"/>
+          <line x1="659" y1="114" x2="709" y2="142" stroke="#3b6df0" stroke-width="2.5"/>
+
+          <rect x="442" y="144" width="155" height="46" rx="10" fill="#fff" stroke="#3b6df0" stroke-width="1.5"/>
+          <text x="519" y="171" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">+ Noleggio Auto</text>
+
+          <rect x="627" y="144" width="155" height="46" rx="10" fill="#fff" stroke="#3b6df0" stroke-width="1.5"/>
+          <text x="704" y="171" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">+ Assicurazione</text>
+        </svg>
+      </div>
+    </div>
+
+    ${renderConceptCard('up-selling')}
+    ${renderConceptCard('cross-selling')}
+
+    <h2>Le Metriche dei Clienti: Total Clients, CLV e Churn Rate</h2>
+    ${renderConceptCard('total-clients')}
+    ${renderConceptCard('clv')}
+
+    <!-- CALCOLATORE INTERATTIVO CLV -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Calcolatore Interattivo — Customer Lifetime Value (CLV)</span>
+      </div>
+      <p class="schema-sub">Sposta i cursori per capire quanto vale un cliente fedele rispetto a chi acquista una sola volta:</p>
+
+      <div class="slider-group">
+        <div class="slider-hdr"><span>Spesa media per singolo viaggio:</span><span>€ ${state.clvSpend.toLocaleString('it-IT')}</span></div>
+        <input type="range" min="300" max="4000" step="100" value="${state.clvSpend}" data-clv="spend">
+      </div>
+      <div class="slider-group">
+        <div class="slider-hdr"><span>Numero di viaggi all'anno con noi:</span><span>${state.clvTrips} viaggi/anno</span></div>
+        <input type="range" min="1" max="4" step="0.5" value="${state.clvTrips}" data-clv="trips">
+      </div>
+      <div class="slider-group">
+        <div class="slider-hdr"><span>Anni in cui resta nostro cliente fedele:</span><span>${state.clvYears} anni</span></div>
+        <input type="range" min="1" max="10" step="1" value="${state.clvYears}" data-clv="years">
+      </div>
+
+      <div style="background:#fcf3f6; border:1px solid #f4c2d3; border-radius:14px; padding:16px; margin-top:12px">
+        <div style="margin-bottom:10px">
+          <div style="display:flex; justify-content:space-between; font-size:13.5px">
+            <span>1° Acquisto singolo:</span>
+            <strong>€ ${firstPurchase.toLocaleString('it-IT')}</strong>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:${barFirstPct}%; background:#94a3b8"></div></div>
+        </div>
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:15px">
+            <span><strong>Valore Totale nel Tempo (CLV):</strong></span>
+            <strong style="color:var(--c4); font-size:20px">€ ${clvTotal.toLocaleString('it-IT')}</strong>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--c4)"></div></div>
+        </div>
+      </div>
+    </div>
+
+    ${renderConceptCard('churn-rate')}
+
+    <!-- SCHEMA SVG 9: CHURN RATE ANALYSIS -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Schema 9 — Come Funziona la Churn Rate Analysis</span>
+      </div>
+      <p class="schema-sub">Analizzare perché un viaggiatore non torna permette di trasformare un problema in un miglioramento:</p>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 820 130" role="img" aria-label="Flusso Churn Rate: Rilevamento abbandoni, Analisi cause, Azione correttiva, Recupero clienti">
+          <rect x="15" y="22" width="180" height="86" rx="14" fill="#fdecea" stroke="#e5533d" stroke-width="2"/>
+          <text x="105" y="54" text-anchor="middle" fill="#991b1b" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="14">1. Misura Abbandoni</text>
+          <text x="105" y="75" text-anchor="middle" fill="#334155" font-size="12">Quanti clienti dell'anno</text>
+          <text x="105" y="91" text-anchor="middle" fill="#334155" font-size="12">scorso non sono tornati?</text>
+
+          <line x1="200" y1="65" x2="220" y2="65" stroke="#5d6679" stroke-width="2.5" marker-end="url(#arr1)"/>
+
+          <rect x="225" y="22" width="180" height="86" rx="14" fill="#fef3e6" stroke="#f08a1c" stroke-width="2"/>
+          <text x="315" y="54" text-anchor="middle" fill="#9a3412" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="14">2. Scopri i Motivi</text>
+          <text x="315" y="75" text-anchor="middle" fill="#334155" font-size="12">Sondaggi, reclami,</text>
+          <text x="315" y="91" text-anchor="middle" fill="#334155" font-size="12">prezzo o servizi carenti</text>
+
+          <line x1="410" y1="65" x2="430" y2="65" stroke="#5d6679" stroke-width="2.5" marker-end="url(#arr1)"/>
+
+          <rect x="435" y="22" width="180" height="86" rx="14" fill="#e9effe" stroke="#3b6df0" stroke-width="2"/>
+          <text x="525" y="54" text-anchor="middle" fill="#1e3a8a" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="14">3. Correggi gli Errori</text>
+          <text x="525" y="75" text-anchor="middle" fill="#334155" font-size="12">Migliora il servizio e</text>
+          <text x="525" y="91" text-anchor="middle" fill="#334155" font-size="12">invia offerte mirate</text>
+
+          <line x1="620" y1="65" x2="640" y2="65" stroke="#5d6679" stroke-width="2.5" marker-end="url(#arr1)"/>
+
+          <rect x="645" y="22" width="160" height="86" rx="14" fill="#e6f7f2" stroke="#12a37f" stroke-width="2"/>
+          <text x="725" y="54" text-anchor="middle" fill="#065f46" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="14">4. Riduci Perdite</text>
+          <text x="725" y="75" text-anchor="middle" fill="#334155" font-size="12">Più viaggiatori fedeli</text>
+          <text x="725" y="91" text-anchor="middle" fill="#334155" font-size="12">negli anni successivi</text>
+        </svg>
+      </div>
+    </div>
+
+    ${renderFooterNav('pipeline', 'qualita-gdpr')}
+    `;
+  },
+
+  /* ------------------------------------------------------------------------
+     SEZIONE 6: QUALITÀ DEI DATI, PROTEZIONE & GDPR
+     ------------------------------------------------------------------------ */
+  'qualita-gdpr': () => {
+    const rules = [
+      "Verificare che l'indirizzo email e il numero di telefono del cliente siano scritti senza errori (Data Quality).",
+      "Eliminare eventuali schede duplicate dello stesso viaggiatore nel database CRM (Data Quality).",
+      "Chiedere il consenso esplicito e separato prima di iscrivere l'ospite alla newsletter promozionale (GDPR).",
+      "Proteggere l'accesso al CRM con password personali e permessi limitati al solo personale autorizzato (Data Protection).",
+      "Garantire al cliente il diritto di consultare, modificare o far cancellare i propri dati in qualsiasi momento (GDPR)."
+    ];
+    const doneCount = state.gdprChecks.filter(Boolean).length;
+    const pct = Math.round((doneCount / rules.length) * 100);
+
+    return `
+    <span class="tag">Sezione 6 di 7 • Affidabilità &amp; Rispetto della Privacy</span>
+    <h1>Data Quality, Data Protection e GDPR</h1>
+    <p class="lead">Un CRM è efficace solo se contiene <strong>dati puliti e aggiornati</strong> e se protegge la privacy dei viaggiatori rispettando le leggi europee.</p>
+
+    <!-- SCHEMA SVG 10: DATA QUALITY + SICUREZZA & GDPR -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Schema 10 — I 3 Pilastri della Gestione Responsabile dei Dati</span>
+      </div>
+      <p class="schema-sub">Come qualità, sicurezza tecnica e legge lavorano insieme:</p>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 820 215" role="img" aria-label="Schema dei tre pilastri: Data Quality, Data Protection e GDPR">
+          <!-- Box 1: Data Quality -->
+          <rect x="20" y="20" width="245" height="175" rx="16" fill="#e6f7fa" stroke="#0fa5c4" stroke-width="2"/>
+          <text x="142" y="50" text-anchor="middle" fill="#0e7490" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16">1. Data Quality</text>
+          <text x="142" y="72" text-anchor="middle" fill="#155e75" font-weight="600" font-size="12.5">"Dati esatti e aggiornati"</text>
+          <rect x="38" y="88" width="209" height="42" rx="8" fill="#fdecea"/>
+          <text x="142" y="113" text-anchor="middle" fill="#991b1b" font-size="12">✗ maro.rossi@gmal.con</text>
+          <rect x="38" y="138" width="209" height="42" rx="8" fill="#e6f7f2"/>
+          <text x="142" y="163" text-anchor="middle" fill="#065f46" font-weight="600" font-size="12">✓ mario.rossi@gmail.com</text>
+
+          <!-- Box 2: Data Protection -->
+          <rect x="287" y="20" width="245" height="175" rx="16" fill="#e9effe" stroke="#3b6df0" stroke-width="2"/>
+          <text x="409" y="50" text-anchor="middle" fill="#1e3a8a" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16">2. Data Protection</text>
+          <text x="409" y="72" text-anchor="middle" fill="#1d4ed8" font-weight="600" font-size="12.5">"Difesa da furti e perdite"</text>
+          <text x="409" y="106" text-anchor="middle" fill="#334155" font-size="12.5">• Password e crittografia</text>
+          <text x="409" y="129" text-anchor="middle" fill="#334155" font-size="12.5">• Accessi autorizzati per ruolo</text>
+          <text x="409" y="152" text-anchor="middle" fill="#334155" font-size="12.5">• Backup periodici sicuri</text>
+
+          <!-- Box 3: GDPR -->
+          <rect x="554" y="20" width="245" height="175" rx="16" fill="#f3e8ff" stroke="#8a4fe0" stroke-width="2"/>
+          <text x="676" y="50" text-anchor="middle" fill="#581c87" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16">3. GDPR (Legge UE)</text>
+          <text x="676" y="72" text-anchor="middle" fill="#6b21a8" font-weight="600" font-size="12.5">"Diritti e consenso esplicito"</text>
+          <text x="676" y="106" text-anchor="middle" fill="#334155" font-size="12.5">• Consenso chiaro e libero</text>
+          <text x="676" y="129" text-anchor="middle" fill="#334155" font-size="12.5">• Uso trasparente dei dati</text>
+          <text x="676" y="152" text-anchor="middle" fill="#334155" font-size="12.5">• Diritto di modifica/oblio</text>
+        </svg>
+      </div>
+    </div>
+
+    ${renderConceptCard('data-quality')}
+    ${renderConceptCard('data-protection')}
+    ${renderConceptCard('gdpr')}
+
+    <!-- CHECKLIST OPERATIVA -->
+    <div class="schema-box">
+      <div class="schema-head">
+        <span class="schema-title">Checklist Pratica — Verifica la Conformità del tuo CRM</span>
+        <span style="font-weight:700; color:var(--c6)">${doneCount}/${rules.length} (${pct}%)</span>
+      </div>
+      <div class="bar-track" style="margin-bottom:16px">
+        <div class="bar-fill" style="width:${pct}%; background:var(--c6)"></div>
+      </div>
+
+      ${rules.map((r, i) => `
+        <label class="chk-item ${state.gdprChecks[i] ? 'done' : ''}">
+          <input type="checkbox" ${state.gdprChecks[i] ? 'checked' : ''} data-chk="${i}">
+          <span>${r}</span>
+        </label>
+      `).join('')}
+    </div>
+
+    ${renderFooterNav('crescita-metriche', 'glossario-quiz')}
+    `;
+  },
+
+  /* ------------------------------------------------------------------------
+     SEZIONE 7: GLOSSARIO COMPLETO (26 VOCI), FLASHCARD & QUIZ
+     ------------------------------------------------------------------------ */
+  'glossario-quiz': () => {
+    const mode = state.practiceMode;
+    const filtered = CONCEPTS.filter(c => {
+      const matchCat = state.catFilter === 'tutti' || c.cat === state.catFilter;
+      const q = state.search.trim().toLowerCase();
+      const matchTxt = !q || c.en.toLowerCase().includes(q) || c.it.toLowerCase().includes(q) || c.def.toLowerCase().includes(q);
+      return matchCat && matchTxt;
+    });
+
+    const fc = CONCEPTS[state.fcIndex] || CONCEPTS[0];
+    const qq = QUIZ_QUESTIONS[state.quizIndex];
+
+    return `
+    <span class="tag">Sezione 7 di 7 • Ripasso Attivo</span>
+    <h1>Glossario Completo (26 Concetti), Flashcard &amp; Quiz</h1>
+    <p class="lead">Consulta tutti i <strong>26 concetti</strong> in ordine alfabetico, esercitati girando le flashcard oppure metti alla prova la tua preparazione con il quiz.</p>
+
+    <div class="tabs">
+      <button style="--c:var(--c9)" aria-selected="${mode === 'glossario'}" data-pmode="glossario">📖 Glossario (26 voci)</button>
+      <button style="--c:var(--c5)" aria-selected="${mode === 'flashcard'}" data-pmode="flashcard">🗂️ Flashcard (${state.fcIndex + 1}/26)</button>
+      <button style="--c:var(--c1)" aria-selected="${mode === 'quiz'}" data-pmode="quiz">🎯 Quiz (10 domande)</button>
+    </div>
+
+    ${mode === 'glossario' ? `
+      <div class="card">
+        <input type="search" class="search-input" placeholder="Cerca un concetto (es. Pipeline, CLV, GDPR, Up-selling, Lead...)" value="${state.search.replace(/"/g, '&quot;')}" id="glossSearch">
+        <div class="tabs" style="margin-top:4px">
+          <button class="btn-sm" style="--c:var(--c9)" aria-selected="${state.catFilter === 'tutti'}" data-cat="tutti">Tutti (26)</button>
+          <button class="btn-sm" style="--c:var(--c1)" aria-selected="${state.catFilter === 'strategia'}" data-cat="strategia">Strategia (2)</button>
+          <button class="btn-sm" style="--c:var(--c2)" aria-selected="${state.catFilter === 'tipi'}" data-cat="tipi">Tipi CRM &amp; Auto (5)</button>
+          <button class="btn-sm" style="--c:var(--c5)" aria-selected="${state.catFilter === 'dati'}" data-cat="dati">Dati &amp; Segmenti (2)</button>
+          <button class="btn-sm" style="--c:var(--c3)" aria-selected="${state.catFilter === 'pipeline'}" data-cat="pipeline">Pipeline (9)</button>
+          <button class="btn-sm" style="--c:var(--c4)" aria-selected="${state.catFilter === 'vendite'}" data-cat="vendite">Tecniche Vendita (2)</button>
+          <button class="btn-sm" style="--c:var(--c4)" aria-selected="${state.catFilter === 'metriche'}" data-cat="metriche">Metriche (3)</button>
+          <button class="btn-sm" style="--c:var(--c6)" aria-selected="${state.catFilter === 'sicurezza'}" data-cat="sicurezza">Dati &amp; GDPR (3)</button>
+        </div>
+        <p style="font-size:13.5px; color:var(--mut); margin-bottom:14px">Risultati mostrati: <strong>${filtered.length}</strong> di ${CONCEPTS.length}</p>
+
+        ${filtered.length === 0 ? `<p>Nessun termine trovato per "<strong>${state.search}</strong>".</p>` : filtered.map(c => `
+          <article class="concept" style="--c:var(${c.color})">
+            <div class="concept-hdr">
+              <span class="concept-title">${c.en}</span>
+              <div style="display:flex; gap:8px; align-items:center">
+                <span class="concept-it">${c.it}</span>
+                <button class="btn btn-sec btn-sm" data-copy="${c.id}" title="Copia definizione">Copia</button>
+              </div>
+            </div>
+            <p>${c.def}</p>
+            <div class="ex-box"><strong>Esempio:</strong> ${c.ex}</div>
+          </article>
+        `).join('')}
+      </div>
+    ` : ''}
+
+    ${mode === 'flashcard' ? `
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px">
+          <span style="font-weight:700; color:var(--c5)">Carta ${state.fcIndex + 1} di ${CONCEPTS.length}</span>
+          <span style="font-size:13px; color:var(--mut)">Clicca sulla carta per girarla</span>
+        </div>
+
+        <div class="flashcard" id="fcCard">
+          ${!state.fcFlipped ? `
+            <span class="tag" style="background:#f3e8ff; color:#581c87">TERMINE DA DEFINIRE</span>
+            <h2 style="margin:10px 0 6px">${fc.en}</h2>
+            <p style="color:var(--mut); margin:0">${fc.it}</p>
+          ` : `
+            <span class="tag" style="background:#e6f7f2; color:#065f46">DEFINIZIONE SEMPLICE</span>
+            <p style="font-size:17px; max-width:56ch; margin:10px 0">${fc.def}</p>
+            <div class="ex-box" style="max-width:56ch"><strong>Esempio:</strong> ${fc.ex}</div>
+          `}
+        </div>
+
+        <div style="display:flex; justify-content:space-between; gap:10px; margin-top:18px; flex-wrap:wrap">
+          <button class="btn btn-sec" data-fcnav="-1">← Precedente</button>
+          <button class="btn" style="background:var(--c5)" id="fcFlipBtn">${state.fcFlipped ? 'Mostra Termine' : 'Gira Carta ↻'}</button>
+          <button class="btn btn-sec" data-fcnav="1">Successiva →</button>
+        </div>
+      </div>
+    ` : ''}
+
+    ${mode === 'quiz' ? `
+      <div class="card">
+        ${state.quizIndex < QUIZ_QUESTIONS.length ? `
+          <div style="display:flex; justify-content:space-between; margin-bottom:12px; font-weight:700">
+            <span style="color:var(--c1)">Domanda ${state.quizIndex + 1} di ${QUIZ_QUESTIONS.length}</span>
+            <span>Punteggio: ${state.quizScore}</span>
+          </div>
+          <h3 style="margin-bottom:16px">${qq.q}</h3>
+          ${qq.opts.map((opt, idx) => {
+            let cls = 'quiz-opt';
+            if (state.quizAnswered !== null) {
+              if (idx === qq.ans) cls += ' ok';
+              else if (idx === state.quizAnswered) cls += ' ko';
+            }
+            return `<button class="${cls}" ${state.quizAnswered !== null ? 'disabled' : ''} data-qans="${idx}">${opt}</button>`;
+          }).join('')}
+
+          ${state.quizAnswered !== null ? `
+            <div class="ex-box" style="margin-top:14px; border-left:4px solid ${state.quizAnswered === qq.ans ? '#12a37f' : '#e5533d'}">
+              <strong>${state.quizAnswered === qq.ans ? 'Esatto! ✓' : 'Non proprio!'}</strong> ${qq.exp}
+            </div>
+            <div style="margin-top:16px; text-align:right">
+              <button class="btn" data-qnext="1">${state.quizIndex + 1 < QUIZ_QUESTIONS.length ? 'Prossima domanda →' : 'Vedi risultato finale'}</button>
+            </div>
+          ` : ''}
+        ` : `
+          <div style="text-align:center; padding:20px 10px">
+            <span class="tag">Quiz Completato!</span>
+            <h2>Hai totalizzato ${state.quizScore} su ${QUIZ_QUESTIONS.length}</h2>
+            <p class="lead" style="margin:0 auto 20px">${state.quizScore >= 8 ? 'Ottimo lavoro! Padroneggi tutti i concetti chiave del CRM e delle vendite nel turismo.' : 'Buon risultato! Puoi rivedere gli schemi o ripetere il quiz per puntare al 10/10.'}</p>
+            <button class="btn" data-qreset="1">Ricomincia il Quiz ↻</button>
+          </div>
+        `}
+      </div>
+    ` : ''}
+
+    ${renderFooterNav('qualita-gdpr', 'panoramica')}
+    `;
+  }
+};
+
+/* ==========================================================================
+   MOTORE DI NAVIGAZIONE E RENDERING (iFrame & Google Sites Safe)
+   ========================================================================== */
+function navigateTo(id) {
+  if (!V[id]) id = 'panoramica';
+  state.view = id;
+  try { history.replaceState(null, '', '#' + id); } catch (e) {}
+  render(false);
+}
+
+function render(keepScroll = true) {
+  const sec = SECTIONS.find(x => x.id === state.view) || SECTIONS[0];
+  document.documentElement.style.setProperty('--a', `var(${sec.c})`);
+  document.documentElement.style.setProperty('--at', `color-mix(in srgb, var(${sec.c}) 14%, #fff)`);
+
+  $('#nav').innerHTML = `
+    <div class="brand">🧭 Guida CRM Turismo</div>
+    <div class="brand-sub">26 concetti con schemi visivi</div>
+  ` + SECTIONS.map(item => `
+    <a data-go="${item.id}" style="--c:var(${item.c})" class="${item.id === state.view ? 'on' : ''}" ${item.id === state.view ? 'aria-current="page"' : ''}>
+      <i></i>${item.t}
+    </a>
+  `).join('');
+
+  const vEl = $('#v');
+  vEl.innerHTML = V[state.view] ? V[state.view]() : '';
+
+  if (!keepScroll) {
+    window.scrollTo(0, 0);
+    if (vEl) vEl.scrollTop = 0;
+  }
+}
+
+/* ==========================================================================
+   DELEGAZIONE EVENTI UNIVERSALE
+   ========================================================================== */
+document.addEventListener('click', e => {
+  const goBtn = e.target.closest('[data-go]');
+  if (goBtn) {
+    e.preventDefault();
+    navigateTo(goBtn.dataset.go);
+    return;
+  }
+
+  const crmTab = e.target.closest('[data-crmtab]');
+  if (crmTab) {
+    state.crmTab = crmTab.dataset.crmtab;
+    render(true);
+    return;
+  }
+
+  const segBtn = e.target.closest('[data-seg]');
+  if (segBtn) {
+    state.segSelected = segBtn.dataset.seg;
+    render(true);
+    return;
+  }
+
+  const pmodeBtn = e.target.closest('[data-pmode]');
+  if (pmodeBtn) {
+    state.practiceMode = pmodeBtn.dataset.pmode;
+    render(true);
+    return;
+  }
+
+  const catBtn = e.target.closest('[data-cat]');
+  if (catBtn) {
+    state.catFilter = catBtn.dataset.cat;
+    render(true);
+    return;
+  }
+
+  const copyBtn = e.target.closest('[data-copy]');
+  if (copyBtn) {
+    const c = CONCEPTS.find(x => x.id === copyBtn.dataset.copy);
+    if (c) copyText(`${c.en}: ${c.def}`);
+    return;
+  }
+
+  if (e.target.closest('#fcCard') || e.target.closest('#fcFlipBtn')) {
+    state.fcFlipped = !state.fcFlipped;
+    render(true);
+    return;
+  }
+
+  const fcNav = e.target.closest('[data-fcnav]');
+  if (fcNav) {
+    const dir = parseInt(fcNav.dataset.fcnav, 10);
+    state.fcIndex = (state.fcIndex + dir + CONCEPTS.length) % CONCEPTS.length;
+    state.fcFlipped = false;
+    render(true);
+    return;
+  }
+
+  const qAns = e.target.closest('[data-qans]');
+  if (qAns && state.quizAnswered === null) {
+    const chosen = parseInt(qAns.dataset.qans, 10);
+    state.quizAnswered = chosen;
+    if (chosen === QUIZ_QUESTIONS[state.quizIndex].ans) state.quizScore++;
+    render(true);
+    return;
+  }
+
+  if (e.target.closest('[data-qnext]')) {
+    state.quizIndex++;
+    state.quizAnswered = null;
+    render(true);
+    return;
+  }
+
+  if (e.target.closest('[data-qreset]')) {
+    state.quizIndex = 0;
+    state.quizScore = 0;
+    state.quizAnswered = null;
+    render(true);
+    return;
+  }
+});
+
+document.addEventListener('change', e => {
+  const dealChk = e.target.closest('[data-deal]');
+  if (dealChk) {
+    const idx = parseInt(dealChk.dataset.deal, 10);
+    state.deals[idx].on = dealChk.checked;
+    render(true);
+    return;
+  }
+
+  const gdprChk = e.target.closest('[data-chk]');
+  if (gdprChk) {
+    const idx = parseInt(gdprChk.dataset.chk, 10);
+    state.gdprChecks[idx] = gdprChk.checked;
+    render(true);
+    return;
+  }
+});
+
+document.addEventListener('input', e => {
+  const clvSlider = e.target.closest('[data-clv]');
+  if (clvSlider) {
+    const kind = clvSlider.dataset.clv;
+    const val = parseFloat(clvSlider.value);
+    if (kind === 'spend') state.clvSpend = val;
+    if (kind === 'trips') state.clvTrips = val;
+    if (kind === 'years') state.clvYears = val;
+    render(true);
+    return;
+  }
+
+  if (e.target.id === 'glossSearch') {
+    const pos = e.target.selectionStart;
+    state.search = e.target.value;
+    render(true);
+    const inp = $('#glossSearch');
+    if (inp) {
+      inp.focus();
+      try { inp.setSelectionRange(pos, pos); } catch (err) {}
+    }
+  }
+});
+
+/* ==========================================================================
+   CLIPBOARD CON FALLBACK SANDBOX
+   ========================================================================== */
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2200);
+}
+
+function copyText(txt) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(txt).then(() => toast('Definizione copiata!'), () => fallbackCopy(txt));
+  } else {
+    fallbackCopy(txt);
+  }
+}
+
+function fallbackCopy(txt) {
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = txt;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    toast('Definizione copiata!');
+  } catch (e) {
+    toast('Impossibile copiare automaticamente');
+  }
+}
+
+window.addEventListener('load', () => {
+  const h = location.hash.replace('#', '');
+  if (h && V[h]) state.view = h;
+  render(false);
+});
+</script>
+</body>
+</html>
