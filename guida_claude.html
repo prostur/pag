@@ -1333,9 +1333,43 @@
 
             <h2>10.1 Artifacts installabili come applicazioni</h2>
             <ul class="cards">
-                <li><span class="emoji-icon">🖥️</span><h3>App per Mac e Windows</h3>Dal 24 novembre è in beta la possibilità di installare un Artifact creato da Claude come applicazione sul computer. Ottiene una propria finestra e un'icona e può interagire con il sistema operativo.<div class="subtitle-tag">Beta • macOS e Windows</div></li>
+                <li><span class="emoji-icon">🖥️</span><h3>App per Mac e Windows</h3>Dal 24 novembre è in beta la possibilità di installare un Artifact creato da Claude come applicazione sul computer. Ottiene una propria finestra e un'icona e può interagire con il sistema operativo.<div class="subtitle-tag">Beta • Free, Pro, Max, Ultra, Team ed Enterprise</div></li>
                 <li><span class="emoji-icon">📂</span><h3>Trasferimento di file tramite connettori</h3>Claude può inviare file alle applicazioni collegate e salvare file messi a disposizione da queste app. I connettori diventano così più operativi, non limitati alla consultazione dei dati.<div class="subtitle-tag">Beta • Pro, Max, Ultra, Team ed Enterprise secondo attivazione</div></li>
             </ul>
+
+
+            <h3>Come installare un Artifact come app</h3>
+            <p>La funzione <strong>Installa come app</strong> è in beta e permette di aprire un Artifact in una finestra autonoma, con una propria icona, come un normale programma. Non occorre creare un pacchetto, firmare un'applicazione o inserire una chiave API: l'app utilizza il tuo account Claude. L'Artifact e l'app installata restano collegati: quando l'Artifact viene modificato da te o da un altro editor, anche l'app si aggiorna.</p>
+            <ol class="bullet-list">
+                <li><strong>Installa o aggiorna Claude Desktop.</strong> Serve Claude per macOS o Windows, versione <strong>6.28899.0 o successiva</strong>. La funzione non è disponibile dal sito web o dalle app mobili.</li>
+                <li><strong>Apri Claude Desktop</strong> e visualizza nella finestra principale l'Artifact che vuoi trasformare in app.</li>
+                <li><strong>Apri il menu dell'Artifact:</strong> fai clic sul menu del titolo oppure clicca con il tasto destro sull'Artifact.</li>
+                <li><strong>Scegli “Installa come app”</strong> e poi conferma con “Installa”. La stessa voce può comparire anche nel menu “Condividi”. Alcuni Artifact possono mostrare un proprio pulsante di installazione.</li>
+                <li><strong>Concedi soltanto i permessi necessari.</strong> Se l'app chiede notifiche, scorciatoie da tastiera, visualizzazione sopra le altre finestre o accesso ai file e ai programmi, valuta ogni richiesta prima di consentirla.</li>
+            </ol>
+            <div class="table-responsive"><table class="data-table"><thead><tr><th>Sistema</th><th>Dove trovare l'app dopo l'installazione</th></tr></thead><tbody>
+                <tr><td><strong>macOS</strong></td><td>Nella cartella “Claude Apps”, dentro Applicazioni nella cartella Inizio dell'utente. Puoi cercarla anche con Spotlight o nel launcher App e trascinarla nel Dock.</td></tr>
+                <tr><td><strong>Windows</strong></td><td>Nel menu Start, nella cartella “Claude Apps”, oppure tramite il collegamento creato sul desktop.</td></tr>
+            </tbody></table></div>
+            <p>Puoi aprire e gestire le app anche da Claude Desktop: <strong>File → App</strong> (su Windows, il menu File si trova nel pulsante ☰). Da qui puoi aprire un'app, modificarne i permessi o disinstallarla.</p>
+
+            <h3>A quali Artifact si applica?</h3>
+            <p>Non tutti gli Artifact possono diventare app. La funzione è pensata soprattutto per gli <strong>Artifact interattivi e basati su codice</strong>, ad esempio piccoli strumenti e applicazioni web create da Claude: timer, tracker, calcolatori, dashboard, gestori di attività, strumenti per organizzare file o app con notifiche e funzioni nella barra dei menu. L'Artifact deve essere compatibile con l'installazione e la voce “Installa come app” deve essere disponibile nel suo menu.</p>
+            <div class="highlight-box" style="border-left-color: var(--color-cowork);">
+                <strong>Non installabili secondo le limitazioni attuali:</strong>
+                <ul class="bullet-list">
+                    <li>Artifact basati su modelli predefiniti, come <strong>Docs, Slides e Sheets</strong>;</li>
+                    <li>Artifact legacy, cioè creati con il formato precedente;</li>
+                    <li>Artifact live generati da <strong>Claude Cowork</strong>.</li>
+                </ul>
+                Anche alcune organizzazioni con configurazioni HIPAA o distribuzioni ibride non possono usare la funzione. Su Linux, browser e dispositivi mobili l'installazione come app desktop non è disponibile.
+            </div>
+            <h3>Piani e disponibilità</h3>
+            <p>La beta è in distribuzione sui piani <strong>Free, Pro, Max, Ultra, Team ed Enterprise</strong>. È necessario usare Claude Desktop aggiornato. Nei piani Team la funzione è attiva per impostazione predefinita; nei piani Enterprise un proprietario deve abilitarla in <strong>Impostazioni organizzazione → Artifacts</strong>. Anche su Team ed Enterprise l'accesso completo al computer è disattivato per impostazione predefinita e può essere gestito dall'amministratore.</p>
+            <h3>Attenzione ai permessi</h3>
+            <p>Un'app installata può funzionare con i soli permessi di base oppure chiedere autorizzazioni aggiuntive. L'opzione <strong>Accesso completo a questo computer</strong> è particolarmente delicata: consente all'app di avviare programmi e leggere, modificare o eliminare file senza chiedere ogni volta. Concedila soltanto se ti fidi di chi ha realizzato l'Artifact e hai compreso cosa deve fare. Anthropic specifica che non esamina preventivamente le app create dagli utenti. I permessi vengono richiesti nuovamente quando l'app cambia versione.</p>
+            <p><strong>Nota:</strong> “Aggiungi al Dock” dal browser, “Crea collegamento” o “Aggiungi a schermata Home” creano soltanto una scorciatoia. Non equivalgono a “Installa come app” in Claude Desktop e non offrono le stesse integrazioni con il sistema operativo.</p>
+            <p><a href="https://support.claude.com/it/articles/18516354-installa-un-artefatto-come-app" target="_blank" rel="noopener">Leggi la guida ufficiale Anthropic: Installa un artefatto come app</a>.</p>
 
             <h2>10.2 Utilizzo diretto del computer</h2>
             <div class="highlight-box" style="border-left-color: var(--color-cowork);"><strong>Computer use:</strong> Claude può osservare lo schermo e interagire con le applicazioni desktop autorizzate, ad esempio cliccando, digitando e svolgendo passaggi operativi. La beta è stata annunciata il 20 novembre per i piani Team ed Enterprise ed è in distribuzione graduale. L'accesso al computer deve essere abilitato e le applicazioni consentite dall'utente.</div>
