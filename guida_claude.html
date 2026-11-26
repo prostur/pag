@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude: Guida Completa alle Funzioni dell'App</title>
+    
+    <!-- Font Inter e Icone FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Palette di colori tematici per ciascuna area funzionale di Claude */
+            --color-mappa: #0056b3;        /* Blu istituzionale - Mappa generale */
+            --color-chat: #0284c7;         /* Azzurro brillante - Chat */
+            --color-projects: #6a1b9a;     /* Viola profondo - Projects */
+            --color-artifacts: #d97757;    /* Terracotta Anthropic - Artifacts */
+            --color-cowork: #d32f2f;       /* Rosso operativo - Cowork */
+            --color-research: #00897b;     /* Verde acqua - Research */
+            --color-skills: #f57c00;       /* Arancione - Skills */
+            --color-connectors: #283593;   /* Indaco - Connectors & Altre funzioni */
+            --color-piani: #388e3c;        /* Verde - Piani e Roadmap */
+            
+            --text-color: #333333;
+            --bg-color: #f4f6f9;
+            --sidebar-bg: #ffffff;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow: hidden;
+        }
+
+        /* Sidebar laterale di navigazione (Desktop) */
+        .sidebar {
+            width: 325px;
+            background-color: var(--sidebar-bg);
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            z-index: 10;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            padding: 22px 18px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.28em;
+            letter-spacing: 0.4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        .sidebar-header i {
+            margin-right: 8px;
+            font-size: 1.15em;
+            color: #d97757;
+        }
+        
+        .sidebar-header .subtitle {
+            display: block;
+            font-size: 0.54em;
+            font-weight: 400;
+            margin-top: 6px;
+            opacity: 0.85;
+        }
+
+        .menu-item {
+            padding: 14px 18px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.96em;
+            font-weight: 600;
+            border-left: 6px solid transparent;
+            display: flex;
+            align-items: center;
+            color: #4A5568;
+        }
+
+        .menu-item i {
+            margin-right: 14px;
+            font-size: 1.15em;
+            width: 22px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover i {
+            transform: scale(1.15);
+        }
+
+        /* Temi colore voci menu */
+        .theme-mappa:hover, .theme-mappa.active { border-left-color: var(--color-mappa); color: var(--color-mappa); background-color: rgba(0, 86, 179, 0.08); }
+        .theme-mappa i { color: var(--color-mappa); }
+
+        .theme-chat:hover, .theme-chat.active { border-left-color: var(--color-chat); color: var(--color-chat); background-color: rgba(2, 132, 199, 0.08); }
+        .theme-chat i { color: var(--color-chat); }
+
+        .theme-projects:hover, .theme-projects.active { border-left-color: var(--color-projects); color: var(--color-projects); background-color: rgba(106, 27, 154, 0.08); }
+        .theme-projects i { color: var(--color-projects); }
+
+        .theme-artifacts:hover, .theme-artifacts.active { border-left-color: var(--color-artifacts); color: var(--color-artifacts); background-color: rgba(217, 119, 87, 0.1); }
+        .theme-artifacts i { color: var(--color-artifacts); }
+
+        .theme-cowork:hover, .theme-cowork.active { border-left-color: var(--color-cowork); color: var(--color-cowork); background-color: rgba(211, 47, 47, 0.08); }
+        .theme-cowork i { color: var(--color-cowork); }
+
+        .theme-research:hover, .theme-research.active { border-left-color: var(--color-research); color: var(--color-research); background-color: rgba(0, 137, 123, 0.08); }
+        .theme-research i { color: var(--color-research); }
+
+        .theme-skills:hover, .theme-skills.active { border-left-color: var(--color-skills); color: var(--color-skills); background-color: rgba(245, 124, 0, 0.08); }
+        .theme-skills i { color: var(--color-skills); }
+
+        .theme-connectors:hover, .theme-connectors.active { border-left-color: var(--color-connectors); color: var(--color-connectors); background-color: rgba(40, 53, 147, 0.08); }
+        .theme-connectors i { color: var(--color-connectors); }
+
+        .theme-piani:hover, .theme-piani.active { border-left-color: var(--color-piani); color: var(--color-piani); background-color: rgba(56, 142, 60, 0.08); }
+        .theme-piani i { color: var(--color-piani); }
+
+        /* Area contenuti principale */
+        .main-content {
+            flex-grow: 1;
+            padding: 36px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        .content-section {
+            display: none;
+            max-width: 960px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 38px;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            animation: fadeIn 0.45s ease-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(14px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 14px;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            font-size: 1.95em;
+            line-height: 1.25;
+        }
+
+        h1 i {
+            margin-right: 14px;
+            font-size: 1.05em;
+        }
+
+        h2 {
+            color: #1e293b;
+            font-size: 1.35em;
+            margin-top: 30px;
+            margin-bottom: 14px;
+        }
+
+        /* Colori titoli sezioni */
+        #mappa h1 { color: var(--color-mappa); border-bottom-color: var(--color-mappa); }
+        #chat h1 { color: var(--color-chat); border-bottom-color: var(--color-chat); }
+        #projects h1 { color: var(--color-projects); border-bottom-color: var(--color-projects); }
+        #artifacts h1 { color: var(--color-artifacts); border-bottom-color: var(--color-artifacts); }
+        #cowork h1 { color: var(--color-cowork); border-bottom-color: var(--color-cowork); }
+        #research h1 { color: var(--color-research); border-bottom-color: var(--color-research); }
+        #skills h1 { color: var(--color-skills); border-bottom-color: var(--color-skills); }
+        #connectors h1 { color: var(--color-connectors); border-bottom-color: var(--color-connectors); }
+        #piani h1 { color: var(--color-piani); border-bottom-color: var(--color-piani); }
+
+        p {
+            line-height: 1.7;
+            font-size: 1.05em;
+            margin-bottom: 18px;
+            color: #4a5568;
+        }
+
+        .platform-pill-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .platform-pill {
+            background: #eef2ff;
+            color: #1e3a8a;
+            font-size: 0.84em;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .highlight-box {
+            background-color: #f8fafc;
+            border-left: 4px solid #cbd5e0;
+            padding: 18px 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 22px 0;
+            line-height: 1.65;
+        }
+        
+        .highlight-box strong {
+            color: #1e293b;
+        }
+
+        .prompt-box {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 18px 22px;
+            border-radius: 10px;
+            font-size: 0.98em;
+            line-height: 1.6;
+            margin: 18px 0;
+            border-left: 5px solid #d97757;
+            position: relative;
+        }
+
+        .prompt-box .prompt-label {
+            display: block;
+            font-size: 0.78em;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #f59e0b;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .source-tag {
+            display: inline-block;
+            background: #edf2f7;
+            color: #4a5568;
+            font-size: 0.83em;
+            font-weight: 600;
+            padding: 4px 11px;
+            border-radius: 20px;
+            margin-top: 8px;
+        }
+
+        /* Tabelle dati */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 22px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.96em;
+            background: white;
+        }
+        .data-table th, .data-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #edf2f7;
+            line-height: 1.5;
+        }
+        .data-table th {
+            background-color: #f8fafc;
+            font-weight: 700;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .data-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Badge stati e piani */
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.86em;
+        }
+        .badge-yes { background: #dcfce7; color: #166534; }
+        .badge-no { background: #fee2e2; color: #991b1b; }
+        .badge-beta { background: #fef3c7; color: #b45309; }
+        .badge-pro { background: #e0e7ff; color: #3730a3; }
+        .badge-enterprise { background: #f3e8ff; color: #6b21a8; }
+
+        /* Contenitori schemi a blocchi */
+        .schema-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 22px 0;
+            padding: 22px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px dashed #cbd5e0;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .schema-box {
+            background: white;
+            padding: 15px 18px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+            flex: 1;
+            min-width: 150px;
+            font-weight: 700;
+            color: #1e293b;
+            border: 2px solid transparent;
+            transition: transform 0.2s;
+        }
+        .schema-box:hover {
+            transform: translateY(-3px);
+        }
+        .schema-box small {
+            display: block;
+            font-weight: 400;
+            font-size: 0.85em;
+            color: #64748b;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+        .schema-arrow {
+            color: #94a3b8;
+            font-size: 1.35em;
+        }
+
+        /* Infografiche SVG */
+        .infographic-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+            margin: 18px 0 24px 0;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+        
+        .infographic-img:hover {
+            transform: scale(1.01);
+        }
+
+        /* Griglia Cards */
+        ul.cards {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        ul.cards li {
+            background: #ffffff;
+            padding: 22px 20px 22px 62px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            position: relative;
+            transition: all 0.2s;
+            line-height: 1.6;
+        }
+        
+        ul.cards li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.07);
+        }
+
+        ul.cards li > i.menu-icon,
+        ul.cards li > span.emoji-icon {
+            position: absolute;
+            left: 18px;
+            top: 22px;
+            font-size: 1.65em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+        }
+
+        ul.cards li h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.15em;
+            color: #1a202c;
+        }
+
+        ul.cards li .subtitle-tag {
+            display: inline-block;
+            font-size: 0.78em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        ul.bullet-list {
+            padding-left: 20px;
+            margin: 10px 0 16px 0;
+            color: #475569;
+            line-height: 1.65;
+        }
+
+        ul.bullet-list li {
+            margin-bottom: 6px;
+        }
+
+        /* Colori icone cards per sezione */
+        #mappa ul.cards li > i.menu-icon { color: var(--color-mappa); }
+        #mappa ul.cards li:hover { border-color: var(--color-mappa); }
+
+        #chat ul.cards li > i.menu-icon { color: var(--color-chat); }
+        #chat ul.cards li:hover { border-color: var(--color-chat); }
+
+        #projects ul.cards li > i.menu-icon { color: var(--color-projects); }
+        #projects ul.cards li:hover { border-color: var(--color-projects); }
+
+        #artifacts ul.cards li:hover { border-color: var(--color-artifacts); }
+
+        #cowork ul.cards li > i.menu-icon { color: var(--color-cowork); }
+        #cowork ul.cards li:hover { border-color: var(--color-cowork); }
+
+        #research ul.cards li > i.menu-icon { color: var(--color-research); }
+        #research ul.cards li:hover { border-color: var(--color-research); }
+
+        #skills ul.cards li > i.menu-icon { color: var(--color-skills); }
+        #skills ul.cards li:hover { border-color: var(--color-skills); }
+
+        #connectors ul.cards li > i.menu-icon { color: var(--color-connectors); }
+        #connectors ul.cards li:hover { border-color: var(--color-connectors); }
+
+        #piani ul.cards li > i.menu-icon { color: var(--color-piani); }
+        #piani ul.cards li:hover { border-color: var(--color-piani); }
+
+        /* Selettore Interattivo nella sezione Piani/Roadmap */
+        .quiz-box {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 22px;
+            margin-top: 22px;
+        }
+        .quiz-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .quiz-btn {
+            background: white;
+            border: 2px solid #cbd5e1;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.92em;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .quiz-btn:hover {
+            border-color: var(--color-mappa);
+            color: var(--color-mappa);
+            background: #eff6ff;
+        }
+        .quiz-result {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 8px;
+            background: white;
+            border-left: 5px solid var(--color-mappa);
+            display: none;
+            animation: fadeIn 0.3s ease;
+            line-height: 1.6;
+        }
+
+        /* Pulsante flottante Back-to-Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.28);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15em;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.2s ease;
+            z-index: 90;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: linear-gradient(135deg, #d97757, #c25e3e);
+            transform: translateY(-3px);
+        }
+
+        .back-to-top:active {
+            transform: scale(0.95);
+        }
+
+        /* Responsive Mobile & Tablet */
+        .mobile-nav-bar {
+            display: none;
+        }
+
+        @media (max-width: 920px) {
+            ul.cards { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                min-height: 100vh;
+                overflow-y: auto;
+            }
+            .sidebar {
+                display: none;
+            }
+
+            /* Barra mobile fissa in alto con menù a tendina */
+            .mobile-nav-bar {
+                display: block;
+                position: sticky;
+                top: 0;
+                z-index: 50;
+                background: linear-gradient(135deg, #1e293b, #0f172a);
+                color: white;
+                padding: 13px 15px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.16);
+            }
+
+            .mobile-header-top {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 9px;
+            }
+
+            .mobile-brand {
+                font-weight: 700;
+                font-size: 1.12em;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .mobile-brand i {
+                color: #d97757;
+            }
+
+            .mobile-badge {
+                font-size: 0.72em;
+                background: rgba(255,255,255,0.14);
+                padding: 3px 9px;
+                border-radius: 12px;
+                color: #e2e8f0;
+            }
+
+            .mobile-dropdown-wrapper {
+                position: relative;
+                width: 100%;
+            }
+
+            .mobile-dropdown-toggle {
+                width: 100%;
+                background: #ffffff;
+                color: #1e293b;
+                border: none;
+                border-radius: 10px;
+                padding: 12px 14px;
+                font-family: 'Inter', sans-serif;
+                font-size: 0.95em;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+                transition: background-color 0.2s;
+            }
+
+            .mobile-dropdown-toggle:active {
+                background: #f1f5f9;
+            }
+
+            .mobile-dropdown-toggle .current-label {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                text-align: left;
+            }
+
+            .mobile-dropdown-toggle i.chevron {
+                transition: transform 0.25s ease;
+                color: #64748b;
+                flex-shrink: 0;
+            }
+
+            .mobile-dropdown-wrapper.open i.chevron {
+                transform: rotate(180deg);
+            }
+
+            .mobile-dropdown-menu {
+                display: none;
+                position: absolute;
+                top: calc(100% + 8px);
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                border-radius: 12px;
+                box-shadow: 0 14px 32px rgba(0,0,0,0.24);
+                border: 1px solid #e2e8f0;
+                max-height: 70vh;
+                overflow-y: auto;
+                z-index: 60;
+                animation: dropdownFade 0.2s ease-out;
+            }
+
+            .mobile-dropdown-wrapper.open .mobile-dropdown-menu {
+                display: block;
+            }
+
+            @keyframes dropdownFade {
+                from { opacity: 0; transform: translateY(-6px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .mobile-dropdown-item {
+                padding: 13px 15px;
+                color: #334155;
+                font-weight: 600;
+                font-size: 0.93em;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                border-bottom: 1px solid #f1f5f9;
+                cursor: pointer;
+                transition: background 0.15s;
+            }
+
+            .mobile-dropdown-item:last-child {
+                border-bottom: none;
+            }
+
+            .mobile-dropdown-item:active,
+            .mobile-dropdown-item.active {
+                background: #f8fafc;
+                color: #0f172a;
+                font-weight: 700;
+            }
+
+            .mobile-dropdown-item i {
+                width: 20px;
+                text-align: center;
+            }
+
+            .main-content {
+                padding: 14px;
+                overflow-y: visible;
+            }
+            .content-section {
+                padding: 20px 16px;
+                border-radius: 12px;
+            }
+            h1 {
+                font-size: 1.42em;
+                line-height: 1.3;
+            }
+            p {
+                font-size: 0.98em;
+            }
+            .data-table th, .data-table td {
+                padding: 11px 10px;
+                font-size: 0.88em;
+            }
+            .quiz-btn {
+                width: 100%;
+                text-align: left;
+                padding: 12px 14px;
+            }
+            .schema-box {
+                min-width: 100%;
+            }
+            .schema-arrow {
+                transform: rotate(90deg);
+                margin: 2px 0;
+            }
+            .back-to-top {
+                bottom: 18px;
+                right: 18px;
+                width: 44px;
+                height: 44px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra di Navigazione Mobile con Menù a Tendina -->
+    <header class="mobile-nav-bar">
+        <div class="mobile-header-top">
+            <div class="mobile-brand">
+                <i class="fas fa-sparkles"></i> Claude App Guide
+            </div>
+            <span class="mobile-badge">Anthropic • 13 Nov 2026</span>
+        </div>
+        <div class="mobile-dropdown-wrapper" id="mobileDropdown">
+            <button type="button" class="mobile-dropdown-toggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-label="Seleziona sezione">
+                <span class="current-label" id="mobileCurrentLabel">
+                    <i class="fas fa-sitemap" style="color: var(--color-mappa);"></i>
+                    <span>1. Mappa Generale delle Funzioni</span>
+                </span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </button>
+            <div class="mobile-dropdown-menu" role="menu">
+                <div class="mobile-dropdown-item active" data-section="mappa" onclick="selectMobileSection('mappa', this)">
+                    <i class="fas fa-sitemap" style="color: var(--color-mappa);"></i> 1. Mappa Generale delle Funzioni
+                </div>
+                <div class="mobile-dropdown-item" data-section="chat" onclick="selectMobileSection('chat', this)">
+                    <i class="fas fa-comments" style="color: var(--color-chat);"></i> 2. Chat: Centro Conversazioni
+                </div>
+                <div class="mobile-dropdown-item" data-section="projects" onclick="selectMobileSection('projects', this)">
+                    <i class="fas fa-folder-open" style="color: var(--color-projects);"></i> 3. Projects: Ambienti di Lavoro
+                </div>
+                <div class="mobile-dropdown-item" data-section="artifacts" onclick="selectMobileSection('artifacts', this)">
+                    <i class="fas fa-wand-magic-sparkles" style="color: var(--color-artifacts);"></i> 4. Artifacts: Prodotti Digitali
+                </div>
+                <div class="mobile-dropdown-item" data-section="cowork" onclick="selectMobileSection('cowork', this)">
+                    <i class="fas fa-robot" style="color: var(--color-cowork);"></i> 5. Cowork: Collaboratore Operativo
+                </div>
+                <div class="mobile-dropdown-item" data-section="research" onclick="selectMobileSection('research', this)">
+                    <i class="fas fa-magnifying-glass-chart" style="color: var(--color-research);"></i> 6. Research: Indagine Sul Web
+                </div>
+                <div class="mobile-dropdown-item" data-section="skills" onclick="selectMobileSection('skills', this)">
+                    <i class="fas fa-graduation-cap" style="color: var(--color-skills);"></i> 7. Skills: Procedure Specializzate
+                </div>
+                <div class="mobile-dropdown-item" data-section="connectors" onclick="selectMobileSection('connectors', this)">
+                    <i class="fas fa-plug" style="color: var(--color-connectors);"></i> 8–9. Connectors &amp; Altre Funzioni
+                </div>
+                <div class="mobile-dropdown-item" data-section="piani" onclick="selectMobileSection('piani', this)">
+                    <i class="fas fa-table-list" style="color: var(--color-piani);"></i> 10–12. Piani, Top 5 &amp; Fonti
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Laterale di Navigazione (Desktop) -->
+    <nav class="sidebar">
+        <header class="sidebar-header">
+            <i class="fas fa-sparkles"></i> Claude App Guide
+            <span class="subtitle">Guida alle Funzioni • 13 Nov 2026</span>
+        </header>
+        <div class="menu-item theme-mappa active" data-section="mappa" onclick="showSection('mappa', this)">
+            <i class="fas fa-sitemap"></i> 1. Mappa Generale
+        </div>
+        <div class="menu-item theme-chat" data-section="chat" onclick="showSection('chat', this)">
+            <i class="fas fa-comments"></i> 2. Chat: Conversazioni
+        </div>
+        <div class="menu-item theme-projects" data-section="projects" onclick="showSection('projects', this)">
+            <i class="fas fa-folder-open"></i> 3. Projects: Spazi di Lavoro
+        </div>
+        <div class="menu-item theme-artifacts" data-section="artifacts" onclick="showSection('artifacts', this)">
+            <i class="fas fa-wand-magic-sparkles"></i> 4. Artifacts: Prodotti Digitali
+        </div>
+        <div class="menu-item theme-cowork" data-section="cowork" onclick="showSection('cowork', this)">
+            <i class="fas fa-robot"></i> 5. Cowork: Agente Operativo
+        </div>
+        <div class="menu-item theme-research" data-section="research" onclick="showSection('research', this)">
+            <i class="fas fa-magnifying-glass-chart"></i> 6. Research: Ricerca Web
+        </div>
+        <div class="menu-item theme-skills" data-section="skills" onclick="showSection('skills', this)">
+            <i class="fas fa-graduation-cap"></i> 7. Skills: Competenze
+        </div>
+        <div class="menu-item theme-connectors" data-section="connectors" onclick="showSection('connectors', this)">
+            <i class="fas fa-plug"></i> 8–9. Connectors &amp; Extra
+        </div>
+        <div class="menu-item theme-piani" data-section="piani" onclick="showSection('piani', this)">
+            <i class="fas fa-table-list"></i> 10–12. Piani &amp; Top 5
+        </div>
+    </nav>
+
+    <!-- Area Contenuto Principale -->
+    <main class="main-content">
+        
+        <!-- SEZIONE 1: PANORAMICA E MAPPA GENERALE -->
+        <section id="mappa" class="content-section active">
+            <h1><i class="fas fa-sitemap"></i> Claude: Guida Completa alle Funzioni</h1>
+            
+            <div class="platform-pill-bar">
+                <span class="platform-pill"><i class="fas fa-globe"></i> Web</span>
+                <span class="platform-pill"><i class="fab fa-windows"></i> Windows</span>
+                <span class="platform-pill"><i class="fab fa-apple"></i> macOS</span>
+                <span class="platform-pill"><i class="fas fa-mobile-screen"></i> iOS</span>
+                <span class="platform-pill"><i class="fab fa-android"></i> Android</span>
+                <span class="platform-pill" style="background:#fef3c7; color:#92400e;"><i class="fas fa-calendar-day"></i> Aggiornata al 13 novembre 2026</span>
+            </div>
+
+            <p><strong>Claude – Anthropic</strong> non è soltanto un chatbot alternativo a ChatGPT. Nel 2026 si è evoluto in un vero e proprio <strong>ambiente di lavoro AI</strong> in grado di coprire l'intero ciclo operativo:</p>
+
+            <ul class="bullet-list">
+                <li>Conversare e ragionare su temi complessi.</li>
+                <li>Leggere e creare documenti strutturati.</li>
+                <li>Produrre presentazioni e contenuti grafici.</li>
+                <li>Analizzare dati e fogli di calcolo.</li>
+                <li>Creare applicazioni interattive funzionanti.</li>
+                <li>Cercare informazioni approfondite sul Web.</li>
+                <li>Collegarsi ad altre applicazioni aziendali e personali.</li>
+                <li>Eseguire attività operative direttamente sul computer.</li>
+                <li>Lavorare autonomamente su incarichi articolati.</li>
+            </ul>
+
+            <div class="highlight-box" style="border-left-color: var(--color-mappa);">
+                <strong>Novità importante 2026:</strong> <strong>Claude Cowork</strong> e <strong>Claude Chat</strong> stanno convergendo in un'unica esperienza di lavoro integrata, con disponibilità progressiva in base al piano sottoscritto.
+            </div>
+
+            <h2>1. La mappa generale delle funzionalità</h2>
+            <p>Ecco lo schema concettuale delle sei principali aree del prodotto (come se stessi esplorando il menu dell'app, distinguendo funzioni fondamentali e avanzate):</p>
+
+            <!-- Infografica SVG Mappa Concettuale -->
+            <svg class="infographic-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#f8fafc" rx="12"/>
+                
+                <!-- Nodo Centrale -->
+                <rect x="250" y="18" width="300" height="54" fill="#0f172a" rx="10"/>
+                <text x="400" y="42" font-family="Inter, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">CLAUDE</text>
+                <text x="400" y="61" font-family="Inter, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">Ambiente di intelligenza artificiale</text>
+
+                <!-- Linee di connessione -->
+                <line x1="400" y1="72" x2="400" y2="95" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="145" y1="95" x2="655" y2="95" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="145" y1="95" x2="145" y2="112" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="400" y1="95" x2="400" y2="112" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="655" y1="95" x2="655" y2="112" stroke="#94a3b8" stroke-width="2"/>
+
+                <!-- Riga 1: CHAT, PROJECTS, ARTIFACTS -->
+                <rect x="35" y="112" width="220" height="72" fill="#0284c7" rx="9"/>
+                <text x="145" y="142" font-family="Inter, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">💬 CHAT</text>
+                <text x="145" y="164" font-family="Inter, sans-serif" font-size="12" fill="#e0f2fe" text-anchor="middle">Conversazioni e ragionamento</text>
+
+                <rect x="290" y="112" width="220" height="72" fill="#6a1b9a" rx="9"/>
+                <text x="400" y="142" font-family="Inter, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">📁 PROJECTS</text>
+                <text x="400" y="164" font-family="Inter, sans-serif" font-size="12" fill="#f3e8ff" text-anchor="middle">Spazi di lavoro e conoscenza</text>
+
+                <rect x="545" y="112" width="220" height="72" fill="#d97757" rx="9"/>
+                <text x="655" y="142" font-family="Inter, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">✨ ARTIFACTS</text>
+                <text x="655" y="164" font-family="Inter, sans-serif" font-size="12" fill="#fff7ed" text-anchor="middle">Documenti e applicazioni</text>
+
+                <!-- Riga 2: COWORK, CONNECTORS, SKILLS -->
+                <rect x="35" y="204" width="220" height="72" fill="#d32f2f" rx="9"/>
+                <text x="145" y="234" font-family="Inter, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">🤖 COWORK</text>
+                <text x="145" y="256" font-family="Inter, sans-serif" font-size="12" fill="#fee2e2" text-anchor="middle">Attività operative autonome</text>
+
+                <rect x="290" y="204" width="220" height="72" fill="#283593" rx="9"/>
+                <text x="400" y="234" font-family="Inter, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">🔌 CONNECTORS</text>
+                <text x="400" y="256" font-family="Inter, sans-serif" font-size="12" fill="#e0e7ff" text-anchor="middle">Collegamento alle applicazioni</text>
+
+                <rect x="545" y="204" width="220" height="72" fill="#f57c00" rx="9"/>
+                <text x="655" y="234" font-family="Inter, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">🎓 SKILLS</text>
+                <text x="655" y="256" font-family="Inter, sans-serif" font-size="12" fill="#fff3e0" text-anchor="middle">Competenze specializzate</text>
+            </svg>
+
+            <p style="font-size: 0.92em; color: #64748b; text-align: center;"><em>Schema concettuale delle principali aree del prodotto, non una riproduzione letterale del menu.</em></p>
+
+            <!-- Esploratore Interattivo di Scenari -->
+            <div class="quiz-box">
+                <h3 style="margin-top: 0; color: #0f172a;"><i class="fas fa-compass" style="color: var(--color-mappa); margin-right: 8px;"></i>Quale area di Claude usare adesso?</h3>
+                <p style="font-size: 0.94em; margin-bottom: 10px;">Seleziona ciò che vuoi ottenere per scoprire subito la funzione più adatta:</p>
+                <div class="quiz-buttons">
+                    <button class="quiz-btn" onclick="selectScenario('chat')">Fare una domanda o analizzare un PDF</button>
+                    <button class="quiz-btn" onclick="selectScenario('projects')">Creare un ambiente di studio continuo</button>
+                    <button class="quiz-btn" onclick="selectScenario('artifacts')">Creare una presentazione o app interattiva</button>
+                    <button class="quiz-btn" onclick="selectScenario('cowork')">Delegare un incarico multi-step su file/PC</button>
+                    <button class="quiz-btn" onclick="selectScenario('research')">Condurre un'indagine su 10+ fonti web</button>
+                </div>
+                <div id="quiz-result" class="quiz-result"></div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 2: CHAT -->
+        <section id="chat" class="content-section">
+            <h1><i class="fas fa-comments"></i> 2. Chat: il Centro delle Conversazioni</h1>
+            
+            <p>È la funzione più semplice e immediata da cui iniziare, ma racchiude numerose possibilità operative per il lavoro quotidiano.</p>
+
+            <ul class="cards">
+                <li style="border-left: 5px solid var(--color-chat);">
+                    <i class="fas fa-circle-question menu-icon"></i>
+                    <h3>Domande e Spiegazioni</h3>
+                    Ottieni risposte chiare, approfondimenti ragionati e supporto su qualsiasi argomento.
+                </li>
+                <li style="border-left: 5px solid var(--color-chat);">
+                    <i class="fas fa-file-import menu-icon"></i>
+                    <h3>Caricamento File e Confronti</h3>
+                    Carica <strong>PDF, Word, Excel e immagini</strong> e chiedi confronti diretti tra più documenti.
+                </li>
+                <li style="border-left: 5px solid var(--color-chat);">
+                    <i class="fas fa-pen-nib menu-icon"></i>
+                    <h3>Scrittura e Revisione</h3>
+                    Scrivi, riscrivi, sintetizza e correggi testi professionali o creativi.
+                </li>
+                <li style="border-left: 5px solid var(--color-chat);">
+                    <i class="fas fa-code menu-icon"></i>
+                    <h3>Analisi, Codice e Formule</h3>
+                    Analizza problemi complessi e richiedi codice sorgente o formule per fogli di calcolo.
+                </li>
+            </ul>
+
+            <div class="highlight-box" style="border-left-color: var(--color-chat);">
+                <strong>Personalizzazione della conversazione:</strong> Puoi impostare istruzioni specifiche per una singola chat e scegliere manualmente il modello Claude disponibile nel tuo piano.
+                <br><br>
+                <strong>Quando usarla:</strong> Per domande, ragionamenti, analisi e attività puntuali che non richiedono un progetto autonomo o persistente.
+            </div>
+        </section>
+
+        <!-- SEZIONE 3: PROJECTS -->
+        <section id="projects" class="content-section">
+            <h1><i class="fas fa-folder-open"></i> 3. Projects: Ambienti di Lavoro Permanenti</h1>
+            
+            <p>Questa è una delle funzioni più interessanti per chi lavora o studia in modo continuativo. Un <strong>Project</strong> è uno spazio di lavoro organizzato che racchiude quattro elementi fondamentali:</p>
+
+            <div class="schema-container">
+                <div class="schema-box" style="border-color: var(--color-projects);">1. Documenti<br><small>Materiali di riferimento caricati</small></div>
+                <div class="schema-box" style="border-color: var(--color-projects);">2. Istruzioni<br><small>Regole personalizzate fisse</small></div>
+                <div class="schema-box" style="border-color: var(--color-projects);">3. Conversazioni<br><small>Chat collegate al tema</small></div>
+                <div class="schema-box" style="border-color: var(--color-projects);">4. Conoscenze<br><small>Contesto condiviso tra le chat</small></div>
+            </div>
+
+            <h2>Esempio pratico: «Studio e formazione»</h2>
+            <p>Immagina di creare un progetto chiamato <strong>Studio e formazione</strong>. Al suo interno carichi:</p>
+            <ul class="bullet-list">
+                <li>Manuali e libri di testo.</li>
+                <li>Appunti personali.</li>
+                <li>File PDF e dispense.</li>
+                <li>Materiale didattico e documenti di riferimento.</li>
+            </ul>
+
+            <div class="prompt-box" style="border-left-color: var(--color-projects);">
+                <span class="prompt-label"><i class="fas fa-sliders"></i> Istruzione generale del Project</span>
+                «Agisci come un docente universitario. Spiega i concetti con schemi, esempi, confronti e verifiche di apprendimento».
+            </div>
+
+            <p>Da quel momento puoi aprire conversazioni diverse all'interno del progetto senza dover ricaricare i file o ripetere ogni volta tutte le istruzioni.</p>
+
+            <div class="highlight-box" style="border-left-color: var(--color-projects);">
+                <strong>Differenza fondamentale:</strong> Una <strong>Chat</strong> è una singola conversazione; un <strong>Project</strong> è un ambiente di lavoro organizzato e persistente.
+            </div>
+        </section>
+
+        <!-- SEZIONE 4: ARTIFACTS -->
+        <section id="artifacts" class="content-section">
+            <h1><i class="fas fa-wand-magic-sparkles"></i> 4. Artifacts: Prodotti Concreti e Modificabili</h1>
+            
+            <p><strong>Da conoscere assolutamente:</strong> Gli <strong>Artifacts</strong> permettono a Claude di trasformare una richiesta in un prodotto concreto, visualizzabile e modificabile direttamente accanto alla chat. Non si limita a restituirti un testo: crea un oggetto digitale autonomo.</p>
+
+            <h2>Le 7 tipologie disponibili</h2>
+            <ul class="cards">
+                <li style="border-left: 5px solid var(--color-artifacts);">
+                    <span class="emoji-icon">📄</span>
+                    <h3>Docs</h3>
+                    Documenti strutturati, modificabili e collaborativi.
+                </li>
+                <li style="border-left: 5px solid var(--color-artifacts);">
+                    <span class="emoji-icon">📊</span>
+                    <h3>Slides</h3>
+                    Presentazioni professionali, modificabili ed esportabili in <strong>PowerPoint</strong> e <strong>PDF</strong>.
+                </li>
+                <li style="border-left: 5px solid var(--color-artifacts);">
+                    <span class="emoji-icon">🎨</span>
+                    <h3>Design</h3>
+                    Mockup, siti web, landing page, prototipi e progetti grafici.
+                </li>
+                <li style="border-left: 5px solid var(--color-artifacts);">
+                    <span class="emoji-icon">📈</span>
+                    <h3>Data <span class="badge badge-pro">Piano a pagamento</span></h3>
+                    Dashboard, grafici interattivi e storie basate sui dati.
+                </li>
+                <li style="border-left: 5px solid var(--color-artifacts);">
+                    <span class="emoji-icon">📋</span>
+                    <h3>Sheets <span class="badge badge-beta">Beta</span></h3>
+                    Fogli di calcolo con formule e modifiche collaborative.
+                </li>
+                <li style="border-left: 5px solid var(--color-artifacts);">
+                    <span class="emoji-icon">🧩</span>
+                    <h3>Whiteboards <span class="badge badge-beta">Beta</span></h3>
+                    Lavagne digitali per organizzare idee, progetti e processi.
+                </li>
+                <li style="border-left: 5px solid var(--color-artifacts);">
+                    <span class="emoji-icon">🎬</span>
+                    <h3>Motion <span class="badge badge-beta">Beta</span> <span class="badge badge-enterprise">Team / Enterprise</span></h3>
+                    Spiegazioni animate, grafici dinamici e video esportabili in <strong>MP4</strong>.
+                </li>
+            </ul>
+
+            <div class="prompt-box">
+                <span class="prompt-label"><i class="fas fa-lightbulb"></i> Esempio concreto di richiesta Artifact</span>
+                «Crea un'applicazione didattica sulla Rivoluzione francese con una linea del tempo interattiva, mappe, personaggi, quiz e grafici».
+                <br><span style="font-size:0.88em; color:#cbd5e1;">&rarr; Claude produce un'applicazione funzionante all'interno di un Artifact.</span>
+            </div>
+        </section>
+
+        <!-- SEZIONE 5: COWORK -->
+        <section id="cowork" class="content-section">
+            <h1><i class="fas fa-robot"></i> 5. Cowork: Collaboratore Operativo</h1>
+            
+            <p><strong>Funzione agentica:</strong> Questa funzione cambia radicalmente il modo di utilizzare l'intelligenza artificiale. Con una chat normale chiedi una risposta; con <strong>Cowork</strong> affidi un incarico articolato e chiedi a Claude di eseguirlo in autonomia.</p>
+
+            <div class="prompt-box" style="border-left-color: var(--color-cowork);">
+                <span class="prompt-label"><i class="fas fa-terminal"></i> Esempio di incarico Cowork</span>
+                «Analizza tutti i PDF presenti nella cartella, estrai i dati principali, confrontali, prepara una tabella Excel e scrivi un rapporto conclusivo».
+            </div>
+
+            <h2>Flusso di lavoro autonomo in 5 fasi</h2>
+            <div class="schema-container">
+                <div class="schema-box" style="border-color: var(--color-cowork);">1. Esamina<br><small>Legge i documenti</small></div>
+                <div class="schema-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="schema-box" style="border-color: var(--color-cowork);">2. Organizza<br><small>Pianifica il lavoro</small></div>
+                <div class="schema-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="schema-box" style="border-color: var(--color-cowork);">3. Elabora<br><small>Analizza i dati</small></div>
+                <div class="schema-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="schema-box" style="border-color: var(--color-cowork);">4. Crea<br><small>Genera i file</small></div>
+                <div class="schema-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="schema-box" style="border-color: var(--color-cowork);">5. Consegna<br><small>Restituisce l'output</small></div>
+            </div>
+            <p>Durante l'esecuzione puoi comunque intervenire, correggere la direzione e verificare i risultati intermedi.</p>
+
+            <h2>Le capacità operative di Cowork</h2>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Funzione</th>
+                            <th>Cosa permette</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>File access</strong></td>
+                            <td>Leggere e modificare file autorizzati.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Browser use</strong></td>
+                            <td>Navigare nel browser per raccogliere dati o operare online.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Computer use</strong></td>
+                            <td>Interagire con lo schermo, cliccare e digitare.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Parallel tasks</strong></td>
+                            <td>Gestire più attività contemporaneamente.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Scheduled tasks</strong></td>
+                            <td>Pianificare attività ricorrenti.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Background work</strong></td>
+                            <td>Continuare a lavorare nel cloud.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box" style="border-left-color: var(--color-cowork);">
+                <strong>Requisiti e disponibilità:</strong> L'accesso ai file locali e il controllo del computer richiedono condizioni specifiche, tra cui l'<strong>app Desktop aperta</strong> e le autorizzazioni appropriate (alcune funzioni sono ancora in beta). Cowork è disponibile sui piani a pagamento idonei, con differenze tra web, desktop e mobile.
+            </div>
+        </section>
+
+        <!-- SEZIONE 6: RESEARCH -->
+        <section id="research" class="content-section">
+            <h1><i class="fas fa-magnifying-glass-chart"></i> 6. Research: Ricerca Approfondita sul Web</h1>
+            
+            <p>Non bisogna confondere la normale ricerca rapida sul Web con la modalità <strong>Research</strong>, progettata per vere e proprie indagini documentali multi-step.</p>
+
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Web Search (Ricerca Rapida)</th>
+                            <th>Research (Indagine Approfondita)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cerca informazioni puntuali</td>
+                            <td><strong>Conduce un'indagine strutturata</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Recupera fonti immediate</td>
+                            <td><strong>Approfondisce più aspetti</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Risponde a una domanda</td>
+                            <td><strong>Costruisce una ricerca articolata</strong></td>
+                        </tr>
+                        <tr>
+                            <td>È relativamente diretta</td>
+                            <td><strong>Esegue più ricerche successive</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Cosa può fare Research</h2>
+            <ul class="bullet-list">
+                <li>Cercare informazioni incrociando più fonti autorevoli.</li>
+                <li>Approfondire aspetti differenti dello stesso tema.</li>
+                <li>Individuare questioni ancora aperte o controverse.</li>
+                <li>Consultare anche strumenti aziendali collegati, quando disponibili.</li>
+                <li>Produrre una risposta documentata con riferimenti puntuali.</li>
+            </ul>
+
+            <div class="prompt-box" style="border-left-color: var(--color-research);">
+                <span class="prompt-label"><i class="fas fa-book-open"></i> Esempio di richiesta Research</span>
+                «Conduci una ricerca approfondita sulle applicazioni dell'intelligenza artificiale nella formazione universitaria, confrontando almeno dieci fonti autorevoli e indicando opportunità, limiti e sviluppi futuri».
+            </div>
+
+            <div class="highlight-box" style="border-left-color: var(--color-research);">
+                <strong>Quando usarla e disponibilità:</strong> Particolarmente utile per relazioni, ricerche di mercato, studi comparativi e analisi normative. Disponibile nei piani <strong>Pro, Max, Ultra, Team ed Enterprise</strong> (richiede la ricerca Web attiva).
+            </div>
+        </section>
+
+        <!-- SEZIONE 7: SKILLS -->
+        <section id="skills" class="content-section">
+            <h1><i class="fas fa-graduation-cap"></i> 7. Skills: Insegnare Procedure Specializzate</h1>
+            
+            <p>Questa funzione consente di dotare Claude di <strong>competenze operative riutilizzabili</strong>. Una <strong>Skill</strong> è un pacchetto strutturato composto da:</p>
+            <div class="schema-container">
+                <div class="schema-box" style="border-color: var(--color-skills);">Istruzioni<br><small>Linee guida operative</small></div>
+                <div class="schema-box" style="border-color: var(--color-skills);">Procedure<br><small>Passaggi metodologici</small></div>
+                <div class="schema-box" style="border-color: var(--color-skills);">Risorse<br><small>Modelli e standard</small></div>
+                <div class="schema-box" style="border-color: var(--color-skills);">Script<br><small>Automazioni eseguibili</small></div>
+            </div>
+
+            <h2>Esempi pratici di Skills</h2>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Skill</th>
+                            <th>Cosa insegna a Claude</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Analista finanziario</strong></td>
+                            <td>Come analizzare bilanci e indicatori economici.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Docente</strong></td>
+                            <td>Come strutturare lezioni, unità didattiche e verifiche.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PowerPoint</strong></td>
+                            <td>Come creare presentazioni efficaci e ben impaginate.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Revisore</strong></td>
+                            <td>Come controllare documenti, coerenza e qualità formale.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ricercatore</strong></td>
+                            <td>Come condurre indagini documentali rigorose.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box" style="border-left-color: var(--color-skills);">
+                <strong>Attivazione automatica:</strong> La caratteristica più interessante è che Claude può caricare automaticamente la Skill pertinente quando riconosce che serve al compito richiesto.
+                <br><br>
+                <strong>Differenza chiave:</strong> <strong>Project</strong> = informazioni e conoscenze da utilizzare; <strong>Skill</strong> = procedura da seguire per svolgere un'attività.
+                <br><span class="source-tag"><i class="fas fa-check-circle"></i> Disponibili anche nel piano Free (con esecuzione del codice abilitata)</span>
+            </div>
+        </section>
+
+        <!-- SEZIONE 8 & 9: CONNECTORS E ALTRE FUNZIONI IMPORTANTI -->
+        <section id="connectors" class="content-section">
+            <h1><i class="fas fa-plug"></i> 8. Connectors &amp; 9. Altre Funzioni</h1>
+            
+            <p>I <strong>Connectors</strong> consentono a Claude di interagire direttamente con servizi esterni, basandosi in molti casi sullo standard aperto <strong>MCP (Model Context Protocol)</strong>. Esistono anche connettori interattivi che mostrano vere interfacce operative dentro Claude.</p>
+
+            <div class="platform-pill-bar">
+                <span class="platform-pill"><i class="fab fa-google-drive"></i> Google Drive</span>
+                <span class="platform-pill"><i class="fas fa-calendar"></i> Google Calendar</span>
+                <span class="platform-pill"><i class="fas fa-envelope"></i> Gmail</span>
+                <span class="platform-pill"><i class="fab fa-slack"></i> Slack</span>
+                <span class="platform-pill"><i class="fas fa-list-check"></i> Asana</span>
+                <span class="platform-pill"><i class="fas fa-palette"></i> Canva</span>
+                <span class="platform-pill"><i class="fab fa-figma"></i> Figma</span>
+            </div>
+
+            <h2>Come funziona un Connector (Flusso operativo)</h2>
+            <svg class="infographic-img" viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#f8fafc" rx="12"/>
+                
+                <!-- TU -->
+                <rect x="25" y="65" width="185" height="90" fill="#1e293b" rx="10"/>
+                <text x="117" y="95" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b" text-anchor="middle">TU</text>
+                <text x="117" y="116" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle">«Prepara un rapporto</text>
+                <text x="117" y="132" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle">sulle attività della settimana»</text>
+
+                <line x1="210" y1="110" x2="245" y2="110" stroke="#64748b" stroke-width="2.5"/>
+
+                <!-- CLAUDE -->
+                <rect x="245" y="65" width="165" height="90" fill="#283593" rx="10"/>
+                <text x="327" y="102" font-family="Inter, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">CLAUDE</text>
+                <text x="327" y="124" font-family="Inter, sans-serif" font-size="11" fill="#c7d2fe" text-anchor="middle">Coordina le operazioni</text>
+
+                <!-- Linee verso app -->
+                <line x1="410" y1="110" x2="445" y2="45" stroke="#64748b" stroke-width="2"/>
+                <line x1="410" y1="110" x2="445" y2="110" stroke="#64748b" stroke-width="2"/>
+                <line x1="410" y1="110" x2="445" y2="175" stroke="#64748b" stroke-width="2"/>
+
+                <!-- App collegate -->
+                <rect x="445" y="22" width="135" height="44" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" rx="7"/>
+                <text x="512" y="48" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#991b1b" text-anchor="middle">📧 Gmail (Email)</text>
+
+                <rect x="445" y="88" width="135" height="44" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" rx="7"/>
+                <text x="512" y="114" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#1e40af" text-anchor="middle">📅 Calendar (Eventi)</text>
+
+                <rect x="445" y="154" width="135" height="44" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" rx="7"/>
+                <text x="512" y="180" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#92400e" text-anchor="middle">📂 Drive (Documenti)</text>
+
+                <!-- Linee verso Output -->
+                <line x1="580" y1="45" x2="615" y2="110" stroke="#16a34a" stroke-width="2"/>
+                <line x1="580" y1="110" x2="615" y2="110" stroke="#16a34a" stroke-width="2"/>
+                <line x1="580" y1="175" x2="615" y2="110" stroke="#16a34a" stroke-width="2"/>
+
+                <!-- Output -->
+                <rect x="615" y="65" width="160" height="90" fill="#166534" rx="10"/>
+                <text x="695" y="104" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">✅ RAPPORTO</text>
+                <text x="695" y="124" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#bbf7d0" text-anchor="middle">COMPLETATO</text>
+            </svg>
+
+            <div class="highlight-box" style="border-left-color: var(--color-connectors);">
+                <strong>Gestione dei permessi:</strong> I permessi dipendono dai servizi collegati. È sempre importante verificare quali dati Claude può leggere e quali operazioni può effettuare.
+            </div>
+
+            <h2>9. Altre funzioni importanti nell'ecosistema</h2>
+            <ul class="cards">
+                <li style="border-left: 5px solid var(--color-connectors);">
+                    <span class="emoji-icon">🎙️</span>
+                    <h3>Voice</h3>
+                    Conversare vocalmente con Claude in modo naturale, senza dover digitare ogni richiesta.
+                </li>
+                <li style="border-left: 5px solid var(--color-connectors);">
+                    <span class="emoji-icon">🧠</span>
+                    <h3>Memory</h3>
+                    Claude può utilizzare informazioni ricordate dalle conversazioni precedenti per mantenere continuità e personalizzare il lavoro.
+                </li>
+                <li style="border-left: 5px solid var(--color-connectors);">
+                    <span class="emoji-icon">📁</span>
+                    <h3>File analysis</h3>
+                    Analisi avanzata di PDF, documenti Word, Excel, PowerPoint, immagini e altri formati.
+                </li>
+                <li style="border-left: 5px solid var(--color-connectors);">
+                    <span class="emoji-icon">💻</span>
+                    <h3>Claude Code</h3>
+                    Ambiente dedicato allo sviluppo software: comprende interi progetti, modifica codice, esegue test e lavora sui repository.
+                </li>
+                <li style="border-left: 5px solid var(--color-connectors);">
+                    <span class="emoji-icon">⏰</span>
+                    <h3>Scheduled Tasks</h3>
+                    Programmare attività periodiche, come rapporti settimanali, ricerche ricorrenti e riepiloghi (continuano nel cloud anche a computer spento).
+                </li>
+            </ul>
+        </section>
+
+        <!-- SEZIONE 10, 11, 12: PIANI, TOP 5 E FONTI UFFICIALI -->
+        <section id="piani" class="content-section">
+            <h1><i class="fas fa-table-list"></i> 10. Piani, 11. Top 5 &amp; 12. Fonti</h1>
+            
+            <h2>10. Quali funzioni sono disponibili nei diversi piani?</h2>
+            <p>La disponibilità varia in base al piano sottoscritto e alla piattaforma utilizzata (Web, Desktop o Mobile):</p>
+
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Funzione</th>
+                            <th>Piano Free</th>
+                            <th>Pro e Superiori</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Chat</strong></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Projects</strong></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Artifacts</strong></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Skills</strong></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Web Search</strong></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Research</strong></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cowork</strong></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Scheduled Tasks</strong></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Artifacts avanzati Data/Sheets</strong></td>
+                            <td><span class="badge badge-no">No</span></td>
+                            <td><span class="badge badge-yes">Sì</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>11. Le cinque funzioni da imparare per prime</h2>
+            <p>Se dovessi imparare a utilizzare Claude in modo professionale, questo è l'ordine consigliato:</p>
+
+            <div class="schema-container" style="flex-direction: column; align-items: stretch; text-align: left;">
+                <div class="schema-box" style="border-left: 6px solid var(--color-projects);">
+                    <strong>1. Projects</strong>
+                    <small>Per organizzare il lavoro e creare ambienti tematici con documenti e istruzioni condivise.</small>
+                </div>
+                <div class="schema-box" style="border-left: 6px solid var(--color-artifacts);">
+                    <strong>2. Artifacts</strong>
+                    <small>Per realizzare documenti, presentazioni, dashboard e applicazioni interattive.</small>
+                </div>
+                <div class="schema-box" style="border-left: 6px solid var(--color-research);">
+                    <strong>3. Research</strong>
+                    <small>Per effettuare ricerche web articolate e documentate su più fonti.</small>
+                </div>
+                <div class="schema-box" style="border-left: 6px solid var(--color-skills);">
+                    <strong>4. Skills</strong>
+                    <small>Per insegnare a Claude procedure operative riutilizzabili.</small>
+                </div>
+                <div class="schema-box" style="border-left: 6px solid var(--color-cowork);">
+                    <strong>5. Cowork</strong>
+                    <small>Per delegare attività articolate in autonomia e ottenere risultati concreti.</small>
+                </div>
+            </div>
+
+            <h2>12. Dove trovare le informazioni ufficiali</h2>
+            <div class="highlight-box" style="border-left-color: var(--color-piani); background-color: #f0fdf4;">
+                <strong>Documentazione e canali ufficiali Anthropic:</strong>
+                <ul class="bullet-list" style="margin-bottom: 0;">
+                    <li><strong>Claude – Applicazione</strong> (Web, Desktop e Mobile)</li>
+                    <li><strong>Centro assistenza ufficiale</strong> (Anthropic Help Center)</li>
+                    <li><strong>Panoramica delle funzionalità</strong> (Product Overview)</li>
+                    <li><strong>Anthropic – Sito ufficiale</strong> (anthropic.com)</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pulsante Back-to-Top -->
+    <button type="button" id="backToTopBtn" class="back-to-top" onclick="scrollToTop()" title="Torna all'inizio" aria-label="Torna all'inizio">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Metadati delle sezioni per sincronizzare sidebar desktop e menù a tendina mobile
+        const sectionMeta = {
+            mappa:      { label: '1. Mappa Generale delle Funzioni', icon: 'fa-sitemap', color: 'var(--color-mappa)' },
+            chat:       { label: '2. Chat: Centro Conversazioni', icon: 'fa-comments', color: 'var(--color-chat)' },
+            projects:   { label: '3. Projects: Ambienti di Lavoro', icon: 'fa-folder-open', color: 'var(--color-projects)' },
+            artifacts:  { label: '4. Artifacts: Prodotti Digitali', icon: 'fa-wand-magic-sparkles', color: 'var(--color-artifacts)' },
+            cowork:     { label: '5. Cowork: Collaboratore Operativo', icon: 'fa-robot', color: 'var(--color-cowork)' },
+            research:   { label: '6. Research: Indagine Sul Web', icon: 'fa-magnifying-glass-chart', color: 'var(--color-research)' },
+            skills:     { label: '7. Skills: Procedure Specializzate', icon: 'fa-graduation-cap', color: 'var(--color-skills)' },
+            connectors: { label: '8–9. Connectors & Altre Funzioni', icon: 'fa-plug', color: 'var(--color-connectors)' },
+            piani:      { label: '10–12. Piani, Top 5 & Fonti', icon: 'fa-table-list', color: 'var(--color-piani)' }
+        };
+
+        // Navigazione tra le sezioni con sincronizzazione desktop/mobile
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.classList.toggle('active', item.getAttribute('data-section') === sectionId);
+            });
+
+            const mobileItems = document.querySelectorAll('.mobile-dropdown-item');
+            mobileItems.forEach(item => {
+                item.classList.toggle('active', item.getAttribute('data-section') === sectionId);
+            });
+
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Aggiorna etichetta pulsante dropdown mobile
+            const meta = sectionMeta[sectionId];
+            const currentLabelEl = document.getElementById('mobileCurrentLabel');
+            if (meta && currentLabelEl) {
+                currentLabelEl.innerHTML = `<i class="fas ${meta.icon}" style="color: ${meta.color};"></i><span>${meta.label}</span>`;
+            }
+
+            // Riporta lo scroll all'inizio
+            const mainEl = document.querySelector('.main-content');
+            if (mainEl) {
+                mainEl.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Gestione visibilità pulsante Back-to-Top (supporta scroll container desktop e finestra mobile)
+        const mainContentEl = document.querySelector('.main-content');
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        function toggleBackToTopVisibility() {
+            const mainScroll = mainContentEl ? mainContentEl.scrollTop : 0;
+            const winScroll = window.scrollY || document.documentElement.scrollTop;
+            if (mainScroll > 160 || winScroll > 160) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }
+
+        if (mainContentEl) {
+            mainContentEl.addEventListener('scroll', toggleBackToTopVisibility);
+        }
+        window.addEventListener('scroll', toggleBackToTopVisibility);
+
+        function scrollToTop() {
+            if (mainContentEl) {
+                mainContentEl.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Apertura e chiusura del menù a tendina mobile
+        function toggleMobileMenu() {
+            const dropdown = document.getElementById('mobileDropdown');
+            const toggleBtn = dropdown.querySelector('.mobile-dropdown-toggle');
+            const isOpen = dropdown.classList.toggle('open');
+            toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+
+        // Selezione di una voce dal menù a tendina mobile
+        function selectMobileSection(sectionId) {
+            showSection(sectionId);
+            const dropdown = document.getElementById('mobileDropdown');
+            dropdown.classList.remove('open');
+            dropdown.querySelector('.mobile-dropdown-toggle').setAttribute('aria-expanded', 'false');
+        }
+
+        // Chiusura automatica del menù a tendina quando si tocca o clicca all'esterno
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('mobileDropdown');
+            if (dropdown && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('open');
+                const toggleBtn = dropdown.querySelector('.mobile-dropdown-toggle');
+                if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Selettore interattivo nella Mappa Generale
+        function selectScenario(type) {
+            const resultBox = document.getElementById('quiz-result');
+            let html = '';
+
+            if (type === 'chat') {
+                html = '<strong>Funzione consigliata: 💬 Chat</strong> (disponibile anche su piano Free)<br>Carica il tuo PDF, Word o Excel direttamente nella conversazione per ottenere spiegazioni, confronti e analisi immediate.';
+            } else if (type === 'projects') {
+                html = '<strong>Funzione consigliata: 📁 Projects</strong> (disponibile anche su piano Free)<br>Raggruppa manuali, appunti e istruzioni fisse (es. stile docente universitario) per aprire più chat sullo stesso tema senza ripetere il contesto.';
+            } else if (type === 'artifacts') {
+                html = '<strong>Funzione consigliata: ✨ Artifacts</strong> (Docs, Slides, Design, Data, Sheets, Whiteboards, Motion)<br>Trasforma il tuo prompt in un oggetto digitale modificabile ed esportabile (PowerPoint, PDF, app interattive o MP4).';
+            } else if (type === 'cowork') {
+                html = '<strong>Funzione consigliata: 🤖 Cowork</strong> (piani a pagamento idonei)<br>Delega incarichi complessi su cartelle locali, browser e computer con esecuzione parallela e attività pianificate.';
+            } else if (type === 'research') {
+                html = '<strong>Funzione consigliata: 🔍 Research</strong> (piani Pro, Max, Ultra, Team ed Enterprise)<br>Avvia un\'indagine approfondita su molteplici fonti web per produrre relazioni documentate con riferimenti.';
+            }
+
+            resultBox.innerHTML = html;
+            resultBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
