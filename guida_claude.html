@@ -1247,6 +1247,116 @@
                 <span class="platform-pill"><i class="fab fa-figma"></i> Figma</span>
             </div>
 
+
+            <h2>App integrate in Claude: non solo collegamenti, ma strumenti da usare</h2>
+            <p>Le <strong>app integrate</strong> portano dentro Claude servizi esterni che normalmente useresti in schede separate. In base al connettore, Claude può cercare informazioni, leggere documenti, creare contenuti oppure intervenire su un elemento che hai aperto. Alcune integrazioni mostrano una semplice risposta testuale; altre visualizzano una vera interfaccia interattiva accanto alla chat o direttamente nella conversazione.</p>
+
+            <div class="schema-container app-types">
+                <div class="schema-box app-type-card" style="border-top:5px solid #2563eb"><i class="fas fa-database app-type-icon" style="color:#2563eb"></i><strong>Connettore dati</strong><small>Claude cerca e legge informazioni nei tuoi servizi: file, messaggi, pagine, calendari e record.</small></div>
+                <div class="schema-box app-type-card" style="border-top:5px solid #0f766e"><i class="fas fa-wand-magic-sparkles app-type-icon" style="color:#0f766e"></i><strong>Connettore operativo</strong><small>Claude può creare, aggiornare o inviare elementi, se il connettore e i permessi lo consentono.</small></div>
+                <div class="schema-box app-type-card" style="border-top:5px solid #c2410c"><i class="fas fa-window-maximize app-type-icon" style="color:#c2410c"></i><strong>App interattiva (MCP App)</strong><small>Si apre un'interfaccia vera: editor, lavagna, diagramma, tabella o pannello di lavoro.</small></div>
+            </div>
+
+            <h3 class="app-subtitle"><i class="fas fa-diagram-project"></i> Come collaborano Claude e l'app</h3>
+            <div class="app-flow" role="img" aria-label="Flusso animato: richiesta, Claude, connettore, applicazione e verifica dell'utente">
+                <div class="app-flow-node"><i class="fas fa-comment-dots"></i><b>1. Tu chiedi</b><small>Descrivi il risultato</small></div>
+                <div class="app-flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="app-flow-node claude-node"><i class="fas fa-brain"></i><b>2. Claude</b><small>Interpreta il compito</small></div>
+                <div class="app-flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="app-flow-node connector-node"><i class="fas fa-plug"></i><b>3. Connettore</b><small>Usa strumenti autorizzati</small></div>
+                <div class="app-flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="app-flow-node app-node"><i class="fas fa-window-restore"></i><b>4. App</b><small>Mostra o aggiorna il lavoro</small></div>
+            </div>
+            <p class="app-flow-caption"><i class="fas fa-circle-info"></i> Il flusso è illustrativo: alcune operazioni richiedono una tua conferma prima di modificare o inviare dati.</p>
+
+            <h3 class="app-subtitle"><i class="fas fa-icons"></i> Esempi di applicazioni e attività</h3>
+            <div class="app-integration-grid">
+                <article class="app-integration-card"><div class="app-brand-icon google"><i class="fab fa-google-drive"></i></div><div><b>Google Drive</b><small>Cerca file, legge documenti e recupera il contesto dei tuoi progetti.</small><span class="app-action-label">Ricerca · Lettura · File</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon gmail"><i class="fas fa-envelope"></i></div><div><b>Gmail e Calendar</b><small>Riepiloga conversazioni, prepara bozze e aiuta a gestire appuntamenti.</small><span class="app-action-label">Email · Agenda</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon slack"><i class="fab fa-slack"></i></div><div><b>Slack</b><small>Recupera discussioni, prepara messaggi e, se autorizzato, li invia.</small><span class="app-action-label">Messaggi · Canali</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon notion"><i class="fas fa-book-open"></i></div><div><b>Notion</b><small>Consulta e aggiorna pagine o database e costruisce documentazione.</small><span class="app-action-label">Wiki · Database</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon canva"><i class="fas fa-palette"></i></div><div><b>Canva</b><small>Genera e modifica progetti grafici e presentazioni con anteprima interattiva.</small><span class="app-action-label">Grafica · Presentazioni</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon figma"><i class="fab fa-figma"></i></div><div><b>Figma / FigJam</b><small>Trasforma idee in diagrammi, flussi e schemi visuali collaborativi.</small><span class="app-action-label">Diagrammi · Design</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon asana"><i class="fas fa-list-check"></i></div><div><b>Asana e monday.com</b><small>Organizza attività, progetti, scadenze e timeline operative.</small><span class="app-action-label">Attività · Progetti</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon microsoft"><i class="fab fa-microsoft"></i></div><div><b>Microsoft 365</b><small>Collega contenuti di Outlook, Teams, SharePoint e OneDrive.</small><span class="app-action-label">Documenti · Collaborazione</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon jira"><i class="fab fa-jira"></i></div><div><b>Atlassian (Jira e Confluence)</b><small>Consulta ticket e pagine, aggiorna attività e documentazione.</small><span class="app-action-label">Ticket · Knowledge base</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon box"><i class="fas fa-box-open"></i></div><div><b>Box e Dropbox</b><small>Trova, visualizza e rielabora i file conservati negli archivi cloud.</small><span class="app-action-label">Archivi · Documenti</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon hubspot"><i class="fas fa-chart-line"></i></div><div><b>HubSpot e CRM</b><small>Riassume contatti e opportunità e supporta le attività commerciali.</small><span class="app-action-label">Clienti · Pipeline</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon linear"><i class="fas fa-bars-progress"></i></div><div><b>Linear e strumenti sviluppo</b><small>Consulta issue, aggiorna attività e collega il lavoro tecnico ai progetti.</small><span class="app-action-label">Bug · Sviluppo</span></div></article>
+            </div>
+            <p class="app-flow-caption">Gli esempi descrivono possibilità offerte da connettori specifici: le funzioni effettive cambiano da un'app all'altra, in base alla configurazione, ai permessi e al piano. Non tutte le integrazioni sono app interattive.</p>
+
+            <h3 class="app-subtitle"><i class="fas fa-desktop"></i> La novità: aprire l'app accanto alla chat</h3>
+            <p>Con i connettori interattivi compatibili, non devi limitarti a chiedere a Claude di descrivere una modifica. Puoi aprire lo strumento integrato, tenerlo accanto alla conversazione o espanderlo a schermo intero. Claude può lavorare sull'elemento aperto mentre tu osservi il risultato, intervenire manualmente e controllare le modifiche. Puoi anche fissare gli strumenti usati più spesso nella barra laterale.</p>
+            <div class="app-workspace-demo">
+                <div class="demo-chat"><div class="demo-window-title"><i class="fas fa-comment"></i> Conversazione con Claude</div><div class="demo-bubble">Crea una timeline del progetto e sposta la consegna a venerdì.</div><div class="demo-assistant"><i class="fas fa-sparkles"></i> Ho aggiornato la proposta. Controlla la timeline nell'app prima di confermare.</div></div>
+                <div class="demo-live-app"><div class="demo-window-title"><i class="fas fa-table-columns"></i> App collegata · Timeline</div><div class="demo-task"><span>Ricerca</span><i class="fas fa-check-circle"></i></div><div class="demo-task"><span>Progettazione</span><i class="fas fa-check-circle"></i></div><div class="demo-task active-task"><span>Consegna · Venerdì</span><i class="fas fa-arrows-left-right"></i></div><div class="demo-progress"><span></span></div><small>Anteprima concettuale: l'interfaccia reale dipende dall'app collegata.</small></div>
+            </div>
+
+            <h3 class="app-subtitle"><i class="fas fa-gears"></i> Come collegare un'app, passo dopo passo</h3>
+            <ol class="bullet-list app-steps">
+                <li><strong>Apri la Directory dei connettori.</strong> In una chat premi il pulsante <strong>+</strong> in basso a sinistra (oppure digita <strong>/</strong>), apri <em>Connettori → Gestisci connettori</em> e premi <strong>+</strong>. In alternativa vai in <em>Personalizza → Connettori</em>.</li>
+                <li><strong>Scegli il servizio.</strong> Apri la scheda dell'app e controlla descrizione, funzioni disponibili e tipo di accesso.</li>
+                <li><strong>Premi Connetti o Installa.</strong> Segui la procedura di autenticazione del servizio e autorizza solo gli accessi necessari.</li>
+                <li><strong>Usa il connettore nella chat.</strong> Dal pulsante + apri il menu Connettori e attiva il servizio per la conversazione, se necessario.</li>
+                <li><strong>Chiedi un'attività concreta.</strong> Per esempio: «Cerca in Drive il verbale dell'ultima riunione e prepara in Notion un elenco delle decisioni».</li>
+            </ol>
+            <div class="prompt-box"><span class="prompt-label">Esempio di richiesta multi-app</span>«Cerca in Google Drive il rapporto del mese scorso, confrontalo con le attività aperte in Asana e prepara una pagina Notion con risultati, ritardi e prossime azioni. Prima di inviare o modificare elementi, mostrami cosa intendi fare.»</div>
+
+            <h3 class="app-subtitle"><i class="fas fa-shield-halved"></i> Permessi, conferme e sicurezza</h3>
+            <div class="highlight-box" style="border-left-color:#b45309;background:#fffbeb"><strong>Attenzione:</strong> un connettore può leggere o modificare soltanto ciò che gli consentono le autorizzazioni configurate. In genere Claude eredita i permessi del tuo account nel servizio; un connettore personalizzato basato su credenziali condivise può invece avere accesso a tutto ciò che quelle credenziali permettono.</div>
+            <ul class="bullet-list">
+                <li>Controlla sempre quali operazioni sono di sola lettura e quali possono creare, modificare, inviare o cancellare dati.</li>
+                <li>Per azioni con conseguenze esterne (invio di messaggi, modifiche a progetti o dati) verifica la richiesta di conferma e il contenuto prima di procedere.</li>
+                <li>Se hai molti connettori, puoi scegliere l'accesso agli strumenti in modalità automatica o su richiesta dal menu Connettori.</li>
+                <li>Collega solo servizi affidabili e rimuovi quelli che non utilizzi più.</li>
+            </ul>
+            <div class="highlight-box"><strong>Approfondimenti ufficiali:</strong>
+                <ul class="bullet-list">
+                    <li><a href="https://support.claude.com/it/articles/11176164-usa-i-connettori-per-estendere-le-capacita-di-claude" target="_blank" rel="noopener">Centro assistenza: usare i connettori (guida italiana)</a></li>
+                    <li><a href="https://claude.com/marketplace/connectors-plugins" target="_blank" rel="noopener">Directory ufficiale: connettori e app disponibili</a></li>
+                    <li><a href="https://claude.com/resources/articles/interactive-connectors-full-tool" target="_blank" rel="noopener">App integrate e strumenti interattivi (10 novembre 2026)</a></li>
+                    <li><a href="https://claude.com/resources/articles/interactive-tools-in-claude" target="_blank" rel="noopener">MCP Apps: strumenti interattivi dentro Claude</a></li>
+                </ul>
+            </div>
+
+            <style>
+                .app-types{align-items:stretch;gap:16px;background:linear-gradient(135deg,#f8fafc,#eef2ff)}
+                .app-type-card{min-width:190px;text-align:left;padding:18px}
+                .app-type-icon{display:block;font-size:1.7rem;margin-bottom:12px}
+                .app-subtitle{display:flex;align-items:center;gap:10px;margin-top:30px}
+                .app-subtitle i{color:#4338ca}
+                .app-flow{display:flex;align-items:center;justify-content:center;gap:10px;padding:22px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden}
+                .app-flow-node{display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;background:#fff;border:1px solid #cbd5e1;border-radius:12px;padding:15px 10px;min-width:115px;box-shadow:0 3px 10px #0f172a0d}
+                .app-flow-node>i{font-size:1.55rem;color:#475569}
+                .app-flow-node small{font-size:.76rem;color:#64748b;line-height:1.35}
+                .claude-node>i{color:#d97757}.connector-node>i{color:#4338ca}.app-node>i{color:#0f766e}
+                .app-flow-arrow{color:#94a3b8;animation:appArrowPulse 1.5s ease-in-out infinite}
+                @keyframes appArrowPulse{0%,100%{opacity:.35;transform:translateX(-3px)}50%{opacity:1;transform:translateX(3px)}}
+                .app-flow-caption{font-size:.88rem;color:#64748b;margin:8px 0 20px}
+                .app-integration-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
+                .app-integration-card{display:flex;align-items:flex-start;gap:13px;padding:15px;border:1px solid #e2e8f0;border-radius:12px;background:#fff;transition:transform .2s,box-shadow .2s}
+                .app-integration-card:hover{transform:translateY(-3px);box-shadow:0 8px 18px #0f172a12}
+                .app-brand-icon{width:42px;height:42px;flex:0 0 42px;border-radius:11px;display:grid;place-items:center;background:#f1f5f9;font-size:1.3rem;color:#334155}
+                .app-brand-icon.google{color:#4285f4}.app-brand-icon.gmail{color:#d93025}.app-brand-icon.slack{color:#611f69}.app-brand-icon.notion{color:#111827}.app-brand-icon.canva{color:#0e7490}.app-brand-icon.figma{color:#a259ff}.app-brand-icon.asana{color:#f06a6a}.app-brand-icon.microsoft{color:#2563eb}.app-brand-icon.jira{color:#2563eb}.app-brand-icon.box{color:#2563eb}.app-brand-icon.hubspot{color:#f97316}.app-brand-icon.linear{color:#5e6ad2}
+                .app-integration-card b,.app-integration-card small{display:block}.app-integration-card small{font-size:.86rem;line-height:1.45;color:#64748b;margin-top:4px}
+                .app-action-label{display:inline-block;margin-top:8px;font-size:.7rem;font-weight:700;color:#4338ca;background:#eef2ff;padding:3px 7px;border-radius:5px}
+                .app-workspace-demo{display:grid;grid-template-columns:1fr 1.15fr;gap:12px;margin:18px 0;padding:14px;background:#eef2f7;border-radius:14px}
+                .demo-chat,.demo-live-app{background:#fff;border:1px solid #dbe2ea;border-radius:10px;padding:13px;min-width:0}
+                .demo-window-title{font-size:.82rem;font-weight:700;color:#334155;padding-bottom:10px;border-bottom:1px solid #e2e8f0}
+                .demo-bubble{margin:13px 0 8px auto;padding:10px;background:#eef2ff;border-radius:10px;font-size:.83rem;max-width:95%;color:#334155}
+                .demo-assistant{font-size:.82rem;line-height:1.5;color:#475569;padding:8px}
+                .demo-assistant i{color:#d97757}
+                .demo-task{display:flex;justify-content:space-between;padding:9px 7px;border-bottom:1px solid #f1f5f9;font-size:.8rem;color:#475569}
+                .demo-task i{color:#16a34a}.demo-task.active-task{background:#fff7ed;color:#9a3412;font-weight:700;border-radius:6px}.demo-task.active-task i{color:#c2410c}
+                .demo-progress{height:6px;background:#e2e8f0;border-radius:8px;margin:12px 0;overflow:hidden}.demo-progress span{display:block;height:100%;width:72%;background:linear-gradient(90deg,#d97757,#f59e0b);border-radius:8px;animation:demoProgress 3s ease-in-out infinite alternate}
+                @keyframes demoProgress{from{width:45%}to{width:82%}}
+                .demo-live-app>small{font-size:.7rem;color:#94a3b8}
+                .app-steps li{margin-bottom:9px}
+                @media(max-width:700px){.app-flow{flex-wrap:wrap}.app-flow-arrow{transform:rotate(90deg)}.app-integration-grid{grid-template-columns:1fr}.app-workspace-demo{grid-template-columns:1fr}.app-flow-node{min-width:100px;flex:1}.app-type-card{min-width:100%}}
+                @media(prefers-reduced-motion:reduce){.app-flow-arrow,.demo-progress span{animation:none!important}.app-integration-card{transition:none}}
+            </style>
+
             <h2>Come funziona un Connector (Flusso operativo)</h2>
             <svg class="infographic-img" viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
                 <rect width="100%" height="100%" fill="#f8fafc" rx="12"/>
