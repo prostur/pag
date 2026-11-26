@@ -743,7 +743,86 @@
                 height: 44px;
             }
         }
-    </style>
+                    .app-types{align-items:stretch;gap:16px;background:linear-gradient(135deg,#f8fafc,#eef2ff)}
+                .app-type-card{min-width:190px;text-align:left;padding:18px}
+                .app-type-icon{display:block;font-size:1.7rem;margin-bottom:12px}
+                .app-subtitle{display:flex;align-items:center;gap:10px;margin-top:30px}
+                .app-subtitle i{color:#4338ca}
+                .app-flow{display:flex;align-items:center;justify-content:center;gap:10px;padding:22px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden}
+                .app-flow-node{display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;background:#fff;border:1px solid #cbd5e1;border-radius:12px;padding:15px 10px;min-width:115px;box-shadow:0 3px 10px #0f172a0d}
+                .app-flow-node>i{font-size:1.55rem;color:#475569}
+                .app-flow-node small{font-size:.76rem;color:#64748b;line-height:1.35}
+                .claude-node>i{color:#d97757}.connector-node>i{color:#4338ca}.app-node>i{color:#0f766e}
+                .app-flow-arrow{color:#94a3b8;animation:appArrowPulse 1.5s ease-in-out infinite}
+                @keyframes appArrowPulse{0%,100%{opacity:.35;transform:translateX(-3px)}50%{opacity:1;transform:translateX(3px)}}
+                .app-flow-caption{font-size:.88rem;color:#64748b;margin:8px 0 20px}
+                .app-integration-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
+                .app-integration-card{display:flex;align-items:flex-start;gap:13px;padding:15px;border:1px solid #e2e8f0;border-radius:12px;background:#fff;transition:transform .2s,box-shadow .2s}
+                .app-integration-card:hover{transform:translateY(-3px);box-shadow:0 8px 18px #0f172a12}
+                .app-brand-icon{width:42px;height:42px;flex:0 0 42px;border-radius:11px;display:grid;place-items:center;background:#f1f5f9;font-size:1.3rem;color:#334155}
+                .app-brand-icon.google{color:#4285f4}.app-brand-icon.gmail{color:#d93025}.app-brand-icon.slack{color:#611f69}.app-brand-icon.notion{color:#111827}.app-brand-icon.canva{color:#0e7490}.app-brand-icon.figma{color:#a259ff}.app-brand-icon.asana{color:#f06a6a}.app-brand-icon.microsoft{color:#2563eb}.app-brand-icon.jira{color:#2563eb}.app-brand-icon.box{color:#2563eb}.app-brand-icon.hubspot{color:#f97316}.app-brand-icon.linear{color:#5e6ad2}
+                .app-integration-card b,.app-integration-card small{display:block}.app-integration-card small{font-size:.86rem;line-height:1.45;color:#64748b;margin-top:4px}
+                .app-action-label{display:inline-block;margin-top:8px;font-size:.7rem;font-weight:700;color:#4338ca;background:#eef2ff;padding:3px 7px;border-radius:5px}
+                .app-workspace-demo{display:grid;grid-template-columns:1fr 1.15fr;gap:12px;margin:18px 0;padding:14px;background:#eef2f7;border-radius:14px}
+                .demo-chat,.demo-live-app{background:#fff;border:1px solid #dbe2ea;border-radius:10px;padding:13px;min-width:0}
+                .demo-window-title{font-size:.82rem;font-weight:700;color:#334155;padding-bottom:10px;border-bottom:1px solid #e2e8f0}
+                .demo-bubble{margin:13px 0 8px auto;padding:10px;background:#eef2ff;border-radius:10px;font-size:.83rem;max-width:95%;color:#334155}
+                .demo-assistant{font-size:.82rem;line-height:1.5;color:#475569;padding:8px}
+                .demo-assistant i{color:#d97757}
+                .demo-task{display:flex;justify-content:space-between;padding:9px 7px;border-bottom:1px solid #f1f5f9;font-size:.8rem;color:#475569}
+                .demo-task i{color:#16a34a}.demo-task.active-task{background:#fff7ed;color:#9a3412;font-weight:700;border-radius:6px}.demo-task.active-task i{color:#c2410c}
+                .demo-progress{height:6px;background:#e2e8f0;border-radius:8px;margin:12px 0;overflow:hidden}.demo-progress span{display:block;height:100%;width:72%;background:linear-gradient(90deg,#d97757,#f59e0b);border-radius:8px;animation:demoProgress 3s ease-in-out infinite alternate}
+                @keyframes demoProgress{from{width:45%}to{width:82%}}
+                .demo-live-app>small{font-size:.7rem;color:#94a3b8}
+                .app-steps li{margin-bottom:9px}
+                @media(max-width:700px){.app-flow{flex-wrap:wrap}.app-flow-arrow{transform:rotate(90deg)}.app-integration-grid{grid-template-columns:1fr}.app-workspace-demo{grid-template-columns:1fr}.app-flow-node{min-width:100px;flex:1}.app-type-card{min-width:100%}}
+                @media(prefers-reduced-motion:reduce){.app-flow-arrow,.demo-progress span{animation:none!important}.app-integration-card{transition:none}}
+
+
+        /* Illustrazioni MCP Apps: icone autonome, senza font esterni */
+
+        .app-glyph{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#f1f5f9;font-size:1.55rem;line-height:1}
+        .mcp-hero{margin:22px 0;padding:22px;border-radius:16px;background:linear-gradient(135deg,#172554,#312e81 60%,#4338ca);color:#fff}
+        .mcp-hero h3{color:#fff;margin:0 0 8px}.mcp-hero p{color:#e0e7ff;margin:0}
+        .mcp-architecture{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:20px 0;align-items:stretch}
+        .mcp-stage{position:relative;min-width:0;padding:16px 10px;text-align:center;border:1px solid #cbd5e1;border-radius:12px;background:#fff;box-shadow:0 4px 12px #0f172a0c}
+        .mcp-stage .mcp-glyph{font-size:2rem;display:block;margin-bottom:8px}
+        .mcp-stage b{display:block;color:#1e293b;font-size:.9rem}
+        .mcp-stage small{display:block;color:#64748b;font-size:.76rem;line-height:1.4;margin-top:6px}
+        .mcp-stage:not(:last-child):after{content:"➜";position:absolute;right:-14px;top:42%;z-index:2;color:#6366f1;font-size:1.15rem;font-weight:800}
+        .mcp-stage.server{border-color:#818cf8;background:#eef2ff}.mcp-stage.ui{border-color:#0f766e;background:#f0fdfa}.mcp-stage.host{border-color:#d97757;background:#fff7ed}
+        .mcp-note{padding:13px 16px;background:#f8fafc;border-left:4px solid #6366f1;border-radius:0 9px 9px 0;color:#475569;line-height:1.6;margin:16px 0}
+        .mcp-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
+        .mcp-view{border:1px solid #dbe2ea;border-radius:13px;overflow:hidden;background:#fff;box-shadow:0 4px 14px #0f172a0b}
+        .mcp-view-head{padding:10px 12px;background:#1e293b;color:#fff;font-weight:700;font-size:.84rem}
+        .mcp-view-body{padding:13px;min-height:142px}
+        .mcp-mini-chat{padding:8px 10px;margin:6px 0;border-radius:9px;background:#eef2ff;color:#334155;font-size:.78rem}
+        .mcp-mini-widget{border:1px solid #cbd5e1;border-radius:8px;padding:10px;background:#f8fafc;font-size:.78rem;color:#334155}
+        .mcp-mini-bar{height:9px;border-radius:8px;background:#e2e8f0;margin:8px 0;overflow:hidden}
+        .mcp-mini-bar span{display:block;height:100%;background:#6366f1;border-radius:8px}
+        .mcp-mini-button{display:inline-block;background:#4338ca;color:#fff;padding:5px 8px;border-radius:6px;font-size:.7rem;margin-top:7px}
+        .mcp-dashboard{border:1px solid #cbd5e1;border-radius:14px;background:#fff;overflow:hidden;margin:18px 0;box-shadow:0 6px 18px #0f172a0d}
+        .mcp-dashboard-top{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:13px 16px;background:#f8fafc;border-bottom:1px solid #e2e8f0;font-weight:700;color:#1e293b}
+        .mcp-dashboard-content{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;padding:16px}
+        .mcp-kpi{display:flex;gap:10px;flex-wrap:wrap}
+        .mcp-kpi div{flex:1;min-width:90px;padding:10px;border-radius:9px;background:#f1f5f9}
+        .mcp-kpi small{display:block;color:#64748b;font-size:.72rem}.mcp-kpi b{font-size:1.25rem;color:#1e293b}
+        .mcp-chart{height:125px;display:flex;align-items:flex-end;gap:9px;padding:12px 10px 0;border-bottom:1px solid #cbd5e1;background:repeating-linear-gradient(to bottom,transparent 0,transparent 30px,#e2e8f0 31px)}
+        .mcp-chart span{flex:1;min-width:10px;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#818cf8,#4338ca);animation:mcpBars 2.8s ease-in-out infinite alternate}
+        .mcp-chart span:nth-child(2n){animation-delay:.3s}
+        @keyframes mcpBars{from{transform:scaleY(.82);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
+        .mcp-data-table{width:100%;border-collapse:collapse;font-size:.78rem}.mcp-data-table td,.mcp-data-table th{padding:7px 5px;text-align:left;border-bottom:1px solid #e2e8f0}.mcp-data-table th{color:#64748b}
+        .mcp-check{color:#15803d;font-weight:700}
+        .mcp-loop{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center;margin:18px 0;padding:18px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;text-align:center}
+        .mcp-loop div{padding:12px 8px;border-radius:9px;background:#fff;border:1px solid #dbe2ea;font-size:.82rem;font-weight:700;color:#334155}
+        .mcp-loop span{color:#6366f1;font-size:1.2rem;font-weight:800}
+        .mcp-example-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+        .mcp-example{padding:15px;border:1px solid #e2e8f0;border-radius:11px;background:#fff}
+        .mcp-example .mcp-glyph{font-size:1.5rem;margin-right:8px}
+        .mcp-example b{color:#1e293b}.mcp-example p{font-size:.88rem;margin:7px 0 0}
+        @media(max-width:760px){.mcp-architecture{grid-template-columns:1fr;gap:8px}.mcp-stage:not(:last-child):after{content:"↓";right:calc(50% - 6px);top:auto;bottom:-16px}.mcp-views{grid-template-columns:1fr}.mcp-dashboard-content{grid-template-columns:1fr}.mcp-loop{grid-template-columns:1fr}.mcp-loop span{transform:rotate(90deg)}.mcp-example-grid{grid-template-columns:1fr}}
+        @media(prefers-reduced-motion:reduce){.mcp-chart span{animation:none!important}}
+        </style>
 </head>
 <body>
 
@@ -1168,7 +1247,7 @@
             </ul>
 
             <div class="prompt-box" style="border-left-color: var(--color-research);">
-                <span class="prompt-label"><i class="fas fa-book-open"></i> Esempio di richiesta Research</span>
+                <span class="prompt-label"><span class="app-glyph">📚</span> Esempio di richiesta Research</span>
                 «Conduci una ricerca approfondita sulle applicazioni dell'intelligenza artificiale nella formazione universitaria, confrontando almeno dieci fonti autorevoli e indicando opportunità, limiti e sviluppi futuri».
             </div>
 
@@ -1238,13 +1317,13 @@
             <p>I <strong>Connectors</strong> consentono a Claude di interagire direttamente con servizi esterni, basandosi in molti casi sullo standard aperto <strong>MCP (Model Context Protocol)</strong>. Esistono anche connettori interattivi che mostrano vere interfacce operative dentro Claude.</p>
 
             <div class="platform-pill-bar">
-                <span class="platform-pill"><i class="fab fa-google-drive"></i> Google Drive</span>
+                <span class="platform-pill"><span class="app-glyph">📁</span> Google Drive</span>
                 <span class="platform-pill"><i class="fas fa-calendar"></i> Google Calendar</span>
-                <span class="platform-pill"><i class="fas fa-envelope"></i> Gmail</span>
-                <span class="platform-pill"><i class="fab fa-slack"></i> Slack</span>
-                <span class="platform-pill"><i class="fas fa-list-check"></i> Asana</span>
-                <span class="platform-pill"><i class="fas fa-palette"></i> Canva</span>
-                <span class="platform-pill"><i class="fab fa-figma"></i> Figma</span>
+                <span class="platform-pill"><span class="app-glyph">✉️</span> Gmail</span>
+                <span class="platform-pill"><span class="app-glyph">💬</span> Slack</span>
+                <span class="platform-pill"><span class="app-glyph">☑️</span> Asana</span>
+                <span class="platform-pill"><span class="app-glyph">🎨</span> Canva</span>
+                <span class="platform-pill"><span class="app-glyph">🖌️</span> Figma</span>
             </div>
 
 
@@ -1269,6 +1348,77 @@
             </div>
             <p class="app-flow-caption"><i class="fas fa-circle-info"></i> Il flusso è illustrativo: alcune operazioni richiedono una tua conferma prima di modificare o inviare dati.</p>
 
+            <div class="mcp-hero">
+                <h3>Dentro una MCP App: da una risposta testuale a uno strumento interattivo</h3>
+                <p>Una MCP App è un'interfaccia che un server MCP può fornire a Claude. Può mostrare grafici, mappe, moduli, tabelle e strumenti di lavoro che puoi usare direttamente, mentre continui a parlare con Claude.</p>
+            </div>
+            <h3 class="app-subtitle">1. Come è costruita una MCP App</h3>
+            <p>Il connettore non restituisce soltanto testo. Il server espone uno o più strumenti (tools) e dichiara quale risorsa grafica deve essere mostrata. Claude carica questa interfaccia nell'ambiente ospitante, isolato dal resto della pagina. L'app e Claude possono poi scambiarsi messaggi strutturati.</p>
+            <div class="mcp-architecture" aria-label="Architettura MCP App: utente, Claude, server MCP, risorsa UI, interfaccia isolata">
+                <div class="mcp-stage"><span class="mcp-glyph">👤</span><b>Utente</b><small>Chiede, osserva e interagisce</small></div>
+                <div class="mcp-stage host"><span class="mcp-glyph">✨</span><b>Claude / Host</b><small>Coordina richiesta e visualizzazione</small></div>
+                <div class="mcp-stage server"><span class="mcp-glyph">🔌</span><b>Server MCP</b><small>Espone strumenti e dati</small></div>
+                <div class="mcp-stage"><span class="mcp-glyph">🧩</span><b>Risorsa UI</b><small>HTML, CSS e JavaScript dell'app</small></div>
+                <div class="mcp-stage ui"><span class="mcp-glyph">🖥️</span><b>Interfaccia</b><small>Widget visualizzato in modo isolato</small></div>
+            </div>
+            <div class="mcp-note"><strong>Idea chiave:</strong> MCP collega il modello a strumenti e dati; MCP Apps aggiunge una superficie grafica interattiva. La UI non è una semplice immagine: è un'interfaccia che può ricevere clic, selezioni e input.</div>
+
+            <h3 class="app-subtitle">2. Dove compare l'interfaccia in Claude</h3>
+            <div class="mcp-views">
+                <div class="mcp-view"><div class="mcp-view-head">💬 Scheda nella chat</div><div class="mcp-view-body"><div class="mcp-mini-chat">Claude: ecco il riepilogo delle vendite.</div><div class="mcp-mini-widget"><b>Vendite · questa settimana</b><div class="mcp-mini-bar"><span style="width:72%"></span></div><span class="mcp-mini-button">Apri dettagli</span></div><p style="font-size:.75rem;margin:8px 0 0">Vista compatta per riepiloghi e azioni rapide.</p></div></div>
+                <div class="mcp-view"><div class="mcp-view-head">🗂️ Pannello laterale</div><div class="mcp-view-body"><div class="mcp-mini-chat">Chat sempre visibile a sinistra…</div><div class="mcp-mini-widget"><b>Dashboard aperta</b><div class="mcp-mini-bar"><span style="width:88%"></span></div><div class="mcp-mini-bar"><span style="width:54%"></span></div><span class="mcp-mini-button">Modifica filtro</span></div><p style="font-size:.75rem;margin:8px 0 0">Lavori nell'app e continui a conversare.</p></div></div>
+                <div class="mcp-view"><div class="mcp-view-head">🖥️ Schermo intero</div><div class="mcp-view-body"><div class="mcp-mini-widget"><b>Area di lavoro estesa</b><div class="mcp-mini-bar"><span style="width:92%"></span></div><div class="mcp-mini-bar"><span style="width:67%"></span></div><div class="mcp-mini-bar"><span style="width:79%"></span></div><span class="mcp-mini-button">Salva modifiche</span></div><p style="font-size:.75rem;margin:8px 0 0">Per editor, analisi e viste complesse.</p></div></div>
+            </div>
+            <p>Le tre viste dipendono dal supporto dell'app e dalla versione dell'esperienza Claude attiva nell'account. Alcune integrazioni mostrano solo una scheda compatta; altre consentono di aprire il sito o lo strumento completo accanto alla chat o a schermo intero.</p>
+
+            <h3 class="app-subtitle">3. Esempio visivo: una dashboard che puoi esplorare</h3>
+            <p>Immagina di chiedere: «Mostrami l'andamento delle vendite e filtra i risultati per area». Un'app interattiva può restituire numeri, grafici e tabelle; puoi selezionare un filtro o una riga senza dover riscrivere ogni volta la richiesta.</p>
+            <div class="mcp-dashboard">
+                <div class="mcp-dashboard-top"><span>📊 Dashboard vendite · Demo illustrativa</span><span style="font-size:.75rem;color:#64748b">Periodo: 30 giorni</span></div>
+                <div class="mcp-dashboard-content">
+                    <div><div class="mcp-kpi"><div><small>Ricavi</small><b>€ 84.200</b></div><div><small>Ordini</small><b>1.248</b></div><div><small>Variazione</small><b style="color:#15803d">+12%</b></div></div><p style="font-size:.8rem;font-weight:700;margin:14px 0 0">Ricavi per settimana</p><div class="mcp-chart"><span style="height:42%"></span><span style="height:58%"></span><span style="height:51%"></span><span style="height:72%"></span><span style="height:65%"></span><span style="height:91%"></span><span style="height:82%"></span></div></div>
+                    <div><b style="font-size:.85rem">Dettaglio per area</b><table class="mcp-data-table"><thead><tr><th>Area</th><th>Ricavi</th><th>Stato</th></tr></thead><tbody><tr><td>Nord</td><td>€ 35.4k</td><td class="mcp-check">↑</td></tr><tr><td>Centro</td><td>€ 28.1k</td><td class="mcp-check">↑</td></tr><tr><td>Sud</td><td>€ 20.7k</td><td>→</td></tr></tbody></table><div class="mcp-mini-button">＋ Aggiungi filtro</div></div>
+                </div>
+            </div>
+            <div class="mcp-loop"><div>🖱️ Tu selezioni un filtro</div><span>⇄</span><div>🧩 L'app aggiorna la vista</div><span>⇄</span><div>✨ Claude interpreta il risultato</div></div>
+
+            <h3 class="app-subtitle">4. Il ciclo di collaborazione: l'app parla con Claude</h3>
+            <p>La comunicazione è bidirezionale. Claude può invocare uno strumento del server; l'app può inviare un messaggio al modello quando l'utente compie un'azione significativa. Il contenuto visibile può quindi aggiornarsi senza trasformare ogni clic in una nuova lunga domanda scritta.</p>
+            <div class="mcp-architecture" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+                <div class="mcp-stage host"><span class="mcp-glyph">✨</span><b>Claude → App</b><small>«Mostra i dati del trimestre»</small></div>
+                <div class="mcp-stage server"><span class="mcp-glyph">🔄</span><b>Scambio di messaggi</b><small>Richieste e risposte strutturate</small></div>
+                <div class="mcp-stage ui"><span class="mcp-glyph">🖱️</span><b>App → Claude</b><small>«Ho selezionato l'area Nord»</small></div>
+            </div>
+            <div class="mcp-note"><strong>Non significa accesso illimitato.</strong> L'app può eseguire soltanto le azioni esposte dal suo sviluppatore e consentite dal connettore. Le azioni che modificano dati esterni possono richiedere approvazione, secondo i permessi e le regole del servizio.</div>
+
+            <h3 class="app-subtitle">5. Quali lavori diventano più semplici?</h3>
+            <div class="mcp-example-grid">
+                <div class="mcp-example"><span class="mcp-glyph">📈</span><b>Analisi dati</b><p>Filtra dashboard, esplora grafici, approfondisci un valore e confronta segmenti.</p></div>
+                <div class="mcp-example"><span class="mcp-glyph">🗓️</span><b>Gestione progetti</b><p>Modifica task, aggiorna timeline, assegna attività e osserva l'avanzamento.</p></div>
+                <div class="mcp-example"><span class="mcp-glyph">🎨</span><b>Design e diagrammi</b><p>Rivedi tavole, diagrammi e progetti visuali, aggiungendo annotazioni e modifiche.</p></div>
+                <div class="mcp-example"><span class="mcp-glyph">📄</span><b>Documenti</b><p>Leggi anteprime, modifica pagine e confronta versioni mentre dialoghi con Claude.</p></div>
+                <div class="mcp-example"><span class="mcp-glyph">💬</span><b>Comunicazione</b><p>Prepara messaggi, controlla formattazione e rivedi il testo prima dell'invio.</p></div>
+                <div class="mcp-example"><span class="mcp-glyph">🧭</span><b>Procedure guidate</b><p>Compila moduli, scegli opzioni e completa flussi articolati passo dopo passo.</p></div>
+            </div>
+            <h3 class="app-subtitle">6. Quali connettori sono contrassegnati come interattivi?</h3>
+            <p>La Directory dei connettori mostra un'etichetta <strong>Interactive</strong> per quelli che offrono questa esperienza. Tra gli esempi documentati da Anthropic figurano Amplitude, Asana, Box, Canva, Clay, Figma, Hex e Slack. Il catalogo cambia nel tempo: verifica sempre l'etichetta e le funzioni nella scheda del connettore. Altri servizi possono collegarsi a Claude senza fornire una UI interattiva.</p>
+            <h3 class="app-subtitle">7. Come provarne una</h3>
+            <ol class="bullet-list app-steps">
+                <li>Apri la <a href="https://claude.ai/directory" target="_blank" rel="noopener">Directory dei connettori di Claude</a>.</li>
+                <li>Cerca un servizio che riporti il contrassegno <strong>Interactive</strong> e leggi quali funzioni supporta.</li>
+                <li>Collega il tuo account e autorizza i permessi richiesti.</li>
+                <li>Apri il connettore dalla chat o dalla navigazione, se la funzione è disponibile nel tuo account.</li>
+                <li>Prova a interagire direttamente con la scheda, il pannello o l'app; poi chiedi a Claude di modificare o spiegare ciò che stai osservando.</li>
+            </ol>
+            <div class="highlight-box"><strong>Fonti ufficiali per MCP Apps:</strong>
+                <ul class="bullet-list">
+                    <li><a href="https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude" target="_blank" rel="noopener">Guida: usare i connettori interattivi in Claude</a></li>
+                    <li><a href="https://claude.com/resources/articles/interactive-connectors-full-tool" target="_blank" rel="noopener">Aprire le app e lavorarci insieme a Claude</a></li>
+                    <li><a href="https://claude.com/docs/connectors/building" target="_blank" rel="noopener">Documentazione per sviluppatori MCP Apps</a></li>
+                </ul>
+            </div>
+
+
             <h3 class="app-subtitle"><i class="fas fa-icons"></i> Esempi di applicazioni e attività</h3>
             <div class="app-integration-grid">
                 <article class="app-integration-card"><div class="app-brand-icon google"><i class="fab fa-google-drive"></i></div><div><b>Google Drive</b><small>Cerca file, legge documenti e recupera il contesto dei tuoi progetti.</small><span class="app-action-label">Ricerca · Lettura · File</span></div></article>
@@ -1278,11 +1428,11 @@
                 <article class="app-integration-card"><div class="app-brand-icon canva"><i class="fas fa-palette"></i></div><div><b>Canva</b><small>Genera e modifica progetti grafici e presentazioni con anteprima interattiva.</small><span class="app-action-label">Grafica · Presentazioni</span></div></article>
                 <article class="app-integration-card"><div class="app-brand-icon figma"><i class="fab fa-figma"></i></div><div><b>Figma / FigJam</b><small>Trasforma idee in diagrammi, flussi e schemi visuali collaborativi.</small><span class="app-action-label">Diagrammi · Design</span></div></article>
                 <article class="app-integration-card"><div class="app-brand-icon asana"><i class="fas fa-list-check"></i></div><div><b>Asana e monday.com</b><small>Organizza attività, progetti, scadenze e timeline operative.</small><span class="app-action-label">Attività · Progetti</span></div></article>
-                <article class="app-integration-card"><div class="app-brand-icon microsoft"><i class="fab fa-microsoft"></i></div><div><b>Microsoft 365</b><small>Collega contenuti di Outlook, Teams, SharePoint e OneDrive.</small><span class="app-action-label">Documenti · Collaborazione</span></div></article>
-                <article class="app-integration-card"><div class="app-brand-icon jira"><i class="fab fa-jira"></i></div><div><b>Atlassian (Jira e Confluence)</b><small>Consulta ticket e pagine, aggiorna attività e documentazione.</small><span class="app-action-label">Ticket · Knowledge base</span></div></article>
-                <article class="app-integration-card"><div class="app-brand-icon box"><i class="fas fa-box-open"></i></div><div><b>Box e Dropbox</b><small>Trova, visualizza e rielabora i file conservati negli archivi cloud.</small><span class="app-action-label">Archivi · Documenti</span></div></article>
-                <article class="app-integration-card"><div class="app-brand-icon hubspot"><i class="fas fa-chart-line"></i></div><div><b>HubSpot e CRM</b><small>Riassume contatti e opportunità e supporta le attività commerciali.</small><span class="app-action-label">Clienti · Pipeline</span></div></article>
-                <article class="app-integration-card"><div class="app-brand-icon linear"><i class="fas fa-bars-progress"></i></div><div><b>Linear e strumenti sviluppo</b><small>Consulta issue, aggiorna attività e collega il lavoro tecnico ai progetti.</small><span class="app-action-label">Bug · Sviluppo</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon microsoft"><span class="app-glyph">🪟</span></div><div><b>Microsoft 365</b><small>Collega contenuti di Outlook, Teams, SharePoint e OneDrive.</small><span class="app-action-label">Documenti · Collaborazione</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon jira"><span class="app-glyph">🎫</span></div><div><b>Atlassian (Jira e Confluence)</b><small>Consulta ticket e pagine, aggiorna attività e documentazione.</small><span class="app-action-label">Ticket · Knowledge base</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon box"><span class="app-glyph">📦</span></div><div><b>Box e Dropbox</b><small>Trova, visualizza e rielabora i file conservati negli archivi cloud.</small><span class="app-action-label">Archivi · Documenti</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon hubspot"><span class="app-glyph">📈</span></div><div><b>HubSpot e CRM</b><small>Riassume contatti e opportunità e supporta le attività commerciali.</small><span class="app-action-label">Clienti · Pipeline</span></div></article>
+                <article class="app-integration-card"><div class="app-brand-icon linear"><span class="app-glyph">🛠️</span></div><div><b>Linear e strumenti sviluppo</b><small>Consulta issue, aggiorna attività e collega il lavoro tecnico ai progetti.</small><span class="app-action-label">Bug · Sviluppo</span></div></article>
             </div>
             <p class="app-flow-caption">Gli esempi descrivono possibilità offerte da connettori specifici: le funzioni effettive cambiano da un'app all'altra, in base alla configurazione, ai permessi e al piano. Non tutte le integrazioni sono app interattive.</p>
 
@@ -1320,42 +1470,7 @@
                 </ul>
             </div>
 
-            <style>
-                .app-types{align-items:stretch;gap:16px;background:linear-gradient(135deg,#f8fafc,#eef2ff)}
-                .app-type-card{min-width:190px;text-align:left;padding:18px}
-                .app-type-icon{display:block;font-size:1.7rem;margin-bottom:12px}
-                .app-subtitle{display:flex;align-items:center;gap:10px;margin-top:30px}
-                .app-subtitle i{color:#4338ca}
-                .app-flow{display:flex;align-items:center;justify-content:center;gap:10px;padding:22px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden}
-                .app-flow-node{display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;background:#fff;border:1px solid #cbd5e1;border-radius:12px;padding:15px 10px;min-width:115px;box-shadow:0 3px 10px #0f172a0d}
-                .app-flow-node>i{font-size:1.55rem;color:#475569}
-                .app-flow-node small{font-size:.76rem;color:#64748b;line-height:1.35}
-                .claude-node>i{color:#d97757}.connector-node>i{color:#4338ca}.app-node>i{color:#0f766e}
-                .app-flow-arrow{color:#94a3b8;animation:appArrowPulse 1.5s ease-in-out infinite}
-                @keyframes appArrowPulse{0%,100%{opacity:.35;transform:translateX(-3px)}50%{opacity:1;transform:translateX(3px)}}
-                .app-flow-caption{font-size:.88rem;color:#64748b;margin:8px 0 20px}
-                .app-integration-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
-                .app-integration-card{display:flex;align-items:flex-start;gap:13px;padding:15px;border:1px solid #e2e8f0;border-radius:12px;background:#fff;transition:transform .2s,box-shadow .2s}
-                .app-integration-card:hover{transform:translateY(-3px);box-shadow:0 8px 18px #0f172a12}
-                .app-brand-icon{width:42px;height:42px;flex:0 0 42px;border-radius:11px;display:grid;place-items:center;background:#f1f5f9;font-size:1.3rem;color:#334155}
-                .app-brand-icon.google{color:#4285f4}.app-brand-icon.gmail{color:#d93025}.app-brand-icon.slack{color:#611f69}.app-brand-icon.notion{color:#111827}.app-brand-icon.canva{color:#0e7490}.app-brand-icon.figma{color:#a259ff}.app-brand-icon.asana{color:#f06a6a}.app-brand-icon.microsoft{color:#2563eb}.app-brand-icon.jira{color:#2563eb}.app-brand-icon.box{color:#2563eb}.app-brand-icon.hubspot{color:#f97316}.app-brand-icon.linear{color:#5e6ad2}
-                .app-integration-card b,.app-integration-card small{display:block}.app-integration-card small{font-size:.86rem;line-height:1.45;color:#64748b;margin-top:4px}
-                .app-action-label{display:inline-block;margin-top:8px;font-size:.7rem;font-weight:700;color:#4338ca;background:#eef2ff;padding:3px 7px;border-radius:5px}
-                .app-workspace-demo{display:grid;grid-template-columns:1fr 1.15fr;gap:12px;margin:18px 0;padding:14px;background:#eef2f7;border-radius:14px}
-                .demo-chat,.demo-live-app{background:#fff;border:1px solid #dbe2ea;border-radius:10px;padding:13px;min-width:0}
-                .demo-window-title{font-size:.82rem;font-weight:700;color:#334155;padding-bottom:10px;border-bottom:1px solid #e2e8f0}
-                .demo-bubble{margin:13px 0 8px auto;padding:10px;background:#eef2ff;border-radius:10px;font-size:.83rem;max-width:95%;color:#334155}
-                .demo-assistant{font-size:.82rem;line-height:1.5;color:#475569;padding:8px}
-                .demo-assistant i{color:#d97757}
-                .demo-task{display:flex;justify-content:space-between;padding:9px 7px;border-bottom:1px solid #f1f5f9;font-size:.8rem;color:#475569}
-                .demo-task i{color:#16a34a}.demo-task.active-task{background:#fff7ed;color:#9a3412;font-weight:700;border-radius:6px}.demo-task.active-task i{color:#c2410c}
-                .demo-progress{height:6px;background:#e2e8f0;border-radius:8px;margin:12px 0;overflow:hidden}.demo-progress span{display:block;height:100%;width:72%;background:linear-gradient(90deg,#d97757,#f59e0b);border-radius:8px;animation:demoProgress 3s ease-in-out infinite alternate}
-                @keyframes demoProgress{from{width:45%}to{width:82%}}
-                .demo-live-app>small{font-size:.7rem;color:#94a3b8}
-                .app-steps li{margin-bottom:9px}
-                @media(max-width:700px){.app-flow{flex-wrap:wrap}.app-flow-arrow{transform:rotate(90deg)}.app-integration-grid{grid-template-columns:1fr}.app-workspace-demo{grid-template-columns:1fr}.app-flow-node{min-width:100px;flex:1}.app-type-card{min-width:100%}}
-                @media(prefers-reduced-motion:reduce){.app-flow-arrow,.demo-progress span{animation:none!important}.app-integration-card{transition:none}}
-            </style>
+
 
             <h2>Come funziona un Connector (Flusso operativo)</h2>
             <svg class="infographic-img" viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
